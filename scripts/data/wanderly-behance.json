@@ -1,0 +1,25 @@
+{
+  "id": 243279399,
+  "name": "Wanderly – AI Travel Planner App UX/UI",
+  "description": "Wanderly is an AI-powered travel planning mobile app designed to simplify the entire trip-planning journey—from inspiration to booking and beyond.\n\nThe product leverages conversational AI to understand user intent and instantly generate personalized travel packages, allowing users to compare options, customize itineraries, and book flights, hotels, activities, and transport in one seamless experience.\n\nThis case study explores the end-to-end UX/UI design process, focusing on reducing cognitive load, improving decision-making, and creating a premium yet intuitive interface for modern travelers.\n\nKey highlights:\n\nAI-driven trip planning through natural conversation\n\nPersonalized travel packages (Budget, Mid-range, Luxury)\n\nUnified booking flow for flights, hotels, and activities\n\nMembership and rewards system to drive retention\n\nScalable design system and modular architecture",
+  "tags": ["artificial intelligence", "AI Design", "AI UX", "Smart Apps", "conversational ui", "Chatbot", "booking app", "trip", "Travel", "app design"],
+  "tools": ["Figma", "Adobe Illustrator", "Adobe Photoshop"],
+  "cover": "https://mir-s3-cdn-cf.behance.net/projects/original/6ea30c243279399.Y3JvcCw4MDgsNjMyLDAsMA.png",
+  "modules": [
+    {"i":0,"id":1403587379,"type":"ImageModule","src":"https://mir-s3-cdn-cf.behance.net/project_modules/source/9f41ff243279399.697e4139310ff.png"},
+    {"i":1,"id":1403595727,"type":"ImageModule","src":"https://mir-s3-cdn-cf.behance.net/project_modules/source/f5abf9243279399.697e46271cedc.jpg"},
+    {"i":2,"id":1403595725,"type":"TextModule","html":"<div class=\"title\"><span style=\"color:#ffffff;\" class=\"texteditor-inline-color\">The Challenge</span></div>"},
+    {"i":3,"id":1403587375,"type":"MediaCollectionModule","images":["https://mir-s3-cdn-cf.behance.net/project_modules/source/c57951243279399.697e4138b8ad3.png"]},
+    {"i":4,"id":1403595737,"type":"ImageModule","src":"https://mir-s3-cdn-cf.behance.net/project_modules/source/497040243279399.697e46271e7ad.png"},
+    {"i":5,"id":1403595739,"type":"ImageModule","src":"https://mir-s3-cdn-cf.behance.net/project_modules/source/6cd0b5243279399.697e46271ee82.jpg"},
+    {"i":6,"id":1403595731,"type":"ImageModule","src":"https://mir-s3-cdn-cf.behance.net/project_modules/source/ffe490243279399.697e46271dc18.png"},
+    {"i":7,"id":1403595729,"type":"ImageModule","src":"https://mir-s3-cdn-cf.behance.net/project_modules/source/175e25243279399.697e46271d534.png"},
+    {"i":8,"id":1403595733,"type":"ImageModule","src":"https://mir-s3-cdn-cf.behance.net/project_modules/source/9f27ef243279399.697e46271e201.jpg"},
+    {"i":9,"id":1403603711,"type":"VideoModule","videoSrc":"https://www-ccv.adobe.io/v1/player/ccv/N4XQ7XALgao/embed?api_key=behance1&bgcolor=%23191919"},
+    {"i":10,"id":1403603713,"type":"ImageModule","src":"https://mir-s3-cdn-cf.behance.net/project_modules/source/21a807243279399.697e4cad2cb46.jpg"},
+    {"i":11,"id":1403603715,"type":"ImageModule","src":"https://mir-s3-cdn-cf.behance.net/project_modules/source/5855c7243279399.697e4cad2d285.jpg"},
+    {"i":12,"id":1403608887,"type":"ImageModule","src":"https://mir-s3-cdn-cf.behance.net/project_modules/source/c53a1e243279399.697e51a3b8b43.jpg"},
+    {"i":14,"id":1403609981,"type":"ImageModule","src":"https://mir-s3-cdn-cf.behance.net/project_modules/source/d277a3243279399.697e52e57c777.jpg"},
+    {"i":15,"id":1403609983,"type":"ImageModule","src":"https://mir-s3-cdn-cf.behance.net/project_modules/source/935dd5243279399.697e52e57ce6d.jpg"}
+  ]
+}
