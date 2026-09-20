@@ -30,7 +30,8 @@ function ProjectCardThumbnail({
   const [imgError, setImgError] = useState(false)
   const [videoFailed, setVideoFailed] = useState(false)
   const [videoReady, setVideoReady] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const [videoEligible, setVideoEligible] = useState(false)
+  const imgRef = useRef<HTMLImageElement>(null)
   const prefersReducedMotion = usePrefersReducedMotion()
 
   const posterSrc = useFallback ? project.image : thumbnailSrc
@@ -40,23 +41,22 @@ function ProjectCardThumbnail({
   useEffect(() => {
     setVideoFailed(false)
     setVideoReady(false)
+    setVideoEligible(false)
   }, [project.video])
 
   useEffect(() => {
-    const el = videoRef.current
-    if (!el || !videoSrc) return
+    if (!videoSrc) return
+    const el = imgRef.current
+    if (!el) return
 
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          void el.play().catch(() => {
-            /* Autoplay blocked — poster remains visible */
-          })
-        } else {
-          el.pause()
+          setVideoEligible(true)
+          io.disconnect()
         }
       },
-      { rootMargin: '80px', threshold: 0.15 },
+      { rootMargin: '200px 0px', threshold: 0 },
     )
 
     io.observe(el)
@@ -86,6 +86,7 @@ function ProjectCardThumbnail({
       {loading && <div className="project-thumbnail-skeleton absolute inset-0 z-[1]" aria-hidden />}
       {/* Poster / static fallback — always present so there is no black flash */}
       <img
+        ref={imgRef}
         src={posterSrc}
         alt=""
         role="presentation"
@@ -94,9 +95,8 @@ function ProjectCardThumbnail({
         className={`project-image ${loading ? 'opacity-0' : 'opacity-100'} ${videoSrc && videoReady ? 'project-image--under-video' : ''}`}
         onError={handleImageError}
       />
-      {videoSrc && (
+      {videoEligible && videoSrc && (
         <video
-          ref={videoRef}
           className={`project-image project-image--video ${loading || !videoReady ? 'opacity-0' : 'opacity-100'}`}
           src={videoSrc}
           poster={project.image}
