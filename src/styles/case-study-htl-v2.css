@@ -1,0 +1,554 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   HTL V2 — Cinematic Layout · Editorial Typography · Master Alignment
+   Scope: [data-cs="happytenant-landlord"]
+
+   MASTER SPINE: all editorial content aligns to the hero title's left edge.
+   The hero uses padding-inline: var(--cs-pad-x), defined in case-study.css:
+     mobile:  1.5rem  tablet: 3rem  1024px+: 4rem  1280px+: 5rem
+   Text blocks use var(--cs-pad-x) directly so they share the exact same
+   left edge as the hero heading, without centering.
+
+   EXCEPTIONS (intentionally centred / narrow):
+     - Reflection callout  — intimate closing copy, max-width --htl-narrow
+     - CTA pair            — short navigation close
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-cs="happytenant-landlord"] {
+  /* ── WIDTH TIERS ──────────────────────────────────────────────────────── */
+  /*  NARROW     52rem  — reflection, CTA                                   */
+  /*  EDITORIAL  65rem  — headings, body text, features                     */
+  /*  REASONING  72rem  — decision blocks, metadata cards                   */
+  --htl-narrow:    52rem;
+  --htl-editorial: 65rem;
+  --htl-reasoning: 72rem;
+
+  /* ── GUTTER — used ONLY for image blocks ─────────────────────────────── */
+  /* Text blocks use var(--cs-pad-x) from base CSS to share the hero spine  */
+  --htl-gutter: clamp(1.25rem, 4vw, 5rem);
+
+  --htl-showcase-max: 1380px;
+  --htl-cin-max: 1600px;
+
+  /* ── Rhythm ───────────────────────────────────────────────────────────── */
+  --htl-chapter-gap: clamp(5rem, 10vw, 8.5rem);
+  --htl-section-gap: clamp(2.5rem, 5vw, 4rem);
+  --htl-img-gap: clamp(1.5rem, 3vw, 2.75rem);
+
+  /* ── Dark chapter ─────────────────────────────────────────────────────── */
+  --htl-dark-bg: #0d0d0f;
+  --htl-dark-text: rgba(255, 255, 255, 0.82);
+  --htl-dark-caption: rgba(255, 255, 255, 0.45);
+  --htl-dark-label: var(--primary-orange);
+  --htl-dark-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Full-width layout: collapse sidebar ─────────────────────────────────── */
+
+[data-cs="happytenant-landlord"] .case-study-body {
+  display: block;
+  /* max-width: var(--cs-shell) and margin: 0 auto from base CSS — let them apply */
+  /* so body centres at wide viewports exactly as hero__content does            */
+  padding-inline: 0;
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(5rem, 10vw, 9rem);
+}
+
+[data-cs="happytenant-landlord"] .case-study-sidebar-slot {
+  display: none;
+}
+
+[data-cs="happytenant-landlord"] .case-study-stream {
+  width: 100%;
+  min-width: 0;
+}
+
+/* ── Content main ─────────────────────────────────────────────────────────── */
+
+[data-cs="happytenant-landlord"] .case-study-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TYPOGRAPHY — EDITORIAL HIERARCHY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Chapter label / eyebrow ─────────────────────────────────────────────── */
+
+[data-cs="happytenant-landlord"] .case-study-section__label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  margin-bottom: 1rem;
+}
+
+/* ── BASE chapter heading — left-aligned to hero spine ───────────────────── */
+/* max-width: editorial (65rem). Content starts at --cs-pad-x, same as the   */
+/* hero heading. Extends to the right. No centering.                          */
+
+[data-cs="happytenant-landlord"] .cs-block-heading {
+  max-width: var(--htl-editorial);
+  width: 100%;
+  padding-inline: var(--cs-pad-x);   /* ← matches hero content left edge */
+  margin-inline: 0;                  /* ← left-aligned, no centering */
+  margin-top: var(--htl-chapter-gap);
+  padding-top: var(--htl-section-gap);
+  border-top: 1px solid var(--soft-border);
+  box-sizing: border-box;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-heading:first-of-type,
+[data-cs="happytenant-landlord"] .case-study-main > .cs-block-heading:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* Sentence case */
+[data-cs="happytenant-landlord"] .case-study-section__title {
+  text-transform: none;
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.032em;
+  max-width: 22ch;
+  margin-bottom: 1.25rem;
+}
+
+/* Chapter counter */
+[data-cs="happytenant-landlord"] .case-study-main {
+  counter-reset: htl-chapter;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-heading {
+  counter-increment: htl-chapter;
+}
+
+[data-cs="happytenant-landlord"] .case-study-section__label::before {
+  content: counter(htl-chapter, decimal-leading-zero) " / ";
+  opacity: 0.6;
+  letter-spacing: 0.08em;
+  margin-right: 0.15em;
+}
+
+/* ── CINEMATIC STATEMENT — 2 uses max (Home, States) ─────────────────────── */
+/* Full width intentionally — dark full-bleed effect needs the whole stream   */
+
+[data-cs="happytenant-landlord"] .cs-block-heading.htl-statement {
+  max-width: 100%;
+  margin-inline: 0;
+  padding-inline: var(--cs-pad-x);
+}
+
+[data-cs="happytenant-landlord"] .cs-block-heading.htl-statement .case-study-section__title {
+  font-size: clamp(3.25rem, 6.5vw, 6.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  max-width: 14ch;
+  margin-bottom: 0;
+}
+
+/* ── FUNCTIONAL heading — smaller, Inter, left-aligned ───────────────────── */
+
+[data-cs="happytenant-landlord"] .cs-block-heading.htl-functional {
+  max-width: var(--htl-editorial);
+  padding-inline: var(--cs-pad-x);
+  margin-inline: 0;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-heading.htl-functional .case-study-section__title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 2.5vw, 2.125rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  max-width: 30ch;
+}
+
+/* ── Body text — editorial width, left-aligned to hero spine ─────────────── */
+
+[data-cs="happytenant-landlord"] .cs-block-text {
+  max-width: var(--htl-editorial);
+  width: 100%;
+  padding-inline: var(--cs-pad-x);
+  margin-inline: 0;
+  box-sizing: border-box;
+  font-size: clamp(1.0625rem, 1.1vw, 1.125rem);
+  line-height: 1.68;
+}
+
+/* ── Callout — narrow, CENTRED (exception: reflection copy) ──────────────── */
+
+[data-cs="happytenant-landlord"] .cs-block-callout {
+  background: transparent;
+  border-left: 2px solid var(--soft-border);
+  max-width: var(--htl-narrow);
+  width: 100%;
+  padding-inline: var(--cs-pad-x);
+  margin-inline: auto;               /* ← deliberately centred */
+  box-sizing: border-box;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-callout .cs-block-callout__body {
+  font-size: clamp(1.0625rem, 1.1vw, 1.125rem);
+  line-height: 1.68;
+  opacity: 0.75;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   IMAGE BLOCKS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-cs="happytenant-landlord"] .cs-block-image {
+  width: 100%;
+  max-width: 100%;
+  padding-inline: var(--htl-gutter);
+  margin-inline: 0;
+  margin-top: var(--htl-img-gap);
+  margin-bottom: var(--htl-img-gap);
+  box-sizing: border-box;
+}
+
+/* Override legacy measure classes */
+[data-cs="happytenant-landlord"] .cs-block-image.cs-measure-showcase,
+[data-cs="happytenant-landlord"] .cs-block-image.cs-measure-evidence,
+[data-cs="happytenant-landlord"] .cs-block-image.cs-measure-phone,
+[data-cs="happytenant-landlord"] .cs-block-image.cs-measure-phone--inset {
+  max-width: 100%;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-image.cs-measure-phone {
+  max-width: min(100%, var(--cs-phone));
+  padding-inline: var(--cs-pad-x);  /* left edge at spine */
+  margin-inline: 0;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-image.cs-measure-phone.cs-measure-phone--inset {
+  max-width: min(calc(100% - var(--cs-pad-x)), var(--cs-phone-inset));
+  padding-inline: var(--cs-pad-x) 0;  /* left edge at spine, no right gutter */
+  margin-inline: 0;
+}
+
+/* ── SHOWCASE modifier ────────────────────────────────────────────────────── */
+
+[data-cs="happytenant-landlord"] .cs-block-image.htl-showcase {
+  padding-inline: clamp(0.5rem, 1.5vw, 2rem);
+}
+
+[data-cs="happytenant-landlord"] .cs-block-image.htl-showcase img {
+  border-radius: 1.125rem;
+}
+
+/* ── CINEMATIC modifier ───────────────────────────────────────────────────── */
+
+[data-cs="happytenant-landlord"] .cs-block-image.htl-cin {
+  padding-inline: clamp(0.25rem, 0.75vw, 1rem);
+}
+
+[data-cs="happytenant-landlord"] .cs-block-image.htl-cin img {
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 64px rgba(0, 0, 0, 0.14);
+}
+
+/* ── Video stage ──────────────────────────────────────────────────────────── */
+
+[data-cs="happytenant-landlord"] .cs-block-video.htl-video-stage {
+  padding-inline: clamp(0.5rem, 1.5vw, 2.5rem);
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-video.htl-video-stage video {
+  border-radius: 1.375rem;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.18), 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Caption alignment for wide images ────────────────────────────────────── */
+
+[data-cs="happytenant-landlord"] .cs-block-image.htl-showcase .cs-caption,
+[data-cs="happytenant-landlord"] .cs-block-image.htl-cin .cs-caption {
+  padding-inline: var(--cs-pad-x);
+  max-width: var(--htl-editorial);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DARK CHAPTER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-cs="happytenant-landlord"] .htl-dark {
+  background: var(--htl-dark-bg);
+  box-shadow: 0 0 0 100vmax var(--htl-dark-bg);
+  clip-path: inset(0 -100vmax);
+}
+
+[data-cs="happytenant-landlord"] .cs-block-heading.htl-dark {
+  margin-top: 0;
+  padding-top: var(--htl-chapter-gap);
+  padding-bottom: 2.25rem;
+  border-top: none !important;
+  color: var(--htl-dark-text);
+  position: relative;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-heading.htl-dark .case-study-section__title {
+  color: #fff;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-heading.htl-dark .case-study-section__label {
+  color: var(--htl-dark-label);
+  opacity: 1;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-heading.htl-dark .case-study-section__label::before {
+  opacity: 0.6;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-heading.htl-dark::before {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 60% 30% at 50% 0%, rgba(250, 108, 11, 0.08) 0%, transparent 70%);
+  z-index: 0;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-heading.htl-dark > * {
+  position: relative;
+  z-index: 1;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-image.htl-dark {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0;
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+[data-cs="happytenant-landlord"] .cs-block-image.htl-dark img {
+  box-shadow: 0 32px 96px rgba(0, 0, 0, 0.45), 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-cs="happytenant-landlord"] .cs-block-image.htl-dark .cs-caption {
+  color: var(--htl-dark-caption);
+}
+
+[data-cs="happytenant-landlord"] .cs-block-image.htl-dark + * {
+  margin-top: var(--htl-chapter-gap) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   REASONING BLOCKS — decision · metrics
+   Left-aligned to hero spine. Extend further right than editorial.
+   Same left edge as chapters above creates visual connection.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-cs="happytenant-landlord"] .cs-block-decision {
+  max-width: calc(var(--htl-reasoning) - var(--cs-pad-x));
+  /* card LEFT edge sits at the spine — offset with margin, not internal padding */
+  margin-inline-start: var(--cs-pad-x);
+  margin-inline-end: var(--cs-pad-x);
+  box-sizing: border-box;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-decision__title {
+  text-wrap: balance;
+}
+
+[data-cs="happytenant-landlord"] .cs-block-metrics {
+  max-width: var(--htl-reasoning);
+  width: 100%;
+  padding-inline: var(--cs-pad-x);
+  margin-inline: 0;
+  box-sizing: border-box;
+}
+
+[data-cs="happytenant-landlord"] .case-study-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+[data-cs="happytenant-landlord"] .case-study-metric dt,
+[data-cs="happytenant-landlord"] .case-study-metric dd {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   EDITORIAL BLOCKS — features · cta
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-cs="happytenant-landlord"] .cs-block-features {
+  max-width: var(--htl-editorial);
+  width: 100%;
+  padding-inline: var(--cs-pad-x);
+  margin-inline: 0;
+  box-sizing: border-box;
+}
+
+/* CTA pair — narrow, CENTRED */
+[data-cs="happytenant-landlord"] .cs-block-cta-pair {
+  max-width: var(--htl-narrow);
+  width: 100%;
+  padding-inline: var(--cs-pad-x);
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-cs="happytenant-landlord"] .case-study-hero {
+  min-height: 85vh;
+}
+
+@media (min-width: 1024px) {
+  [data-cs="happytenant-landlord"] .case-study-hero {
+    min-height: 90vh;
+  }
+
+  [data-cs="happytenant-landlord"] .case-study-hero__content {
+    padding-bottom: 6rem;
+  }
+}
+
+[data-cs="happytenant-landlord"] .case-study-title {
+  font-size: clamp(2.5rem, 6.5vw, 5rem);
+  letter-spacing: -0.03em;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   Note: text blocks use var(--cs-pad-x) which has its own breakpoints in
+   case-study.css (1.5rem / 3rem / 4rem / 5rem). No gutter overrides needed
+   for text. --htl-gutter overrides below are for image blocks only.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Mobile (<768px) ──────────────────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  [data-cs="happytenant-landlord"] {
+    --htl-gutter: 1.25rem;
+    --htl-chapter-gap: clamp(3.5rem, 8vw, 5.5rem);
+    --htl-img-gap: 1.25rem;
+  }
+
+  [data-cs="happytenant-landlord"] .case-study-section__title {
+    font-size: clamp(1.75rem, 6.5vw, 2.5rem);
+    max-width: 100%;
+    letter-spacing: -0.025em;
+  }
+
+  [data-cs="happytenant-landlord"] .cs-block-heading.htl-statement .case-study-section__title {
+    font-size: clamp(2.375rem, 9vw, 3.25rem);
+    max-width: 14ch;
+    line-height: 0.98;
+  }
+
+  [data-cs="happytenant-landlord"] .cs-block-heading.htl-functional .case-study-section__title {
+    font-size: clamp(1.375rem, 5.5vw, 1.75rem);
+  }
+
+  [data-cs="happytenant-landlord"] .case-study-metrics {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
+  }
+
+  [data-cs="happytenant-landlord"] .cs-block-image.htl-showcase,
+  [data-cs="happytenant-landlord"] .cs-block-image.htl-cin {
+    padding-inline: 0;
+  }
+
+  [data-cs="happytenant-landlord"] .cs-block-image.htl-showcase img,
+  [data-cs="happytenant-landlord"] .cs-block-image.htl-cin img {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  [data-cs="happytenant-landlord"] .cs-block-image.htl-showcase .cs-block-image__btn,
+  [data-cs="happytenant-landlord"] .cs-block-image.htl-cin .cs-block-image__btn {
+    border-radius: 0;
+  }
+
+  [data-cs="happytenant-landlord"] .cs-block-image.htl-dark {
+    padding-bottom: clamp(3rem, 7vw, 5rem);
+  }
+
+  [data-cs="happytenant-landlord"] .cs-block-image.htl-dark img {
+    box-shadow: none;
+    border-radius: 0 !important;
+  }
+
+  [data-cs="happytenant-landlord"] .cs-block-video.htl-video-stage video {
+    border-radius: 0.875rem;
+  }
+}
+
+/* ── Tablet (768–1023px) ─────────────────────────────────────────────────── */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  [data-cs="happytenant-landlord"] {
+    --htl-gutter: 2.5rem;
+  }
+
+  [data-cs="happytenant-landlord"] .case-study-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Laptop (1024–1279px) ────────────────────────────────────────────────── */
+
+@media (min-width: 1024px) {
+  [data-cs="happytenant-landlord"] {
+    --htl-gutter: 3.5rem;
+  }
+
+  [data-cs="happytenant-landlord"] .case-study-metrics {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ── Desktop (1280–1535px) ───────────────────────────────────────────────── */
+
+@media (min-width: 1280px) {
+  [data-cs="happytenant-landlord"] {
+    --htl-gutter: 4.5rem;
+  }
+}
+
+/* ── Wide (1536px+) ─────────────────────────────────────────────────────── */
+
+@media (min-width: 1536px) {
+  [data-cs="happytenant-landlord"] {
+    --htl-gutter: 5.5rem;
+  }
+}
+
+/* ── 1728px+ ─────────────────────────────────────────────────────────────── */
+
+@media (min-width: 1728px) {
+  [data-cs="happytenant-landlord"] {
+    --htl-gutter: 6rem;
+  }
+}
+
+/* ── Dark mode ───────────────────────────────────────────────────────────── */
+
+html.dark [data-cs="happytenant-landlord"] .case-study-hero {
+  background: #050505;
+}
+
+html.dark [data-cs="happytenant-landlord"] {
+  --htl-dark-bg: #070709;
+}

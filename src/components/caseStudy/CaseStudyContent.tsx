@@ -87,7 +87,7 @@ function BlockImage({ block }: { block: ImageBlock }) {
   return (
     <>
       <figure
-        className={`cs-block-image ${measure}`}
+        className={`cs-block-image ${measure}${block.className ? ` ${block.className}` : ''}`}
         style={spacingStyle(block)}
       >
         <button
@@ -306,7 +306,7 @@ function renderBlock(block: CaseStudyBlock) {
     case 'heading': {
       const Tag = block.level === 3 ? 'h3' : 'h2'
       return (
-        <header className="cs-block-heading cs-measure-narrative" style={spacingStyle(block)} key={block.id}>
+        <header className={`cs-block-heading cs-measure-narrative${block.className ? ` ${block.className}` : ''}`} style={spacingStyle(block)} key={block.id}>
           {block.label && <p className="case-study-section__label">{block.label}</p>}
           <Tag
             id={block.id}
@@ -403,7 +403,7 @@ function renderBlock(block: CaseStudyBlock) {
       return <BlockImageGrid key={block.id} block={block} />
     case 'video':
       return (
-        <figure key={block.id} className="cs-block-video cs-measure-evidence" style={spacingStyle(block)}>
+        <figure key={block.id} className={`cs-block-video cs-measure-evidence${block.className ? ` ${block.className}` : ''}`} style={spacingStyle(block)}>
           <video
             src={block.src}
             poster={block.poster}

@@ -21,6 +21,8 @@
 @import './styles/glass.css';
 @import './styles/cta.css';
 @import './styles/case-study.css';
+@import './styles/case-study-htl-v2.css';
+@import './styles/case-study-htl-v3.css';
 
 :root {
   --primary-orange: #fa6c0b;

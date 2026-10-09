@@ -13,6 +13,9 @@ const CaseStudyPage = lazy(() =>
 const WanderlyCaseStudy = lazy(() =>
   import('./pages/WanderlyCaseStudy').then((m) => ({ default: m.WanderlyCaseStudy })),
 )
+const HappyTenantLandlordV3 = lazy(() =>
+  import('./pages/HappyTenantLandlordV3').then((m) => ({ default: m.HappyTenantLandlordV3 })),
+)
 const WorkPage = lazy(() =>
   import('./pages/WorkPage').then((m) => ({ default: m.WorkPage })),
 )
@@ -46,6 +49,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/work" element={<WorkPage />} />
             <Route path="/work/wanderly" element={<WanderlyCaseStudy />} />
+            <Route path="/case-studies/happytenant-landlord-experience" element={<HappyTenantLandlordV3 />} />
             <Route path="/case-studies/:slug" element={<CaseStudyPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />

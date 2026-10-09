@@ -19,6 +19,8 @@ export type HeadingBlock = BlockSpacing & {
   content: string
   level?: 2 | 3
   label?: string
+  /** Extra CSS class(es) appended to the header — used by per-case-study scoped CSS */
+  className?: string
 }
 
 export type ImageBlock = BlockSpacing & {
@@ -35,6 +37,8 @@ export type ImageBlock = BlockSpacing & {
    */
   width?: 'full' | 'contained' | 'inset'
   zoom?: boolean
+  /** Extra CSS class(es) appended to the figure — used by per-case-study scoped CSS */
+  className?: string
 }
 
 export type ImageGridBlock = BlockSpacing & {
@@ -53,6 +57,8 @@ export type VideoBlock = BlockSpacing & {
   autoPlay?: boolean
   loop?: boolean
   muted?: boolean
+  /** Extra CSS class(es) appended to the figure — used by per-case-study scoped CSS */
+  className?: string
 }
 
 export type SpacerBlock = {

@@ -75,7 +75,7 @@ export function CaseStudyPage({ slugOverride }: { slugOverride?: string } = {}) 
   }
 
   return (
-    <div className="case-study-page">
+    <div className="case-study-page" data-cs={caseStudy.id}>
       <ReadingProgress />
 
       <a
