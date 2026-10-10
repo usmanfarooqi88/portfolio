@@ -89,23 +89,13 @@ export function HappyTenantLandlordV3() {
           00 — HERO
       ══════════════════════════════════════════════════════════════ */}
       <header className="htl3-hero">
-        <img
-          src="/images/case-studies/happytenant-landlord/hero.webp"
-          alt=""
-          role="presentation"
-          className="htl3-hero__bg"
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-        />
-        <div className="htl3-hero__overlay" aria-hidden="true" />
+        {/* Left — text column */}
         <div className="htl3-hero__content">
           <p className="htl3-hero__type">MOBILE APP</p>
           <h1 className="htl3-hero__title font-display">
-            HappyTenant
-            <br />
-            <span className="htl3-hero__subtitle">Landlord Experience</span>
+            Happy<br />Tenant
           </h1>
+          <p className="htl3-hero__subtitle">Landlord Experience</p>
           <p className="htl3-hero__thesis">
             A landlord-facing mobile experience designed to make portfolio performance,
             financial states, property operations and approvals easier to understand and act on.
@@ -120,6 +110,20 @@ export function HappyTenantLandlordV3() {
               <span key={tag} className="case-study-tag" role="listitem">{tag}</span>
             ))}
           </div>
+        </div>
+
+        {/* Right — image column */}
+        <div className="htl3-hero__image" aria-hidden="true">
+          <img
+            src="/images/case-studies/happytenant-landlord/hero.webp"
+            alt=""
+            role="presentation"
+            className="htl3-hero__bg"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
+          <div className="htl3-hero__image-overlay" />
         </div>
       </header>
 
