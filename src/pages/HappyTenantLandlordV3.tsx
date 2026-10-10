@@ -112,16 +112,16 @@ export function HappyTenantLandlordV3() {
           </div>
         </div>
 
-        {/* Right — image column */}
+        {/* Right — video column */}
         <div className="htl3-hero__image" aria-hidden="true">
-          <img
-            src="/images/case-studies/happytenant-landlord/hero.webp"
-            alt=""
-            role="presentation"
+          <video
             className="htl3-hero__bg"
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
+            src="/images/projects/Landlord_app.webm"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/images/case-studies/happytenant-landlord/hero.webp"
           />
           <div className="htl3-hero__image-overlay" />
         </div>
