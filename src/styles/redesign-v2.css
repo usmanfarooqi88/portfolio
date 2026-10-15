@@ -1,0 +1,314 @@
+/* ═══════════════════════════════════════════════════════════
+   Portfolio V2 — Minimal Editorial Redesign
+   Scoped with .v2-* prefix; does not touch case study pages
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Nav ──────────────────────────────────────────────── */
+
+.v2-topnav {
+  /* Faint blur so content beneath reads through */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* Slight transparency to feel lighter than the sidebar */
+  background-color: color-mix(in srgb, var(--warm-background) 92%, transparent);
+}
+
+.v2-nav-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted-text);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  letter-spacing: 0.01em;
+}
+
+.v2-nav-link:hover {
+  color: var(--dark-navy);
+}
+
+.v2-nav-link--active {
+  color: var(--dark-navy);
+}
+
+/* ── Hero ─────────────────────────────────────────────── */
+
+.v2-hero {
+  display: flex;
+  align-items: center;
+  min-height: calc(100svh - 56px);
+  overflow: hidden;
+}
+
+.v2-hero__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(3rem, 8vh, 6rem) clamp(1.5rem, 6vw, 5rem);
+}
+
+/* Text column */
+.v2-hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.v2-hero__eyebrow {
+  margin: 0 0 1.25rem;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--muted-text);
+}
+
+.v2-hero__title {
+  margin: 0;
+  font-size: clamp(2rem, 3.6vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.10;
+  letter-spacing: -0.025em;
+  color: var(--dark-navy);
+}
+
+.v2-hero__title em {
+  font-style: normal;
+  color: var(--primary-orange);
+}
+
+.v2-hero__body {
+  margin: 1.5rem 0 0;
+  max-width: 44ch;
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.65;
+  color: var(--muted-text);
+}
+
+.v2-hero__availability {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0;
+  font-size: 12px;
+  color: var(--muted-text);
+}
+
+.v2-hero__dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--muted-text);
+  flex-shrink: 0;
+}
+
+.v2-hero__dot--on {
+  background: #22c55e;
+}
+
+.v2-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1.75rem;
+  margin: 2rem 0 0;
+}
+
+.v2-hero__cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 44px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark-navy);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  font-family: inherit;
+}
+
+.v2-hero__cta-link:hover {
+  color: var(--primary-orange);
+}
+
+.v2-hero__cta-link:focus-visible {
+  outline: 2px solid var(--primary-orange);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.v2-hero__cta-link--muted {
+  color: var(--muted-text);
+}
+
+/* Illustration column */
+.v2-hero__illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-navy);
+}
+
+/* Face SVG */
+.v2-face-svg {
+  color: var(--dark-navy);
+  /* Prevent layout thrash while blink/tilt is animated */
+  will-change: transform;
+}
+
+/* Eye groups: ensure scaleY uses the element's own bounding box */
+.v2-face-svg .v2-eye-group {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* ── Hero responsive ──────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .v2-hero {
+    align-items: flex-start;
+    min-height: unset;
+  }
+
+  .v2-hero__layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 2.5rem;
+    padding: 3rem 1.5rem 3.5rem;
+  }
+
+  /* Illustration above text on mobile */
+  .v2-hero__illustration {
+    order: -1;
+    max-width: 180px;
+    margin: 0 auto;
+  }
+
+  .v2-hero__title {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+
+  .v2-hero__body {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .v2-hero__layout {
+    gap: 2.5rem;
+    padding: 4rem 3rem;
+  }
+
+  .v2-hero__illustration {
+    max-width: 240px;
+    justify-self: center;
+  }
+}
+
+/* ── Work grid overrides (editorial, image-first) ─────── */
+
+.v2-work-grid .glass-project-card {
+  border-radius: 6px;
+  background: var(--pure-white);
+  border: 1px solid var(--soft-border);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.v2-work-grid .glass-project-card:hover {
+  transform: none;
+  border-color: color-mix(in srgb, var(--primary-orange) 40%, transparent);
+  box-shadow: 0 4px 20px rgba(17, 17, 17, 0.06);
+}
+
+.v2-work-grid .project-card-media {
+  border-radius: 0;
+  background: var(--light-gray);
+}
+
+.v2-work-grid .project-card-media > div {
+  background: none !important;
+}
+
+/* ── Footer ───────────────────────────────────────────── */
+
+.v2-footer {
+  border-top: 1px solid var(--soft-border);
+  padding: 2rem 0;
+  background: var(--warm-background);
+}
+
+.v2-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 6vw, 5rem);
+}
+
+.v2-footer__wordmark {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark-navy);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.v2-footer__wordmark .orange {
+  color: var(--primary-orange);
+}
+
+.v2-footer__links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.v2-footer__link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted-text);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.v2-footer__link:hover {
+  color: var(--dark-navy);
+}
+
+.v2-footer__link:focus-visible {
+  outline: 2px solid var(--primary-orange);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.v2-footer__copy {
+  font-size: 12px;
+  color: var(--muted-text);
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .v2-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .v2-footer__copy {
+    align-self: flex-start;
+  }
+}

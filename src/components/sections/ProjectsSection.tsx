@@ -29,7 +29,7 @@ export function ProjectsSection() {
           </p>
         </header>
 
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-5">
+        <div className="v2-work-grid grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-5">
           {featured.map((project) => (
             <ProjectCard
               key={project.id}
