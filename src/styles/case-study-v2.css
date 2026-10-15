@@ -1,0 +1,378 @@
+/* ═══════════════════════════════════════════════════════════
+   Case Study V2 — Editorial layout
+   Reference: andreavollendorf.com/case-study/userwise
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Page shell ───────────────────────────────────────────── */
+
+.cs2-page {
+  background: var(--v2-ground);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Reading progress bar ─────────────────────────────────── */
+
+.cs2-progress {
+  position: fixed;
+  top: 56px; /* below nav */
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--soft-border);
+  z-index: 40;
+}
+
+.cs2-progress__bar {
+  height: 100%;
+  background: var(--primary-orange);
+  transition: width 0.1s linear;
+}
+
+/* ── Top nav (back link) ──────────────────────────────────── */
+
+.cs2-topnav {
+  padding-top: 4.5rem; /* clears fixed nav */
+  padding-bottom: 0;
+}
+
+.cs2-topnav__inner {
+  max-width: 48rem;
+  margin-inline: auto;
+  padding: 1.5rem 1.5rem 0;
+}
+
+@media (min-width: 640px) {
+  .cs2-topnav__inner {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.cs2-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted-text);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.cs2-back:hover {
+  color: var(--primary-orange);
+}
+
+.cs2-back:focus-visible {
+  outline: 2px solid var(--primary-orange);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Editorial header ─────────────────────────────────────── */
+
+.cs2-header {
+  max-width: 48rem;
+  margin-inline: auto;
+  padding: 2rem 1.5rem 0;
+}
+
+@media (min-width: 640px) {
+  .cs2-header {
+    padding: 3rem 1.5rem 0;
+  }
+}
+
+.cs2-header__inner {
+  /* nothing — flex is natural document flow */
+}
+
+.cs2-header__eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary-orange);
+}
+
+/* Status badge (Live / In Progress / etc.) */
+.cs2-header__status {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--primary-orange) 30%, transparent);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary-orange);
+  background: color-mix(in srgb, var(--primary-orange) 6%, transparent);
+}
+
+.cs2-header__title {
+  margin: 0 0 1rem;
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.625rem, 3.5vw, 2.25rem);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--dark-navy);
+}
+
+.cs2-header__intro {
+  margin: 0 0 1.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--muted-text);
+  max-width: 44ch;
+}
+
+/* Metadata: border-top divider + 2-column grid */
+.cs2-header__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 1rem 2rem;
+  border-top: 1px solid var(--soft-border);
+  padding-top: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.cs2-header__meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cs2-header__meta-label {
+  margin: 0;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-text);
+  opacity: 0.7;
+}
+
+.cs2-header__meta-value {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--dark-navy);
+}
+
+/* Hero image — tight below header */
+.cs2-header__image-wrap {
+  max-width: 48rem;
+  margin-inline: auto;
+  margin-top: 1.75rem;
+  padding: 0 1.5rem;
+}
+
+.cs2-header__image {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--v2-ground-alt);
+}
+
+/* ── Body layout: sidebar + stream ───────────────────────── */
+
+.cs2-body {
+  position: relative;
+  /* on xl: grid with sidebar */
+}
+
+/* Content stream — centered narrow column */
+.cs2-stream {
+  max-width: 48rem;
+  margin-inline: auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/* Sidebar — hidden on mobile, sticky on xl */
+.cs2-sidebar {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .cs2-body {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    max-width: calc(48rem + 160px + 4rem);
+    margin-inline: auto;
+    align-items: start;
+    gap: 0 4rem;
+    padding: 0 1.5rem;
+  }
+
+  .cs2-sidebar {
+    display: block;
+    position: sticky;
+    top: calc(56px + 3rem); /* nav height + spacing */
+    align-self: start;
+    padding-top: 3rem;
+  }
+
+  .cs2-stream {
+    max-width: 48rem;
+    margin: 0;
+    padding: 3rem 0 4rem;
+  }
+}
+
+/* ── Side nav ─────────────────────────────────────────────── */
+
+.cs2-side-nav {
+  /* contained in sidebar */
+}
+
+.cs2-side-nav__title {
+  margin: 0 0 0.75rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-text);
+  opacity: 0.6;
+}
+
+.cs2-side-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.cs2-side-nav__link {
+  display: block;
+  padding: 0.35rem 0 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--muted-text);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  opacity: 0.7;
+}
+
+.cs2-side-nav__link:hover {
+  color: var(--dark-navy);
+  opacity: 1;
+}
+
+.cs2-side-nav__link--active {
+  color: var(--dark-navy);
+  border-left-color: var(--primary-orange);
+  opacity: 1;
+  font-weight: 500;
+}
+
+/* ── Content stream: heading blocks ──────────────────────── */
+
+/* Override the existing cs-heading styles for cs2 */
+.cs2-stream .cs-heading-block {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cs2-stream .cs-heading-block__label {
+  flex-shrink: 0;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-text);
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+.cs2-stream .cs-heading-block__rule {
+  flex: 1;
+  height: 1px;
+  background: var(--soft-border);
+}
+
+.cs2-stream .cs-heading-block h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--dark-navy);
+  letter-spacing: -0.01em;
+  font-style: normal;
+}
+
+/* Text blocks */
+.cs2-stream .cs-text-block p {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--muted-text);
+  margin-bottom: 1rem;
+}
+
+/* ── Footer navigation ────────────────────────────────────── */
+
+.cs2-footer-nav {
+  border-top: 1px solid var(--soft-border);
+  padding: 2rem 0;
+  background: var(--v2-ground);
+}
+
+.cs2-footer-nav__inner {
+  max-width: 48rem;
+  margin-inline: auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (min-width: 1280px) {
+  .cs2-footer-nav__inner {
+    max-width: calc(48rem + 160px + 4rem);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.cs2-footer-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted-text);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.cs2-footer-nav__link:hover {
+  color: var(--primary-orange);
+}
+
+.cs2-footer-nav__link--next {
+  margin-left: auto;
+}
+
+/* ── Dark mode ────────────────────────────────────────────── */
+
+html.dark .cs2-header__image {
+  opacity: 0.9;
+}

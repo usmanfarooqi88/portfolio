@@ -146,7 +146,7 @@ function PlaceholderInner() {
 export function ExperimentsSection() {
   return (
     <section id="experiments" className="py-20 lg:py-28">
-      <div className="mx-auto max-w-[1280px] px-6 md:px-12 lg:px-20">
+      <div className="v2-section-inner">
 
         <div className="mb-16">
           <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-4">

@@ -45,7 +45,7 @@ function ExperienceRow({ entry, index }: { entry: (typeof experience)[0]; index:
 export function BackgroundSection() {
   return (
     <section id="background" className="py-20 lg:py-28">
-      <div className="mx-auto max-w-[1280px] px-6 md:px-12 lg:px-20">
+      <div className="v2-section-inner">
 
         <div className="flex items-end justify-between gap-8 mb-10">
           <div>

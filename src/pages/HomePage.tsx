@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Preloader } from '../components/layout/Preloader'
 import { AboutPreview } from '../components/sections/AboutPreview'
@@ -7,14 +7,9 @@ import { BackgroundSection } from '../components/sections/BackgroundSection'
 import { ContactCTA } from '../components/sections/ContactCTA'
 import { ExperimentsSection } from '../components/sections/ExperimentsSection'
 import { HeroSection } from '../components/sections/HeroSection'
+import { TestimonialsSection } from '../components/sections/TestimonialsSection'
+import { WorkCarousel } from '../components/sections/WorkCarousel'
 
-const ProjectsSection = lazy(() =>
-  import('../components/sections/ProjectsSection').then((m) => ({ default: m.ProjectsSection })),
-)
-
-function SectionFallback() {
-  return <div className="min-h-[200px]" aria-hidden />
-}
 
 export function HomePage() {
   const [showPreloader, setShowPreloader] = useState(true)
@@ -40,14 +35,13 @@ export function HomePage() {
         style={{ transition: 'opacity 0.5s ease' }}
       >
         <HeroSection />
-        <Suspense fallback={<SectionFallback />}>
-          <ProjectsSection />
-        </Suspense>
+        <WorkCarousel />
+        <TestimonialsSection />
+        <AboutPreview />
         <BackgroundSection />
         <AwardsSection />
-        <AboutPreview />
-        <ContactCTA />
         <ExperimentsSection />
+        <ContactCTA />
       </div>
     </>
   )

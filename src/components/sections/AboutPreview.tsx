@@ -10,10 +10,10 @@ export function AboutPreview() {
   const inView = useInView(ref, { once: true, margin: '-8% 0px' })
 
   return (
-    <section id="about" aria-label="About preview" className="py-20 lg:py-28">
+    <section id="about" aria-label="About preview" className="py-20 lg:py-28 border-t border-[var(--soft-border)]">
       <div
         ref={ref}
-        className="mx-auto max-w-[1280px] px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-12 lg:gap-20 items-center"
+        className="v2-section-inner grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-12 lg:gap-20 items-center"
       >
         {/* Text */}
         <motion.div

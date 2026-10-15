@@ -248,7 +248,7 @@ export const caseStudies: CaseStudy[] = [
     details: {
       client: 'Wanderly',
       industry: 'Travel Tech',
-      timeline: 'Freelance Project · 20-day design case · 4 sprints',
+      timeline: 'Freelance Project · 20-day design case',
       role: 'Product Designer',
       deliverables: [
         'Mobile product UX/UI (freelance)',

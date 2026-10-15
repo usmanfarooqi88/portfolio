@@ -50,7 +50,7 @@ function AwardRow({ award, index }: { award: (typeof awards)[0]; index: number }
 export function AwardsSection() {
   return (
     <section id="awards" className="py-20 lg:py-28">
-      <div className="mx-auto max-w-[1280px] px-6 md:px-12 lg:px-20">
+      <div className="v2-section-inner">
 
         <div className="mb-10">
           <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-3">

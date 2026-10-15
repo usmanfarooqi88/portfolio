@@ -43,69 +43,71 @@ export function TopNav() {
 
   return (
     <>
-      <header className="v2-topnav sticky top-0 z-40 h-14 flex items-center justify-between border-b border-[var(--soft-border)]" style={{ paddingLeft: 'clamp(2rem, 6vw, 6rem)', paddingRight: 'clamp(2rem, 6vw, 6rem)' }}>
-        {/* Wordmark */}
-        <Link to="/" className="v2-nav-wordmark shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange rounded-sm">
-          Usman Farooqi
-        </Link>
+      <header className="v2-topnav sticky top-0 z-40 h-14 border-b border-[var(--soft-border)]">
+        <div className="v2-nav-inner">
+          {/* Wordmark */}
+          <Link to="/" className="v2-nav-wordmark shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange rounded-sm">
+            Usman Farooqi
+          </Link>
 
-        {/* Desktop nav */}
-        <nav aria-label="Site navigation" className="hidden md:flex items-center gap-8">
-          {TOP_NAV_LINKS.map(({ label, href, inPage, external }) => {
-            if (external) {
+          {/* Desktop nav */}
+          <nav aria-label="Site navigation" className="hidden md:flex items-center gap-8">
+            {TOP_NAV_LINKS.map(({ label, href, inPage, external }) => {
+              if (external) {
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="v2-nav-link inline-flex items-center gap-1"
+                  >
+                    {label}
+                    <ArrowUpRight size={11} aria-hidden className="opacity-50" />
+                  </a>
+                )
+              }
+              if (inPage) {
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    onClick={(e) => handleLinkClick(e, href, inPage)}
+                    className="v2-nav-link"
+                  >
+                    {label}
+                  </a>
+                )
+              }
+              const isActive =
+                location.pathname === href || location.pathname.startsWith(href + '/')
               return (
-                <a
+                <Link
                   key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="v2-nav-link inline-flex items-center gap-1"
+                  to={href}
+                  className={`v2-nav-link${isActive ? ' v2-nav-link--active' : ''}`}
                 >
                   {label}
-                  <ArrowUpRight size={11} aria-hidden className="opacity-50" />
-                </a>
+                </Link>
               )
-            }
-            if (inPage) {
-              return (
-                <a
-                  key={label}
-                  href={href}
-                  onClick={(e) => handleLinkClick(e, href, inPage)}
-                  className="v2-nav-link"
-                >
-                  {label}
-                </a>
-              )
-            }
-            const isActive =
-              location.pathname === href || location.pathname.startsWith(href + '/')
-            return (
-              <Link
-                key={label}
-                to={href}
-                className={`v2-nav-link${isActive ? ' v2-nav-link--active' : ''}`}
-              >
-                {label}
-              </Link>
-            )
-          })}
-        </nav>
+            })}
+          </nav>
 
-        {/* Right controls */}
-        <div className="flex items-center gap-2 shrink-0">
-          <ThemeToggle compact />
-          <button
-            ref={menuButtonRef}
-            type="button"
-            onClick={() => setMenuOpen(true)}
-            aria-label="Open navigation"
-            aria-expanded={menuOpen}
-            aria-controls="mobile-nav"
-            className="md:hidden flex items-center justify-center w-10 h-10 text-[var(--dark-navy)] hover:text-primary-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange rounded-md"
-          >
-            <Menu size={20} aria-hidden />
-          </button>
+          {/* Right controls */}
+          <div className="flex items-center gap-2 shrink-0">
+            <ThemeToggle compact />
+            <button
+              ref={menuButtonRef}
+              type="button"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open navigation"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-nav"
+              className="md:hidden flex items-center justify-center w-10 h-10 text-[var(--dark-navy)] hover:text-primary-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange rounded-md"
+            >
+              <Menu size={20} aria-hidden />
+            </button>
+          </div>
         </div>
       </header>
 

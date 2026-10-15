@@ -24,6 +24,7 @@
 @import './styles/case-study-htl-v2.css';
 @import './styles/case-study-htl-v3.css';
 @import './styles/redesign-v2.css';
+@import './styles/case-study-v2.css';
 
 :root {
   --primary-orange: #fa6c0b;
@@ -91,6 +92,13 @@ body,
   color: var(--dark-navy);
 }
 
+/* ── All headings use Lora serif ────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -114,9 +122,8 @@ nav.navbar-glass {
 }
 
 .font-display {
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 

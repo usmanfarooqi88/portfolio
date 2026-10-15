@@ -9,13 +9,18 @@
 :root {
   --font-editorial: 'Lora', Georgia, 'Times New Roman', serif;
 
-  /* Andrea-style grid: wide container, generous gutters */
-  --grid-max:     1320px;
-  --grid-pad:     clamp(2rem, 6vw, 6rem);
+  /* Fixed 120px side padding — no max-width, always flush to viewport */
+  --grid-pad:     120px;
 
   /* Pure white ground (Andrea uses #fff, not warm beige) */
   --v2-ground:    #ffffff;
   --v2-ground-alt: #f9f9f9;
+}
+
+/* Dark mode ground overrides */
+html.dark {
+  --v2-ground:    #111111;
+  --v2-ground-alt: #1a1a1a;
 }
 
 /* ── Global: pure white ground ───────────────────────── */
@@ -28,17 +33,26 @@ body {
 
 .v2-topnav {
   background-color: var(--v2-ground) !important;
-  border-bottom: 1px solid var(--soft-border);
+}
+
+/* Shared grid container — nav + all sections use this */
+.v2-nav-inner {
+  padding: 0 var(--grid-pad);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .v2-nav-wordmark {
-  font-family: var(--font-editorial);
-  font-style: italic;
-  font-weight: 500;
-  font-size: 16px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
   color: var(--dark-navy);
   text-decoration: none;
   transition: opacity 0.15s;
+  letter-spacing: -0.02em;
 }
 
 .v2-nav-wordmark:hover { opacity: 0.6; }
@@ -62,58 +76,33 @@ body {
 
 .v2-hero {
   background: var(--v2-ground);
-  /* generous top — matches Andrea's ~100px breathing room */
-  padding-top: clamp(4.5rem, 9vh, 8rem);
-  padding-bottom: clamp(3rem, 6vh, 5.5rem);
+  padding-top: clamp(5rem, 10vh, 8rem);
+  padding-bottom: clamp(4rem, 7vh, 6rem);
 }
 
 .v2-hero__inner {
-  max-width: var(--grid-max);
-  margin: 0 auto;
   padding: 0 var(--grid-pad);
-
-  /* Two-column: text (left, ~62%) | illustration (right, ~38%) */
-  display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-  grid-template-rows: auto;
-  align-items: start;
-  column-gap: clamp(3rem, 6vw, 7rem);
 }
 
-/* Left column: heading, body, availability, CTAs */
-.v2-hero__content {
-  grid-column: 1;
-  grid-row: 1;
+/* Single-column layout — no illustration */
+.v2-hero__inner--single {
+  display: block;
 }
 
-/* Right column: illustration */
-.v2-hero__illustration {
-  grid-column: 2;
-  grid-row: 1;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding-top: 0.5rem;
-}
-
-.v2-hero__illustration .v2-face-svg {
-  width: clamp(140px, 18vw, 220px);
-  height: auto;
-  color: var(--dark-navy);
-  opacity: 0.85;
-}
-
-/* Heading — large, left-aligned, Lora italic */
+/* Heading — large, clean, non-italic */
 .v2-hero__title {
   margin: 0;
   font-family: var(--font-editorial);
-  font-size: clamp(2.25rem, 4.2vw, 3.75rem);
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.18;
-  letter-spacing: -0.025em;
+  font-size: clamp(1.875rem, 3.2vw, 2.875rem);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
   color: var(--dark-navy);
-  text-wrap: balance;
+}
+
+.v2-hero__title span {
+  display: block;
 }
 
 .v2-hero__title em {
@@ -123,10 +112,10 @@ body {
 
 /* Body */
 .v2-hero__body {
-  margin: 1.5rem 0 0;
-  max-width: 54ch;
-  font-size: clamp(14px, 1.4vw, 16px);
-  line-height: 1.72;
+  margin: 2rem 0 0;
+  max-width: 68ch;
+  font-size: clamp(15px, 1.3vw, 16px);
+  line-height: 1.7;
   color: var(--muted-text);
 }
 
@@ -196,14 +185,98 @@ body {
   will-change: transform;
 }
 
-/* 3D avatar canvas container */
+/* 3D avatar canvas container.
+   mask-image cuts the alpha channel directly — no colour overlay, no fringing.
+   The bust fades to fully transparent at the bottom so the white page shows through. */
 .v2-three-avatar {
   width: 100%;
-  border-radius: 8px;
+  position: relative;
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 38%);
+  mask-image:         linear-gradient(to top, transparent 0%, black 38%);
+}
+
+/* ── Work Carousel (sticky scroll-hijack) ─────────────── */
+
+/*
+  Outer wrapper: reserves vertical scroll space.
+  Height is set in JS: 100vh + track horizontal overflow.
+  This gives the user enough scroll room to traverse all cards.
+*/
+.v2-carousel-wrapper {
+  position: relative;
+  /* height set dynamically by JS */
+}
+
+/*
+  Sticky panel: pins just below the fixed nav while the user
+  scrolls through the wrapper's extra height.
+  Nav height = h-14 = 56px; subtract from both top and height.
+*/
+.v2-carousel-sticky {
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow: hidden;
+  background: var(--v2-ground);
+  display: flex;
+  flex-direction: column;
+}
+
+.v2-carousel-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--v2-ground);
+  padding-top: clamp(2.5rem, 5vh, 4rem);
+  padding-bottom: clamp(1rem, 2vh, 2rem);
   overflow: hidden;
 }
 
-/* ── Selected Work section ────────────────────────────── */
+.v2-carousel-label {
+  padding: 0 var(--grid-pad);
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--soft-border);
+  flex-shrink: 0;
+}
+
+.v2-carousel-label span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-text);
+}
+
+/* Section label used inside .v2-section-inner — strip the duplicate padding */
+.v2-section-inner .v2-carousel-label {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Track wrapper — overflow hidden, fills remaining height */
+.v2-carousel-track-wrap {
+  flex: 1;
+  overflow: hidden;
+  margin-top: 2rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Track — cards in a row, driven by translateX */
+.v2-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 var(--grid-pad) 1.5rem;
+  width: max-content;
+  align-items: flex-start;
+}
+
+/* Each card column */
+.v2-carousel-item {
+  flex: 0 0 clamp(300px, 34vw, 460px);
+}
+
+/* ── Selected Work section (legacy grid — keep for /work page) ──── */
 
 .v2-work-section {
   background: var(--v2-ground);
@@ -213,8 +286,6 @@ body {
 
 /* Section header row: label + divider */
 .v2-work-header {
-  max-width: var(--grid-max);
-  margin: 0 auto;
   padding: 0 var(--grid-pad);
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--soft-border);
@@ -231,8 +302,6 @@ body {
 
 /* Work grid: full-width from gutter to gutter */
 .v2-work-grid-wrap {
-  max-width: var(--grid-max);
-  margin: 0 auto;
   padding: 2rem var(--grid-pad) 0;
 }
 
@@ -277,8 +346,7 @@ body {
 
 /* View all link */
 .v2-work-view-all {
-  max-width: var(--grid-max);
-  margin: 1.75rem auto 0;
+  margin-top: 1.75rem;
   padding: 0 var(--grid-pad);
 }
 
@@ -296,8 +364,6 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.75rem 1.5rem;
-  max-width: var(--grid-max);
-  margin: 0 auto;
   padding: 0 var(--grid-pad);
 }
 
@@ -344,6 +410,33 @@ body {
   white-space: nowrap;
 }
 
+/* ── Shared section container — 60px side gutters, no max-width ── */
+
+.v2-section-inner {
+  padding-left: var(--grid-pad);
+  padding-right: var(--grid-pad);
+}
+
+/* ── Testimonials grid ────────────────────────────────── */
+
+.v2-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+@media (max-width: 1023px) {
+  .v2-testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .v2-testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── Responsive ───────────────────────────────────────── */
 
 /* Tablet: 2-column work grid */
@@ -353,29 +446,22 @@ body {
   }
 }
 
-/* Tablet: collapse hero to single column */
+/* Small laptop / large tablet — reduce margins */
+@media (max-width: 1279px) {
+  :root { --grid-pad: 60px; }
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+  :root { --grid-pad: 40px; }
+}
+
+/* Mobile — tighten side margins */
 @media (max-width: 768px) {
-  .v2-hero__inner {
-    grid-template-columns: 1fr;
-    row-gap: 2.5rem;
-  }
-
-  .v2-hero__illustration {
-    grid-column: 1;
-    grid-row: 1; /* illustration first on mobile too */
-    justify-content: flex-start;
-  }
-
-  .v2-hero__illustration .v2-face-svg {
-    width: 80px;
-  }
-
-  .v2-hero__content {
-    grid-row: 2;
-  }
+  :root { --grid-pad: 24px; }
 
   .v2-hero__title {
-    font-size: clamp(2rem, 8vw, 2.75rem);
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
   }
 }
 

@@ -12,7 +12,7 @@ export function ContactCTA() {
     <section id="contact" className="py-20 lg:py-28">
       <div
         ref={ref}
-        className="mx-auto max-w-[1280px] px-6 md:px-12 lg:px-20"
+        className="v2-section-inner"
       >
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -29,11 +29,11 @@ export function ContactCTA() {
           >
             Let&apos;s make something{' '}
             <span className="text-primary-orange">clear, useful,</span>
-            {' '}and well considered.
+            {' '}and well-considered.
           </h2>
 
           <p className="text-[17px] text-[var(--muted-text)] leading-[1.65] max-w-[560px] mb-10">
-            I&apos;m open to senior product-design opportunities, selected collaborations, and
+            Open to senior product-design roles, selected collaborations, and
             conversations about AI-powered products, design systems, and complex digital experiences.
           </p>
 

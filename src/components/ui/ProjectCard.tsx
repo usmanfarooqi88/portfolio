@@ -220,7 +220,7 @@ export function ProjectCard({
 
     return (
       <article className="evidence-card group flex h-full flex-col overflow-hidden rounded-[16px] border border-[var(--soft-border)] bg-[var(--pure-white)] transition-[border-color,box-shadow] duration-200 hover:border-[rgba(250,108,11,0.28)]">
-        <div className="flex flex-1 flex-col p-5 md:p-6">
+        <div className="flex flex-col p-5 md:p-6">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
             <p className="text-[10px] font-[400] uppercase tracking-[0.12em] text-primary-orange">
               {meta}
@@ -232,7 +232,7 @@ export function ProjectCard({
             )}
           </div>
 
-          <h3 className="mt-2 text-[1.125rem] font-bold leading-snug tracking-[-0.01em] text-[var(--dark-navy)] md:text-[1.25rem]">
+          <h3 className="mt-2 text-[1.125rem] font-bold leading-snug tracking-[-0.01em] text-[var(--dark-navy)] line-clamp-2 md:text-[1.25rem]">
             {title}
           </h3>
 
@@ -245,7 +245,7 @@ export function ProjectCard({
           <MetaRow project={project} />
 
           {project.proofPoint && (
-            <p className="mt-3 border-l-2 border-primary-orange/40 pl-3 text-[12px] font-[400] leading-snug text-[var(--dark-navy)]">
+            <p className="mt-3 border-l-2 border-primary-orange/40 pl-3 text-[12px] font-[400] leading-snug text-[var(--dark-navy)] line-clamp-2">
               {project.proofPoint}
             </p>
           )}
@@ -264,8 +264,8 @@ export function ProjectCard({
           />
         </div>
 
-        <div className="px-5 pb-5 md:px-6 md:pb-6">
-          <CardCta project={project} onOpenPrototype={onOpenPrototype} className="mt-1 min-h-[44px]" />
+        <div className="px-5 pb-5 pt-4 md:px-6 md:pb-6">
+          <CardCta project={project} onOpenPrototype={onOpenPrototype} className="min-h-[44px]" />
         </div>
       </article>
     )
