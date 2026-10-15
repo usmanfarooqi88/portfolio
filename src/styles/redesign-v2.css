@@ -190,10 +190,17 @@ body {
 
 .v2-hero__cta-link--muted { color: var(--muted-text); }
 
-/* Face SVG base */
+/* Face SVG base (kept for fallback) */
 .v2-face-svg {
   color: var(--dark-navy);
   will-change: transform;
+}
+
+/* 3D avatar canvas container */
+.v2-three-avatar {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 /* ── Selected Work section ────────────────────────────── */

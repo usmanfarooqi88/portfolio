@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { CV_URL } from '../../constants/links'
 import { profile } from '../../data/profile'
 import { handleSmoothScroll } from '../../utils/smoothScroll'
-import { FaceIllustration } from '../ui/FaceIllustration'
+import { ThreeAvatar } from '../ui/ThreeAvatar'
 
 const fadeIn = (delay = 0) => ({
   initial: { opacity: 0, y: 10 },
@@ -65,7 +65,7 @@ export function HeroSection() {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           aria-hidden="true"
         >
-          <FaceIllustration />
+          <ThreeAvatar />
         </motion.div>
 
       </div>
