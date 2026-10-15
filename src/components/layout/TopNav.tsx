@@ -43,13 +43,10 @@ export function TopNav() {
 
   return (
     <>
-      <header className="v2-topnav sticky top-0 z-40 h-14 flex items-center justify-between px-6 md:px-10 lg:px-16 bg-[var(--warm-background)] border-b border-[var(--soft-border)]">
+      <header className="v2-topnav sticky top-0 z-40 h-14 flex items-center justify-between border-b border-[var(--soft-border)]" style={{ paddingLeft: 'clamp(2rem, 6vw, 6rem)', paddingRight: 'clamp(2rem, 6vw, 6rem)' }}>
         {/* Wordmark */}
-        <Link
-          to="/"
-          className="font-bold text-[17px] leading-none text-[var(--dark-navy)] hover:text-primary-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange rounded-sm shrink-0"
-        >
-          Usman<span className="text-primary-orange">.</span>
+        <Link to="/" className="v2-nav-wordmark shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange rounded-sm">
+          Usman Farooqi
         </Link>
 
         {/* Desktop nav */}

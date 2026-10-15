@@ -11,18 +11,15 @@ export function ProjectsSection() {
   const editorial = getEditorialWork()
 
   return (
-    <section id="work" className="py-6 lg:py-10" aria-labelledby="featured-work-heading">
-      <div className="mx-auto max-w-[1280px] px-6 md:px-12 lg:px-20">
-        <header className="mb-8 max-w-[40rem]">
-          <h2
-            id="featured-work-heading"
-            className="text-[13px] font-[400] tracking-[-0.01em] text-[var(--muted-text)]"
-          >
-            Selected Work
-          </h2>
-        </header>
+    <section id="work" className="v2-work-section" aria-labelledby="featured-work-heading">
+      {/* Section header — label + divider, full grid width */}
+      <div className="v2-work-header">
+        <h2 id="featured-work-heading">Selected Work</h2>
+      </div>
 
-        <div className="v2-work-grid grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-5">
+      {/* Card grid */}
+      <div className="v2-work-grid-wrap">
+        <div className="v2-work-grid">
           {featured.map((project) => (
             <ProjectCard
               key={project.id}
@@ -32,19 +29,22 @@ export function ProjectsSection() {
             />
           ))}
         </div>
+      </div>
 
-        <div className="mt-8 flex justify-start">
-          <Link
-            to="/work"
-            className="inline-flex min-h-[44px] items-center rounded-full border border-[var(--soft-border)] bg-[var(--pure-white)] px-5 text-[13px] font-medium text-[var(--dark-navy)] transition-colors hover:border-[rgba(250,108,11,0.35)] hover:text-primary-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange"
-          >
-            View all work →
-          </Link>
-        </div>
+      {/* View all */}
+      <div className="v2-work-view-all">
+        <Link
+          to="/work"
+          className="inline-flex min-h-[44px] items-center rounded-full border border-[var(--soft-border)] bg-[var(--pure-white)] px-5 text-[13px] font-medium text-[var(--dark-navy)] transition-colors hover:border-[rgba(250,108,11,0.35)] hover:text-primary-orange focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange"
+        >
+          View all work →
+        </Link>
+      </div>
 
-        {editorial.length > 0 && (
+      {editorial.length > 0 && (
+        <div className="v2-work-grid-wrap">
           <div
-            className="editorial-archive mt-14 border-t border-[var(--soft-border)]/80 pt-10"
+            className="editorial-archive mt-10 border-t border-[var(--soft-border)]/80 pt-8"
             id="editorial-work"
           >
             <header className="mb-5 max-w-[32rem]">
@@ -71,8 +71,8 @@ export function ProjectsSection() {
               ))}
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
       <FigmaPrototypeModal project={modalProject} onClose={() => setModalProject(null)} />
     </section>
