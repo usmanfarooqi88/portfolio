@@ -2,37 +2,31 @@ import { animate, motion, useMotionValue } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion'
 
-// SVG viewport
-const VB_W = 260
-const VB_H = 320
-
-// Landmark coordinates
-const LEFT_EYE  = { x: 100, y: 150 }
-const RIGHT_EYE = { x: 160, y: 150 }
-const FACE_REF  = { x: 130, y: 160 } // screen reference for cursor direction
-const MAX_PUPIL = 5   // px offset range for pupils
-const MAX_TILT  = 2   // deg tilt range for head
+// Viewport & key landmarks
+const VB_W = 200
+const VB_H = 210
+const LEFT_EYE  = { x: 76,  y: 104 }
+const RIGHT_EYE = { x: 124, y: 104 }
+const FACE_REF  = { x: 100, y: 108 }
+const MAX_PUPIL = 4
+const MAX_TILT  = 1.8
 
 export function FaceIllustration() {
   const reducedMotion = usePrefersReducedMotion()
   const [isTouch, setIsTouch] = useState(false)
   const svgRef = useRef<SVGSVGElement>(null)
 
-  // Shared pupil offset (same direction for both eyes)
-  const pupilOffX = useMotionValue(0)
-  const pupilOffY = useMotionValue(0)
-  // Head tilt
+  const pupilOffX  = useMotionValue(0)
+  const pupilOffY  = useMotionValue(0)
   const headRotate = useMotionValue(0)
-  // Blink scale (1 = open, ~0 = closed)
   const leftBlink  = useMotionValue(1)
   const rightBlink = useMotionValue(1)
 
-  // Detect touch device on mount
   useEffect(() => {
     setIsTouch(window.matchMedia('(pointer: coarse)').matches)
   }, [])
 
-  // Cursor-follow: move pupils and tilt head
+  // Cursor follow
   useEffect(() => {
     if (reducedMotion || isTouch) return
     const svg = svgRef.current
@@ -42,25 +36,15 @@ export function FaceIllustration() {
       const rect = svg.getBoundingClientRect()
       const scaleX = VB_W / rect.width
       const scaleY = VB_H / rect.height
-      // Face reference in screen space
-      const refScreenX = rect.left + FACE_REF.x / scaleX
-      const refScreenY = rect.top  + FACE_REF.y / scaleY
-
-      const dx = e.clientX - refScreenX
-      const dy = e.clientY - refScreenY
+      const refSX  = rect.left + FACE_REF.x / scaleX
+      const refSY  = rect.top  + FACE_REF.y / scaleY
+      const dx = e.clientX - refSX
+      const dy = e.clientY - refSY
       const dist = Math.sqrt(dx * dx + dy * dy) || 1
-      const nx = dx / dist
-      const ny = dy / dist
-
-      animate(pupilOffX, nx * MAX_PUPIL, { duration: 0.3, ease: 'easeOut' })
-      animate(pupilOffY, ny * MAX_PUPIL, { duration: 0.3, ease: 'easeOut' })
-
-      // Horizontal tilt only: positive = tilt right
+      animate(pupilOffX, (dx / dist) * MAX_PUPIL, { duration: 0.35, ease: 'easeOut' })
+      animate(pupilOffY, (dy / dist) * MAX_PUPIL, { duration: 0.35, ease: 'easeOut' })
       const tilt = (dx / (window.innerWidth * 0.5)) * MAX_TILT
-      animate(headRotate, Math.max(-MAX_TILT, Math.min(MAX_TILT, tilt)), {
-        duration: 0.5,
-        ease: 'easeOut',
-      })
+      animate(headRotate, Math.max(-MAX_TILT, Math.min(MAX_TILT, tilt)), { duration: 0.5, ease: 'easeOut' })
     }
 
     window.addEventListener('mousemove', onMove, { passive: true })
@@ -71,27 +55,18 @@ export function FaceIllustration() {
   useEffect(() => {
     if (reducedMotion) return
     let timer: ReturnType<typeof setTimeout>
-
     const doBlink = async () => {
-      // Both eyes close together
       await Promise.all([
-        animate(leftBlink,  0.06, { duration: 0.10 }),
-        animate(rightBlink, 0.06, { duration: 0.10 }),
+        animate(leftBlink,  0.05, { duration: 0.09 }),
+        animate(rightBlink, 0.05, { duration: 0.09 }),
       ])
       await Promise.all([
-        animate(leftBlink,  1, { duration: 0.14 }),
-        animate(rightBlink, 1, { duration: 0.14 }),
+        animate(leftBlink,  1, { duration: 0.13 }),
+        animate(rightBlink, 1, { duration: 0.13 }),
       ])
-      scheduleBlink()
+      timer = setTimeout(doBlink, 2500 + Math.random() * 4000)
     }
-
-    const scheduleBlink = () => {
-      const delay = 2800 + Math.random() * 4000
-      timer = setTimeout(doBlink, delay)
-    }
-
-    // Small initial delay so it doesn't blink on page load
-    timer = setTimeout(scheduleBlink, 1500)
+    timer = setTimeout(doBlink, 2000)
     return () => clearTimeout(timer)
   }, [reducedMotion, leftBlink, rightBlink])
 
@@ -101,141 +76,111 @@ export function FaceIllustration() {
       viewBox={`0 0 ${VB_W} ${VB_H}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="v2-face-svg w-full h-auto max-w-[300px] mx-auto block"
+      className="v2-face-svg w-full h-auto block"
       aria-hidden="true"
       style={{ rotate: headRotate }}
     >
-      {/* ── Shoulders ── */}
+      {/* ── Face shape ── */}
       <path
-        d="M 25 318 C 48 285 80 268 112 262 M 148 262 C 180 268 212 285 235 318"
-        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
+        d="M 100 12
+           C 138 12 162 36 164 72
+           C 166 110 154 152 138 168
+           C 128 178 114 184 100 184
+           C 86 184 72 178 62 168
+           C 46 152 34 110 36 72
+           C 38 36 62 12 100 12 Z"
+        stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round"
       />
 
-      {/* ── Neck ── */}
+      {/* ── Side-part hair ── */}
+      {/* Hair cap: sweeps up from left, quiff rise, flows right */}
       <path
-        d="M 113 242 L 110 262 M 147 242 L 150 262"
-        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
+        d="M 36 72
+           C 36 44 52 18 78 13
+           C 86 11 90 15 88 22
+           C 86 28 82 30 86 28
+           C 96 22 108 14 128 13
+           C 148 12 164 30 164 72"
+        stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+        fill="none"
+      />
+      {/* Quiff strand — the signature lift on the left-top */}
+      <path
+        d="M 76 14 C 70 6 64 4 60 8 C 57 11 60 18 66 20"
+        stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
+        fill="none"
+      />
+      {/* Part line */}
+      <path
+        d="M 88 14 C 89 22 90 28 90 35"
+        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"
       />
 
-      {/* ── Head outline ── */}
+      {/* ── Ears ── */}
       <path
-        d="M 130 42
-           C 168 42 198 72 200 118
-           C 202 165 190 210 172 234
-           C 160 252 146 260 130 260
-           C 114 260 100 252 88 234
-           C 70 210 58 165 60 118
-           C 62 72 92 42 130 42 Z"
-        stroke="currentColor" strokeWidth="1.5"
+        d="M 36 90 C 29 93 27 102 30 112 C 32 118 36 120 40 116"
+        stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" fill="none"
+      />
+      <path
+        d="M 164 90 C 171 93 173 102 170 112 C 168 118 164 120 160 116"
+        stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" fill="none"
       />
 
-      {/* ── Hair (cap over head) ── */}
+      {/* ── Eyebrows (bold bars) ── */}
       <path
-        d="M 60 118
-           C 58 80 74 50 100 40
-           C 112 35 120 33 130 33
-           C 140 33 148 35 160 40
-           C 186 50 202 80 200 118"
-        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
+        d="M 58 82 C 64 78 72 76 84 78"
+        stroke="currentColor" strokeWidth="3" strokeLinecap="round"
       />
-      {/* Hair texture lines */}
       <path
-        d="M 88 38 C 84 54 80 70 76 88
-           M 130 33 C 129 50 128 66 127 84
-           M 172 38 C 176 54 180 70 184 88"
-        stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.45"
+        d="M 116 78 C 128 76 136 78 142 82"
+        stroke="currentColor" strokeWidth="3" strokeLinecap="round"
       />
 
-      {/* ── Left ear ── */}
+      {/* ── Left eye ── */}
       <path
-        d="M 60 148 C 52 152 49 163 52 174 C 54 181 59 184 64 180"
-        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
+        d="M 60 104 C 64 97 72 94 82 97 C 86 99 90 102 88 107 C 85 113 74 115 65 112 C 61 110 58 107 60 104 Z"
+        stroke="currentColor" strokeWidth="2"
       />
-      {/* ── Right ear ── */}
-      <path
-        d="M 200 148 C 208 152 211 163 208 174 C 206 181 201 184 196 180"
-        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
-      />
-
-      {/* ── Left eyebrow ── */}
-      <path
-        d="M 80 130 C 88 122 104 120 120 125"
-        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
-      />
-      {/* ── Right eyebrow ── */}
-      <path
-        d="M 140 125 C 156 120 172 122 180 130"
-        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
-      />
-
-      {/* ── Left eye outline (almond) ── */}
-      <path
-        d="M 80 150 C 84 141 96 138 112 141 C 118 143 122 148 119 153 C 115 159 100 161 88 158 C 82 156 78 153 80 150 Z"
-        stroke="currentColor" strokeWidth="1.5"
-      />
-      {/* Left eye iris + pupil (animated blink via scaleY) */}
       <motion.g
-        style={{
-          scaleY: leftBlink,
-          transformBox: 'fill-box',
-          transformOrigin: 'center',
-        }}
+        style={{ scaleY: leftBlink, transformBox: 'fill-box', transformOrigin: 'center' }}
       >
-        <circle
-          cx={LEFT_EYE.x} cy={LEFT_EYE.y}
-          r="7.5"
-          stroke="currentColor" strokeWidth="1.2"
-        />
-        <motion.circle
-          cx={LEFT_EYE.x} cy={LEFT_EYE.y}
-          r="3.5"
-          fill="currentColor"
+        <circle cx={LEFT_EYE.x}  cy={LEFT_EYE.y}  r="6"   stroke="currentColor" strokeWidth="1.5" />
+        <motion.circle r="3" fill="currentColor"
+          cx={LEFT_EYE.x}  cy={LEFT_EYE.y}
           style={{ x: pupilOffX, y: pupilOffY }}
         />
       </motion.g>
 
-      {/* ── Right eye outline (almond) ── */}
+      {/* ── Right eye ── */}
       <path
-        d="M 140 150 C 138 143 152 138 168 141 C 180 143 182 148 180 153 C 176 159 162 161 150 158 C 142 156 138 153 140 150 Z"
-        stroke="currentColor" strokeWidth="1.5"
+        d="M 112 104 C 110 97 118 94 128 97 C 136 99 142 103 140 107 C 137 113 126 115 117 112 C 113 110 110 107 112 104 Z"
+        stroke="currentColor" strokeWidth="2"
       />
-      {/* Right eye iris + pupil (animated blink) */}
       <motion.g
-        style={{
-          scaleY: rightBlink,
-          transformBox: 'fill-box',
-          transformOrigin: 'center',
-        }}
+        style={{ scaleY: rightBlink, transformBox: 'fill-box', transformOrigin: 'center' }}
       >
-        <circle
+        <circle cx={RIGHT_EYE.x} cy={RIGHT_EYE.y} r="6"   stroke="currentColor" strokeWidth="1.5" />
+        <motion.circle r="3" fill="currentColor"
           cx={RIGHT_EYE.x} cy={RIGHT_EYE.y}
-          r="7.5"
-          stroke="currentColor" strokeWidth="1.2"
-        />
-        <motion.circle
-          cx={RIGHT_EYE.x} cy={RIGHT_EYE.y}
-          r="3.5"
-          fill="currentColor"
           style={{ x: pupilOffX, y: pupilOffY }}
         />
       </motion.g>
 
-      {/* ── Nose ── */}
+      {/* ── Nose (minimal) ── */}
       <path
-        d="M 122 168 C 120 182 118 190 114 196 C 120 200 140 200 146 196 C 142 190 140 182 138 168"
-        stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" fill="none"
+        d="M 94 128 C 92 136 90 141 87 144 C 92 147 108 147 113 144 C 110 141 108 136 106 128"
+        stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none"
       />
 
       {/* ── Mouth ── */}
-      {/* Upper lip */}
       <path
-        d="M 108 218 C 115 213 125 211 130 212 C 135 211 145 213 152 218"
-        stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" opacity="0.7"
+        d="M 76 162 C 84 168 116 168 124 162"
+        stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
       />
-      {/* Lower lip / smile */}
+      {/* Upper lip line */}
       <path
-        d="M 108 218 C 116 226 130 229 152 218"
-        stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"
+        d="M 78 162 C 86 156 100 154 122 162"
+        stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" opacity="0.6"
       />
     </motion.svg>
   )

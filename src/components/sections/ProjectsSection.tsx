@@ -14,19 +14,12 @@ export function ProjectsSection() {
     <section id="work" className="py-6 lg:py-10" aria-labelledby="featured-work-heading">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12 lg:px-20">
         <header className="mb-8 max-w-[40rem]">
-          <p className="mb-2 text-[11px] font-[400] uppercase tracking-[0.14em] text-primary-orange">
-            Selected work
-          </p>
           <h2
             id="featured-work-heading"
-            className="text-[clamp(1.375rem,2.5vw,1.875rem)] font-bold leading-[1.15] tracking-[-0.02em] text-[var(--dark-navy)]"
+            className="text-[13px] font-[400] tracking-[-0.01em] text-[var(--muted-text)]"
           >
-            Featured Product Work
+            Selected Work
           </h2>
-          <p className="mt-3 text-[15px] leading-relaxed text-[var(--muted-text)]">
-            Product and design-system work across SaaS, AI, PropTech, hospitality, and complex
-            digital experiences.
-          </p>
         </header>
 
         <div className="v2-work-grid grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-5">
