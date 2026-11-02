@@ -27,13 +27,14 @@ export function WorkCarousel() {
   const stickyRef  = useRef<HTMLDivElement>(null)
   const trackRef   = useRef<HTMLDivElement>(null)
 
-  const xRef     = useRef(0)
-  const dragging = useRef(false)
-  const startX   = useRef(0)
-  const startTX  = useRef(0)
-  const velRef   = useRef(0)
-  const lastX    = useRef(0)
-  const rafId    = useRef<number | null>(null)
+  const xRef        = useRef(0)
+  const dragging    = useRef(false)
+  const pointerDown = useRef(false)
+  const startX      = useRef(0)
+  const startTX     = useRef(0)
+  const velRef      = useRef(0)
+  const lastX       = useRef(0)
+  const rafId       = useRef<number | null>(null)
 
   function getOverflow() {
     const track = trackRef.current
@@ -112,27 +113,38 @@ export function WorkCarousel() {
 
     window.addEventListener('scroll', onScroll, { passive: true })
 
-    // Pointer drag
+    // Pointer drag — only activates after 5px movement so clicks pass through
+    const DRAG_THRESHOLD = 5
+
     function onPointerDown(e: PointerEvent) {
       if (e.button !== 0) return
       stopMomentum()
-      dragging.current = true
-      startX.current   = e.clientX
-      startTX.current  = xRef.current
-      lastX.current    = e.clientX
-      velRef.current   = 0
-      stickyEl.setPointerCapture(e.pointerId)
-      stickyEl.style.cursor = 'grabbing'
+      pointerDown.current = true
+      dragging.current    = false
+      startX.current      = e.clientX
+      startTX.current     = xRef.current
+      lastX.current       = e.clientX
+      velRef.current      = 0
     }
 
     function onPointerMove(e: PointerEvent) {
-      if (!dragging.current) return
+      if (!pointerDown.current) return
+      const dx = e.clientX - startX.current
+      if (!dragging.current) {
+        if (Math.abs(dx) < DRAG_THRESHOLD) return
+        // Threshold crossed — activate drag and capture pointer
+        dragging.current = true
+        stickyEl.setPointerCapture(e.pointerId)
+        stickyEl.style.cursor = 'grabbing'
+      }
       velRef.current = e.clientX - lastX.current
       lastX.current  = e.clientX
-      applyX(startTX.current + (e.clientX - startX.current))
+      applyX(startTX.current + dx)
     }
 
     function onPointerUp() {
+      if (!pointerDown.current) return
+      pointerDown.current = false
       if (!dragging.current) return
       dragging.current = false
       stickyEl.style.cursor = 'grab'
