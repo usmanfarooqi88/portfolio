@@ -1,5 +1,4 @@
-export const CV_URL =
-  'https://drive.google.com/drive/folders/1_Bl7I_ouRA5up-S01Q786I0hzvFiW-2W?usp=sharing'
+export const CV_URL = '/cv/Usman-Farooqi-Resume.pdf'
 
 export const BEHANCE_URL = 'https://www.behance.net/usman-farooqi'
 

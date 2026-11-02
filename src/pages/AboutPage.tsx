@@ -87,11 +87,10 @@ export function AboutPage() {
           <FadeIn delay={0.15} className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
             <a
               href={CV_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              download
               className="inline-flex items-center gap-2 bg-primary-orange text-white font-bold text-[15px] rounded-full px-6 py-3 hover:bg-deep-orange transition-colors"
             >
-              View résumé ↗
+              Download résumé ↓
             </a>
             <Link
               to="/contact"
@@ -183,11 +182,10 @@ export function AboutPage() {
           </div>
           <a
             href={CV_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            download
             className="shrink-0 text-[13px] font-bold text-[var(--muted-text)] hover:text-primary-orange transition-colors border border-[var(--soft-border)] hover:border-primary-orange rounded-full px-5 py-2.5"
           >
-            Full résumé ↗
+            Download résumé ↓
           </a>
         </FadeIn>
         <div>

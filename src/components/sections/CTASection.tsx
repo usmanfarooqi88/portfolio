@@ -56,7 +56,7 @@ export function CTASection() {
               <ArrowRight className="btn-icon" aria-hidden />
             </a>
 
-            <a href={CV_URL} target="_blank" rel="noopener noreferrer" className="btn-download-cv">
+            <a href={CV_URL} download className="btn-download-cv">
               <Download className="btn-icon" aria-hidden />
               <span>Download CV</span>
             </a>

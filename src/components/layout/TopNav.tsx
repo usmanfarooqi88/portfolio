@@ -1,4 +1,4 @@
-import { ArrowUpRight, Menu } from 'lucide-react'
+import { Menu } from 'lucide-react'
 import { useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { CV_URL } from '../../constants/links'
@@ -58,12 +58,10 @@ export function TopNav() {
                   <a
                     key={label}
                     href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    download
                     className="v2-nav-link inline-flex items-center gap-1"
                   >
                     {label}
-                    <ArrowUpRight size={11} aria-hidden className="opacity-50" />
                   </a>
                 )
               }

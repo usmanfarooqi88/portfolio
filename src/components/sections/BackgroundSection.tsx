@@ -61,11 +61,10 @@ export function BackgroundSection() {
           </div>
           <a
             href={CV_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            download
             className="shrink-0 inline-flex items-center gap-2 text-[13px] font-bold text-[var(--muted-text)] hover:text-primary-orange transition-colors border border-[var(--soft-border)] hover:border-primary-orange rounded-full px-5 py-2.5"
           >
-            View résumé ↗
+            Download résumé ↓
           </a>
         </div>
 

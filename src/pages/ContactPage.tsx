@@ -179,15 +179,16 @@ export function ContactPage() {
             <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-5">Find me online</p>
             <div className="space-y-3">
               {[
-                { label: 'LinkedIn', href: LINKEDIN_URL },
-                { label: 'Behance', href: BEHANCE_URL },
-                { label: 'Résumé / CV', href: CV_URL },
-              ].map(({ label, href }) => (
+                { label: 'LinkedIn',    href: LINKEDIN_URL, download: false },
+                { label: 'Behance',     href: BEHANCE_URL,  download: false },
+                { label: 'Résumé / CV', href: CV_URL,       download: true  },
+              ].map(({ label, href, download }) => (
                 <div key={label}>
-                  <a href={href} target="_blank" rel="noopener noreferrer"
+                  <a href={href}
+                    {...(download ? { download: true } : { target: '_blank', rel: 'noopener noreferrer' })}
                     className="flex items-center justify-between group py-1">
                     <span className="text-[15px] font-bold text-[var(--dark-navy)] group-hover:text-primary-orange transition-colors">{label}</span>
-                    <span className="text-[var(--muted-text)] opacity-50 group-hover:text-primary-orange group-hover:opacity-100 transition-colors text-[13px]">↗</span>
+                    <span className="text-[var(--muted-text)] opacity-50 group-hover:text-primary-orange group-hover:opacity-100 transition-colors text-[13px]">{download ? '↓' : '↗'}</span>
                   </a>
                   <div className="border-t border-[var(--soft-border)] mt-2" />
                 </div>

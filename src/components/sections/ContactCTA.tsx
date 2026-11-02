@@ -62,11 +62,10 @@ export function ContactCTA() {
             </a>
             <a
               href={CV_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              download
               className="text-[15px] font-bold text-[var(--dark-navy)] hover:text-primary-orange transition-colors"
             >
-              View résumé ↗
+              Download résumé ↓
             </a>
             <Link
               to="/contact"
