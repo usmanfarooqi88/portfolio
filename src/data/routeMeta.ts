@@ -35,7 +35,7 @@ const staticRoutes: RouteMeta[] = [
     path: '/about',
     title: 'About — Usman Zahid Farooqi | Senior Product Designer',
     description:
-      'Learn about Usman Zahid Farooqi — Senior Product Designer with 18+ years of experience in SaaS, AI products, PropTech, FinTech, and complex digital experiences. Based in Lahore, Pakistan.',
+      'Learn about Usman Zahid Farooqi — Senior Product Designer with 7+ years of experience in SaaS, AI products, PropTech, FinTech, and complex digital experiences. Based in Lahore, Pakistan.',
     ogType: 'website',
     ogImage: DEFAULT_OG_IMAGE,
     ogImageDimensions: DEFAULT_OG_IMAGE_DIMENSIONS,

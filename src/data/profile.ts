@@ -3,7 +3,7 @@ export const profile = {
   shortName: 'Usman',
   monogram: 'UF',
   title: 'Senior Product Designer',
-  tagline: 'Senior Product Designer with 18+ years of experience creating AI-powered SaaS products, enterprise platforms, PropTech solutions, restaurant technology, and interactive digital experiences.',
+  tagline: 'Senior Product Designer with 7+ years of experience creating AI-powered SaaS products, enterprise platforms, PropTech solutions, restaurant technology, and interactive digital experiences.',
   location: 'Lahore, Pakistan',
   locationLine: 'Based in Lahore, Pakistan · Working with teams across Pakistan, the UAE, and international markets.',
   email: 'usmanfarooqi@live.com',
@@ -13,7 +13,7 @@ export const profile = {
   seo: {
     title: 'Usman Farooqi — Product Designer',
     description:
-      'Product Designer with 18+ years of experience designing AI-powered SaaS products, enterprise platforms, PropTech solutions, restaurant technology, design systems, and interactive digital experiences.',
+      'Product Designer with 7+ years of experience designing AI-powered SaaS products, enterprise platforms, PropTech solutions, restaurant technology, design systems, and interactive digital experiences.',
   },
 
   /**

@@ -64,7 +64,7 @@ export function AboutPage() {
               style={{ fontSize: 'clamp(2.4rem, 5vw, 5.5rem)' }}
             >
               Designing with<br />
-              <span className="text-primary-orange">curiosity</span> for 18+ years.
+              <span className="text-primary-orange">curiosity</span> for 7+ years.
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
@@ -74,7 +74,7 @@ export function AboutPage() {
               wasn't accidental — each step added a layer to how I think about products.
             </p>
             <p className="text-[17px] text-[var(--muted-text)] leading-[1.75] mb-5 max-w-[620px]">
-              Over 18 years I've worked across SaaS platforms, restaurant technology, PropTech,
+              Over 7+ years I've worked across SaaS platforms, restaurant technology, PropTech,
               FinTech, enterprise dashboards, and AI-powered applications — often as the sole
               designer or lead, owning everything from early concepts to production-ready specs.
             </p>
@@ -199,8 +199,21 @@ export function AboutPage() {
             >
               <div>
                 <p className="font-bold text-[15px] text-[var(--dark-navy)]">{entry.company}</p>
-                <p className="text-[13px] text-[var(--muted-text)] mt-1">{entry.role}</p>
-                <p className="text-[12px] text-[var(--muted-text)] opacity-70 mt-1">{entry.startDate} – {entry.endDate}</p>
+                {entry.roles ? (
+                  <div className="mt-1 space-y-1">
+                    {entry.roles.map((r) => (
+                      <div key={r.title}>
+                        <p className="text-[13px] text-[var(--muted-text)]">{r.title}</p>
+                        <p className="text-[12px] text-[var(--muted-text)] opacity-70">{r.startDate} – {r.endDate}</p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <>
+                    <p className="text-[13px] text-[var(--muted-text)] mt-1">{entry.role}</p>
+                    <p className="text-[12px] text-[var(--muted-text)] opacity-70 mt-1">{entry.startDate} – {entry.endDate}</p>
+                  </>
+                )}
                 <p className="text-[12px] text-[var(--muted-text)] opacity-70">{entry.location}</p>
               </div>
               <div>
@@ -227,12 +240,12 @@ export function AboutPage() {
         </FadeIn>
         <FadeIn delay={0.05} className="grid grid-cols-1 md:grid-cols-[200px_1fr] lg:grid-cols-[240px_1fr] gap-x-12 gap-y-3 pt-6">
           <div>
-            <p className="font-bold text-[15px] text-[var(--dark-navy)]">University of Punjab</p>
+            <p className="font-bold text-[15px] text-[var(--dark-navy)]">University of the Punjab</p>
             <p className="text-[13px] text-[var(--muted-text)] mt-1">Lahore, Pakistan</p>
             <p className="text-[12px] text-[var(--muted-text)] opacity-70 mt-1">2009 – 2013</p>
           </div>
           <div>
-            <p className="text-[16px] text-[var(--dark-navy)] leading-[1.65] font-bold">Bachelor of Arts — Illustration</p>
+            <p className="text-[16px] text-[var(--dark-navy)] leading-[1.65] font-bold">Bachelor in Fine Art (Illustration)</p>
             <p className="text-[14px] text-[var(--muted-text)] mt-2 leading-[1.65]">
               A foundation in visual storytelling, composition, and image-making that still
               informs how I approach product design — structure first, aesthetics in service of clarity.

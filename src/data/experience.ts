@@ -1,8 +1,17 @@
-export interface ExperienceEntry {
-  company: string
-  role: string
+export interface ExperienceRole {
+  title: string
   startDate: string
   endDate: string
+}
+
+export interface ExperienceEntry {
+  company: string
+  /** Single role (most entries). Omit when `roles` is provided. */
+  role?: string
+  startDate?: string
+  endDate?: string
+  /** Multiple roles under the same company, newest first. */
+  roles?: ExperienceRole[]
   location: string
   summary: string
   contributions: string[]
@@ -11,9 +20,10 @@ export interface ExperienceEntry {
 export const experience: ExperienceEntry[] = [
   {
     company: 'Frontier Labs',
-    role: 'Product Designer',
-    startDate: 'Jan 2021',
-    endDate: 'Jul 2026',
+    roles: [
+      { title: 'Senior UX/UI Designer', startDate: 'May 2023', endDate: 'Aug 2026' },
+      { title: 'UX/UI Designer',        startDate: 'Feb 2021', endDate: 'May 2023' },
+    ],
     location: 'Lahore, Pakistan',
     summary:
       'Worked on digital products for US-based clients across property technology, restaurant technology, healthcare savings, SaaS, and consumer platforms. Key clients and products included Heard, SRVE, Livium, LetM8, and PCM.',
@@ -29,7 +39,7 @@ export const experience: ExperienceEntry[] = [
   },
   {
     company: 'LAVA Brands',
-    role: 'Lead Product Designer',
+    role: 'Senior Product Designer',
     startDate: 'Jul 2024',
     endDate: 'Jan 2026',
     location: 'Lahore, Pakistan',
@@ -49,8 +59,8 @@ export const experience: ExperienceEntry[] = [
   },
   {
     company: 'Logicon',
-    role: 'Senior UI/UX Designer',
-    startDate: 'Jul 2018',
+    role: 'User Interface Designer',
+    startDate: 'Jul 2019',
     endDate: 'Jan 2021',
     location: 'Lahore, Pakistan',
     summary:
