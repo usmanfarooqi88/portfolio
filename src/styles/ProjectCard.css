@@ -118,19 +118,61 @@ video.project-image--video {
   transform: scale(1.07);
 }
 
-.evidence-card .project-image,
-.evidence-card + * .project-image {
-  object-fit: cover;
-}
+/* ── Evidence card — editorial style ──────────────────── */
 
+/* Image fills its container */
+.evidence-card .project-image,
+.evidence-card + * .project-image,
 .evidence-card [style*='aspect-ratio'] .project-image,
-.evidence-card .relative .project-image {
+.evidence-card .relative .project-image,
+.evidence-card__media .project-image {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+/* Subtle image scale on card hover */
+.evidence-card:hover .evidence-card__media .project-image:not(video) {
+  transform: scale(1.03);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.evidence-card__media .project-image {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+}
+
+/* Meta row: category text + optional pill on the same line, fixed height */
+.evidence-card__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 20px; /* reserves height whether pill is visible or not */
+}
+
+/* Pill — only shown when ecosystemLabel exists */
+.evidence-card__pill {
+  display: inline-block;
+  min-width: 0;
+  padding: 1px 7px;
+  border-radius: 999px;
+  border: 1px solid var(--soft-border);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted-text);
+  line-height: 1.6;
+  /* hide when empty without shifting layout */
+  visibility: hidden;
+}
+.evidence-card__pill:not(:empty) {
+  visibility: visible;
+}
+
+/* Body padding — 16px sides, 8pt rhythm */
+.evidence-card__body {
+  padding-inline: 4px;
 }
 
 /* Quieter secondary archive — do not compete with Featured Product Work */

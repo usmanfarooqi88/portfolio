@@ -216,43 +216,13 @@ export function ProjectCard({
   const title = project.displayTitle ?? project.title
 
   if (mode === 'evidence') {
-    const meta = [project.category, project.status].filter(Boolean).join(' · ')
+    const categoryMeta = [project.category, project.status].filter(Boolean).join(' · ')
 
     return (
-      <article className="evidence-card group flex h-full flex-col overflow-hidden rounded-[16px] border border-[var(--soft-border)] bg-[var(--pure-white)] transition-[border-color,box-shadow] duration-200 hover:border-[rgba(250,108,11,0.28)]">
-        <div className="flex flex-col p-5 md:p-6">
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <p className="text-[10px] font-[400] uppercase tracking-[0.12em] text-primary-orange">
-              {meta}
-            </p>
-            {project.ecosystemLabel && (
-              <span className="rounded-full border border-[var(--soft-border)] px-2 py-0.5 text-[10px] font-[400] text-[var(--muted-text)]">
-                {project.ecosystemLabel}
-              </span>
-            )}
-          </div>
-
-          <h3 className="mt-2 text-[1.125rem] font-bold leading-snug tracking-[-0.01em] text-[var(--dark-navy)] line-clamp-2 md:text-[1.25rem]">
-            {title}
-          </h3>
-
-          {project.productStatement && (
-            <p className="mt-2 text-[14px] leading-relaxed text-[var(--muted-text)] line-clamp-2">
-              {project.productStatement}
-            </p>
-          )}
-
-          <MetaRow project={project} />
-
-          {project.proofPoint && (
-            <p className="mt-3 border-l-2 border-primary-orange/40 pl-3 text-[12px] font-[400] leading-snug text-[var(--dark-navy)] line-clamp-2">
-              {project.proofPoint}
-            </p>
-          )}
-        </div>
-
+      <article className="evidence-card group flex h-full flex-col bg-[var(--pure-white)]">
+        {/* Image first — always visible above the fold */}
         <div
-          className="relative mx-5 mb-2 overflow-hidden rounded-[12px] bg-[var(--soft-border)]/30 md:mx-6"
+          className="evidence-card__media relative overflow-hidden bg-[var(--soft-border)]/20"
           style={{ aspectRatio: '808 / 632' }}
         >
           <ProjectCardThumbnail
@@ -264,8 +234,40 @@ export function ProjectCard({
           />
         </div>
 
-        <div className="px-5 pb-5 pt-4 md:px-6 md:pb-6">
-          <CardCta project={project} onOpenPrototype={onOpenPrototype} className="min-h-[44px]" />
+        {/* Text block — consistent structure so title always aligns at the same row */}
+        <div className="evidence-card__body flex flex-1 flex-col pt-4 pb-5">
+          {/* Row 1: category + optional pill — fixed height so titles align */}
+          <div className="evidence-card__meta-row">
+            <p className="text-[10px] font-[600] uppercase tracking-[0.12em] text-[var(--primary-orange)]">
+              {categoryMeta}
+            </p>
+            {/* Pill occupies space even when absent so heights stay equal */}
+            <span className="evidence-card__pill">
+              {project.ecosystemLabel ?? ''}
+            </span>
+          </div>
+
+          {/* Row 2: title — same baseline across all cards */}
+          <h3 className="mt-2 text-[1.0625rem] font-bold leading-snug tracking-[-0.01em] text-[var(--dark-navy)] line-clamp-2 md:text-[1.125rem]">
+            {title}
+          </h3>
+
+          {project.productStatement && (
+            <p className="mt-2 flex-1 text-[13px] leading-relaxed text-[var(--muted-text)] line-clamp-2">
+              {project.productStatement}
+            </p>
+          )}
+
+          {/* Always-visible meta (role · year · context) */}
+          <MetaRow project={project} />
+
+          {project.proofPoint && (
+            <p className="mt-3 border-l-2 border-[var(--primary-orange)]/40 pl-3 text-[12px] leading-snug text-[var(--dark-navy)] line-clamp-2">
+              {project.proofPoint}
+            </p>
+          )}
+
+          <CardCta project={project} onOpenPrototype={onOpenPrototype} className="mt-4 min-h-[44px]" />
         </div>
       </article>
     )
@@ -370,7 +372,7 @@ export function ProjectCard({
               {project.category}
             </p>
             <h3 className="mt-1 text-[13px] font-bold leading-tight text-white">{title}</h3>
-            <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-[#fa6c0b]">
+            <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-[var(--primary-orange)]">
               {ctaLabel} <ArrowUpRight size={11} />
             </span>
           </div>
