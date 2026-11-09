@@ -19,7 +19,7 @@ export type HeadingBlock = BlockSpacing & {
   content: string
   level?: 2 | 3
   label?: string
-  /** Extra CSS class(es) appended to the header — used by per-case-study scoped CSS */
+  /** Extra CSS class(es) appended to the header : used by per-case-study scoped CSS */
   className?: string
 }
 
@@ -37,7 +37,7 @@ export type ImageBlock = BlockSpacing & {
    */
   width?: 'full' | 'contained' | 'inset'
   zoom?: boolean
-  /** Extra CSS class(es) appended to the figure — used by per-case-study scoped CSS */
+  /** Extra CSS class(es) appended to the figure : used by per-case-study scoped CSS */
   className?: string
 }
 
@@ -57,7 +57,7 @@ export type VideoBlock = BlockSpacing & {
   autoPlay?: boolean
   loop?: boolean
   muted?: boolean
-  /** Extra CSS class(es) appended to the figure — used by per-case-study scoped CSS */
+  /** Extra CSS class(es) appended to the figure : used by per-case-study scoped CSS */
   className?: string
 }
 
@@ -100,7 +100,7 @@ export type DecisionBlock = BlockSpacing & {
   id: string
   title: string
   evidence: string
-  /** Omit when historic alternatives are not available — do not invent options. */
+  /** Omit when historic alternatives are not available : do not invent options. */
   options?: string[]
   decision: string
   tradeoff: string
@@ -121,7 +121,7 @@ export type StepsBlock = BlockSpacing & {
   items: Array<{ label: string; detail?: string; status?: string }>
 }
 
-/** Editorial flow diagram — Figma → tokens → code, etc. HTML/CSS only. */
+/** Editorial flow diagram : Figma → tokens → code, etc. HTML/CSS only. */
 export type PipelineBlock = BlockSpacing & {
   type: 'pipeline'
   id: string
@@ -136,7 +136,7 @@ export type CtaPairBlock = BlockSpacing & {
   secondary: { label: string; href: string; external?: boolean }
 }
 
-/** Real code / CLI excerpts — never invented terminal output. */
+/** Real code / CLI excerpts : never invented terminal output. */
 export type CodeBlock = BlockSpacing & {
   type: 'code'
   id: string

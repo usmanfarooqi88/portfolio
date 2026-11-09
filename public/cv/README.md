@@ -1,5 +1,8 @@
 # CV download
 
-The navbar **Download CV** button opens the shared Google Drive folder:
+The Download CV button links to the locally hosted PDF:
 
-https://drive.google.com/drive/folders/1_Bl7I_ouRA5up-S01Q786I0hzvFiW-2W?usp=sharing
+`/cv/Usman-Farooqi-CV.pdf` → `public/cv/Usman-Farooqi-CV.pdf`
+
+To update the CV: replace `public/cv/Usman-Farooqi-CV.pdf` with the new approved PDF.
+Do not change the filename without also updating `src/constants/links.ts → CV_URL`.

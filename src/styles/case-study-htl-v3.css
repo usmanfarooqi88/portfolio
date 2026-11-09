@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   HTL V3 — Story-first editorial layout
+   HTL V3 : Story-first editorial layout
    Scope: .htl-v3  (inside .case-study-page[data-cs="happytenant-landlord"])
 
    WIDTH TIERS (conceptual, responsive):
@@ -22,7 +22,7 @@
   --htl3-dark-sub:      rgba(255, 255, 255, 0.50);
   --htl3-dark-border:   rgba(255, 255, 255, 0.10);
   --htl3-dark-plh:      #181818;
-  --htl3-orange:        #fa6c0b;
+  --htl3-orange:        #E96848;
   --htl3-teal:          #00b8a8;
 
   /* Chapter rhythm */
@@ -52,7 +52,7 @@
 
 /* ─── HERO ───────────────────────────────────────────────────────────────── */
 
-/* ─── HERO — split layout matching Figma 470:199 ────────────────────────── */
+/* ─── HERO : split layout matching Figma 470:199 ────────────────────────── */
 /* Figma: 1216 × 630px frame; left text col ~50%, right image col ~50%       */
 
 .htl3-hero {
@@ -64,7 +64,7 @@
   margin-top: 2rem;
 }
 
-/* ── Left column — text ── */
+/* ── Left column : text ── */
 .htl3-hero__content {
   display: flex;
   flex-direction: column;
@@ -91,7 +91,7 @@
   letter-spacing: -0.02em;
 }
 
-/* "Landlord Experience" — Inter Regular 20px, white, directly below title */
+/* "Landlord Experience" : Inter Regular 20px, white, directly below title */
 .htl3-hero__subtitle {
   font-family: var(--font-sans);
   font-size: clamp(1rem, 1.6vw, 1.25rem);
@@ -144,7 +144,7 @@
   margin-top: 1.5rem;
 }
 
-/* ── Right column — image ── */
+/* ── Right column : image ── */
 .htl3-hero__image {
   position: relative;
   overflow: hidden;
@@ -294,7 +294,7 @@
   box-shadow: 0 2px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* Cinematic — full-bleed within dark sections */
+/* Cinematic : full-bleed within dark sections */
 .htl3-cin {
   margin: clamp(2.5rem, 5vw, 4rem) 0 0;
 }
@@ -604,7 +604,7 @@
   position: relative;
   width: 100%;
   /* padding-bottom set inline to preserve aspect ratio */
-  /* No overflow:hidden here — the layers clip themselves; the handle sits above the frame */
+  /* No overflow:hidden here : the layers clip themselves; the handle sits above the frame */
   cursor: col-resize;
 }
 
@@ -666,7 +666,7 @@
   pointer-events: none;
 }
 
-/* Handle — sits above the image */
+/* Handle : sits above the image */
 @keyframes bas-handle-pop {
   0%   { transform: translateX(-50%) scale(1); box-shadow: 0 2px 12px rgba(0,0,0,0.30); }
   40%  { transform: translateX(-50%) scale(1.18); box-shadow: 0 6px 28px rgba(250,108,11,0.55); }
@@ -824,48 +824,9 @@
 
 /* ─── DARK THEME ─────────────────────────────────────────────────────────── */
 
-html.dark .htl3-section--light {
-  background: #1a1a1a;
-}
+/* ─── RESPONSIVE overrides : ensure no overflow ─────────────────────────── */
 
-html.dark .htl3-heading {
-  color: rgba(255, 255, 255, 0.94);
-}
-
-html.dark .htl3-body {
-  color: rgba(255, 255, 255, 0.60);
-}
-
-html.dark .htl3-priority__name,
-html.dark .htl3-workflow__title,
-html.dark .htl3-outcome__title {
-  color: rgba(255, 255, 255, 0.90);
-}
-
-html.dark .htl3-priority__desc,
-html.dark .htl3-workflow__desc,
-html.dark .htl3-outcome__desc,
-html.dark .htl3-caption {
-  color: rgba(255, 255, 255, 0.50);
-}
-
-html.dark .htl3-priority,
-html.dark .htl3-workflow,
-html.dark .htl3-outcome {
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-html.dark .htl3-obs-tag {
-  border-color: color-mix(in srgb, var(--htl3-orange) 25%, transparent);
-}
-
-html.dark .htl3-workflow__fig {
-  background: #222;
-}
-
-/* ─── RESPONSIVE overrides — ensure no overflow ─────────────────────────── */
-
-/* ── Hero responsive — stack below 768px ── */
+/* ── Hero responsive : stack below 768px ── */
 @media (max-width: 767px) {
   .htl3-hero {
     grid-template-columns: 1fr;

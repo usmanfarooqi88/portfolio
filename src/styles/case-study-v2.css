@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   Case Study V2 — Editorial layout
+   Case Study V2 : Editorial layout
    Reference: andreavollendorf.com/case-study/userwise
    ═══════════════════════════════════════════════════════════ */
 
@@ -15,7 +15,7 @@
 
 .cs2-progress {
   position: fixed;
-  top: 56px; /* below nav */
+  top: var(--nav-h); /* below nav */
   left: 0;
   right: 0;
   height: 2px;
@@ -63,7 +63,7 @@
 }
 
 .cs2-back:hover {
-  color: var(--primary-orange);
+  color: var(--accent-text);
 }
 
 .cs2-back:focus-visible {
@@ -87,7 +87,7 @@
 }
 
 .cs2-header__inner {
-  /* nothing — flex is natural document flow */
+  /* nothing : flex is natural document flow */
 }
 
 .cs2-header__eyebrow {
@@ -96,7 +96,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--primary-orange);
+  color: var(--accent-text);
 }
 
 /* Status badge (Live / In Progress / etc.) */
@@ -110,7 +110,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--primary-orange);
+  color: var(--accent-text);
   background: color-mix(in srgb, var(--primary-orange) 6%, transparent);
 }
 
@@ -168,7 +168,7 @@
   color: var(--dark-navy);
 }
 
-/* Hero image — tight below header */
+/* Hero image : tight below header */
 .cs2-header__image-wrap {
   max-width: 48rem;
   margin-inline: auto;
@@ -192,14 +192,14 @@
   /* on xl: grid with sidebar */
 }
 
-/* Content stream — centered narrow column */
+/* Content stream : centered narrow column */
 .cs2-stream {
   max-width: 48rem;
   margin-inline: auto;
   padding: 3rem 1.5rem 4rem;
 }
 
-/* Sidebar — hidden on mobile, sticky on xl */
+/* Sidebar : hidden on mobile, sticky on xl */
 .cs2-sidebar {
   display: none;
 }
@@ -218,7 +218,7 @@
   .cs2-sidebar {
     display: block;
     position: sticky;
-    top: calc(56px + 3rem); /* nav height + spacing */
+    top: calc(var(--nav-h) + 3rem); /* nav height + spacing */
     align-self: start;
     padding-top: 3rem;
   }
@@ -275,7 +275,7 @@
 
 .cs2-side-nav__link--active {
   color: var(--dark-navy);
-  border-left-color: var(--primary-orange);
+  border-left-color: var(--accent-text);
   opacity: 1;
   font-weight: 500;
 }
@@ -364,7 +364,7 @@
 }
 
 .cs2-footer-nav__link:hover {
-  color: var(--primary-orange);
+  color: var(--accent-text);
 }
 
 .cs2-footer-nav__link--next {
@@ -373,6 +373,3 @@
 
 /* ── Dark mode ────────────────────────────────────────────── */
 
-html.dark .cs2-header__image {
-  opacity: 0.9;
-}

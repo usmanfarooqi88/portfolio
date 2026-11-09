@@ -7,7 +7,7 @@ export const heardBlocks: CaseStudyBlock[] = [
     id: 'h-thesis',
     size: 'lg',
     content:
-      'Designed a consumer restaurant ordering app spanning delivery, pickup, and table order — three distinct user intents sharing one checkout pipeline.',
+      'Designed a consumer restaurant ordering app spanning delivery, pickup, and table order, three distinct user intents sharing one checkout pipeline.',
   },
   {
     type: 'metrics',
@@ -40,7 +40,7 @@ export const heardBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'h-problem-p',
     content:
-      'Users reach Heard through different intents — delivery at home, pickup on the go, table order from a scan at a restaurant. The design challenge was giving each mode the right entry point while keeping cart, customization, payment, and order status consistent across all three. Booking was on the roadmap but not ready to ship; the home had to carry it without creating false expectation.',
+      'Users reach Heard through different intents, delivery at home, pickup on the go, table order from a scan at a restaurant. The design challenge was giving each mode the right entry point while keeping cart, customization, payment, and order status consistent across all three. Booking was on the roadmap but not ready to ship; the home had to carry it without creating false expectation.',
   },
 
   // Home redesign
@@ -65,7 +65,7 @@ export const heardBlocks: CaseStudyBlock[] = [
     id: 'h-d1',
     title: 'Restructure home for modes + discovery',
     evidence:
-      'The earlier home treated fulfillment as a vertical list of three cards. Cart lived in the bottom tab bar alongside primary navigation — competing with Home, Search, Orders, and Profile — and left little room for nearby restaurant discovery. The page felt like a settings screen rather than a product launch point.',
+      'The earlier home treated fulfillment as a vertical list of three cards. Cart lived in the bottom tab bar alongside primary navigation, competing with Home, Search, Orders, and Profile, and left little room for nearby restaurant discovery. The page felt like a settings screen rather than a product launch point.',
     options: [
       'Keep stacked list, add a discovery row further down',
       '2×2 mode grid, cart in header, Near Me discovery on home',
@@ -74,7 +74,7 @@ export const heardBlocks: CaseStudyBlock[] = [
     decision:
       'Move to a 2×2 mode grid (Delivery, Pickup, Booking, Table Order), relocate cart to the header, reduce the tab bar to four destinations, and introduce a horizontal Near Me discovery row.',
     tradeoff:
-      'Home becomes denser. Booking appears as a first-class tile even though it was not ready — handled with an explicit Coming Soon treatment to set expectation rather than hiding the roadmap item entirely.',
+      'Home becomes denser. Booking appears as a first-class tile even though it was not ready, handled with an explicit Coming Soon treatment to set expectation rather than hiding the roadmap item entirely.',
     result:
       'Home communicates the full product map in one viewport. Active-order status cards can compose above the mode grid when the user has a current order.',
   },
@@ -90,7 +90,7 @@ export const heardBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'h-modes-p',
     content:
-      'Delivery and pickup enter through search and browse. Table order enters through QR scan or restaurant search. After item selection the flows converge: cart → payment → preparation status → mode-specific completion. Booking sits outside the active flow — shown on home as Coming Soon rather than built out.',
+      'Delivery and pickup enter through search and browse. Table order enters through QR scan or restaurant search. After item selection the flows converge: cart → payment → preparation status → mode-specific completion. Booking sits outside the active flow, shown on home as Coming Soon rather than built out.',
   },
   {
     type: 'image',
@@ -126,7 +126,7 @@ export const heardBlocks: CaseStudyBlock[] = [
     src: '/images/case-studies/heard/_presentation/order-customize-pay.webp',
     alt: 'Menu list, item customization with required and optional modifier groups, cart with tip, and payment options including Apple Pay',
     caption:
-      'Restaurant menu, required/optional modifier groups, cart with tip calculator, and payment — saved cards or Apple Pay.',
+      'Restaurant menu, required/optional modifier groups, cart with tip calculator, and payment, saved cards or Apple Pay.',
     width: 'full',
     zoom: true,
   },
@@ -134,7 +134,7 @@ export const heardBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'h-payment-note',
     content:
-      'Modifier groups distinguish required selections from optional add-ons at the item level — a small IA decision that prevents missed required choices without burying the user in every add-on upfront.',
+      'Modifier groups distinguish required selections from optional add-ons at the item level, a small IA decision that prevents missed required choices without burying the user in every add-on upfront.',
   },
 
   // Order progress / completion
@@ -160,7 +160,7 @@ export const heardBlocks: CaseStudyBlock[] = [
     src: '/images/case-studies/heard/_presentation/home-order-states.webp',
     alt: 'Home screen in default state, with active delivery order card, and with active pickup order card',
     caption:
-      'Home status cards for delivery and pickup reuse one structure. Mode color and status copy encode the difference — the card layout does not change.',
+      'Home status cards for delivery and pickup reuse one structure. Mode color and status copy encode the difference, the card layout does not change.',
     width: 'full',
     zoom: true,
   },
@@ -202,7 +202,7 @@ export const heardBlocks: CaseStudyBlock[] = [
       {
         name: 'Clearer discovery hierarchy on home',
         description:
-          '2×2 mode grid, Near Me row, and cart relocated to the header — the full product map in one viewport, with Booking marked Coming Soon rather than omitted.',
+          '2×2 mode grid, Near Me row, and cart relocated to the header, the full product map in one viewport, with Booking marked Coming Soon rather than omitted.',
       },
       {
         name: 'Implementation-ready handoff',
@@ -223,7 +223,7 @@ export const heardBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'h-reflection-p',
     content:
-      'The hardest part was not drawing another restaurant card — it was keeping three fulfillment modes coherent without tripling the system. The home redesign made clear that cart placement and tab-bar structure are product decisions, not decoration. If I had analytics access today, I would measure mode selection from home and completion rates by fulfillment path before expanding Booking into a full flow.',
+      'The hardest part was not drawing another restaurant card, it was keeping three fulfillment modes coherent without tripling the system. The home redesign made clear that cart placement and tab-bar structure are product decisions, not decoration. If I had analytics access today, I would measure mode selection from home and completion rates by fulfillment path before expanding Booking into a full flow.',
   },
 
   // Next
@@ -237,7 +237,7 @@ export const heardBlocks: CaseStudyBlock[] = [
     type: 'cta-pair',
     id: 'h-ctas',
     primary: {
-      label: 'View next — HappyTenant Tenant',
+      label: 'View next: HappyTenant Tenant',
       href: '/case-studies/happytenant-tenant-experience',
     },
     secondary: {

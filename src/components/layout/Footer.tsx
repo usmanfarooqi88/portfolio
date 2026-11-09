@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="v2-footer" aria-label="Site footer">
       <div className="v2-footer__inner">
         <Link to="/" className="v2-footer__wordmark">
-          Usman Farooqi<span className="orange">.</span>
+          Usman Zahid Farooqi<span className="orange">.</span>
         </Link>
 
         <nav aria-label="Footer links" className="v2-footer__links">
@@ -33,7 +33,7 @@ export function Footer() {
           </a>
         </nav>
 
-        <span className="v2-footer__copy">© {year} Usman Farooqi</span>
+        <span className="v2-footer__copy">© {year} Usman Zahid Farooqi</span>
       </div>
     </footer>
   )

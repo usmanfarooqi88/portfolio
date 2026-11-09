@@ -10,7 +10,7 @@ export function AboutPreview() {
   const inView = useInView(ref, { once: true, margin: '-8% 0px' })
 
   return (
-    <section id="about" aria-label="About preview" className="py-20 lg:py-28 border-t border-[var(--soft-border)]">
+    <section id="about" aria-label="About preview" className="py-6 lg:py-8 border-t border-[var(--soft-border)]">
       <div
         ref={ref}
         className="v2-section-inner grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-12 lg:gap-20 items-center"
@@ -21,7 +21,7 @@ export function AboutPreview() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-6">
+          <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-6">
             About
           </p>
           <h2
@@ -41,7 +41,7 @@ export function AboutPreview() {
           </p>
           <Link
             to="/about"
-            className="group inline-flex items-center gap-2 text-[15px] font-bold text-[var(--dark-navy)] hover:text-primary-orange transition-colors"
+            className="group inline-flex items-center gap-2 text-[15px] font-bold text-[var(--dark-navy)] hover:text-[var(--accent-text)] transition-colors"
           >
             More about me
             <span className="inline-block transition-transform group-hover:translate-x-[3px]" aria-hidden>→</span>
@@ -57,7 +57,7 @@ export function AboutPreview() {
         >
           <img
             src={AVATAR_IMG}
-            alt="Usman Farooqi"
+            alt="Portrait of Usman Zahid Farooqi"
             width={340}
             height={340}
             className="w-full aspect-square object-cover rounded-2xl"

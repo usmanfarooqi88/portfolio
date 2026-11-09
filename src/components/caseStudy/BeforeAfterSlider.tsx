@@ -163,7 +163,7 @@ export function BeforeAfterSlider({
         onPointerDown={startDrag}
         onClick={handleContainerClick}
       >
-        {/* BASE LAYER — OLD / BEFORE */}
+        {/* BASE LAYER : OLD / BEFORE */}
         <div className="bas__layer bas__layer--before">
           <img
             src={beforeSrc}
@@ -174,7 +174,7 @@ export function BeforeAfterSlider({
           />
         </div>
 
-        {/* TOP LAYER — NEW / AFTER — clipped to reveal position */}
+        {/* TOP LAYER : NEW / AFTER : clipped to reveal position */}
         <div
           className="bas__layer bas__layer--after"
           style={{
@@ -192,7 +192,7 @@ export function BeforeAfterSlider({
           />
         </div>
 
-        {/* Labels — NEW left, OLD right */}
+        {/* Labels : NEW left, OLD right */}
         <span
           className="bas__label bas__label--after"
           aria-hidden="true"

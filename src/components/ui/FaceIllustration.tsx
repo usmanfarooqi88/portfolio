@@ -23,6 +23,7 @@ export function FaceIllustration() {
   const rightBlink = useMotionValue(1)
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsTouch(window.matchMedia('(pointer: coarse)').matches)
   }, [])
 
@@ -104,7 +105,7 @@ export function FaceIllustration() {
         stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
         fill="none"
       />
-      {/* Quiff strand — the signature lift on the left-top */}
+      {/* Quiff strand : the signature lift on the left-top */}
       <path
         d="M 76 14 C 70 6 64 4 60 8 C 57 11 60 18 66 20"
         stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"

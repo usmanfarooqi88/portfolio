@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   Portfolio V2 — Editorial Layout
+   Portfolio V2 : Editorial Layout
    Reference: andreavollendorf.com
    Grid: 1320px max, 6vw (min 2rem, max 6rem) side padding
    ═══════════════════════════════════════════════════════════ */
@@ -7,21 +7,19 @@
 /* ── Design tokens ────────────────────────────────────── */
 
 :root {
-  --font-editorial: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-display: 'Outfit', system-ui, sans-serif;
 
-  /* Fixed 120px side padding — no max-width, always flush to viewport */
+  /* Nav height : single source of truth; replaces all hardcoded 56px refs */
+  --nav-h: 70px;
+
+  /* Fixed 120px side padding : no max-width, always flush to viewport */
   --grid-pad:     120px;
 
-  /* Pure white ground (Andrea uses #fff, not warm beige) */
-  --v2-ground:    #ffffff;
-  --v2-ground-alt: #f9f9f9;
+  /* Warm greige ground : sampled from matteofabbiani.webflow.io */
+  --v2-ground:    #E7E4DE;
+  --v2-ground-alt: #DDD9D2;
 }
 
-/* Dark mode ground overrides */
-html.dark {
-  --v2-ground:    #111111;
-  --v2-ground-alt: #1a1a1a;
-}
 
 /* ── Global: pure white ground ───────────────────────── */
 
@@ -29,30 +27,66 @@ body {
   background-color: var(--v2-ground);
 }
 
-/* ── TopNav ───────────────────────────────────────────── */
+/* ── TopNav ── fixed, translucent, blurred ────────────── */
 
 .v2-topnav {
-  background-color: var(--v2-ground) !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-h);
+  z-index: 50;
+  background-color: rgba(231, 228, 222, 0.82) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
 }
 
-/* Shared grid container — nav + all sections use this */
+/* Shared grid container : nav + all sections use this */
 .v2-nav-inner {
-  padding: 0 var(--grid-pad);
+  padding: 0 5vw;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* B3: Wordmark : "Usman | Farooqi" with coral divider */
 .v2-nav-wordmark {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Outfit', system-ui, sans-serif;
   font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 750;
+  font-size: 30px;
+  line-height: 1;
   color: var(--dark-navy);
   text-decoration: none;
   transition: opacity 0.15s;
   letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* Coral pipe divider between "Usman" and "Farooqi" */
+.logo-divider {
+  display: inline-block;
+  width: 2px;
+  height: 32px;
+  background: #E96848;
+  margin: 0 10px;
+  border-radius: 1px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Mobile: smaller wordmark */
+@media (max-width: 767px) {
+  .v2-nav-wordmark {
+    font-size: 22px;
+  }
+  .logo-divider {
+    height: 24px;
+    margin: 0 7px;
+  }
 }
 
 .v2-nav-wordmark:hover { opacity: 0.6; }
@@ -72,108 +106,169 @@ body {
   opacity: 1;
 }
 
-/* ── Hero ─────────────────────────────────────────────── */
+/* B3: Download CV pill CTA : hidden on mobile, shown on md+ */
+.v2-nav-cta {
+  display: none;
+}
+
+@media (min-width: 768px) {
+.v2-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary-orange);
+  color: var(--dark-navy) !important;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  transition: background 0.18s ease, opacity 0.18s;
+  opacity: 1 !important;
+}
+
+.v2-nav-cta:hover {
+  background: var(--accent-text);
+  opacity: 1 !important;
+}
+} /* end @media (min-width: 768px) */
+
+/* B3: Round menu button for mobile */
+.v2-nav-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background: var(--dark-navy);
+  color: var(--v2-ground);
+  border: none;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.v2-nav-menu-btn:hover { background: var(--primary-orange); }
+
+/* ── Hero : B4: split screen, full-bleed right photo ─── */
 
 .v2-hero {
+  /* No top padding : photo runs under the sticky nav */
+  position: relative;
   background: var(--v2-ground);
-  padding-top: clamp(5rem, 10vh, 8rem);
-  padding-bottom: clamp(4rem, 7vh, 6rem);
+  overflow: hidden;
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  align-items: stretch;
 }
 
+/* Full-width split: text left with standard padding, photo right edge-to-edge */
 .v2-hero__inner {
-  padding: 0 var(--grid-pad);
+  width: 100%;
+  display: grid;
+  /* left column: text with side padding; right column: fills remaining to viewport edge */
+  grid-template-columns: 1fr 44%;
+  align-items: center;
 }
 
-/* Single-column layout — no illustration */
+/* Single-column layout : no illustration */
 .v2-hero__inner--single {
   display: block;
+  padding: clamp(5rem, 10vh, 8rem) var(--grid-pad) clamp(4rem, 7vh, 6rem);
 }
 
-/* Split layout — text left, portrait right */
+/* Split layout : same grid override for split variant */
 .v2-hero__inner--split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  max-width: 1200px;
-  margin-inline: auto;
+  /* inherited from .v2-hero__inner */
 }
 
+/* Text left : padded normally */
 .v2-hero__text {
-  /* text side */
+  padding: clamp(5rem, 10vh, 8rem) 3rem clamp(4rem, 7vh, 6rem) var(--grid-pad);
+  align-self: center;
 }
 
+/* Photo right : zero padding so photo is edge-to-edge */
 .v2-hero__visual {
-  display: flex;
-  justify-content: flex-end;
+  align-self: stretch;
+  overflow: hidden;
 }
 
+/* B4: no rounded corners, full-height bleed, grayscale */
 .v2-hero__portrait-wrap {
   position: relative;
   width: 100%;
-  max-width: 420px;
-  border-radius: 16px;
+  height: 100%;
+  min-height: calc(100vh - var(--nav-h));
+  border-radius: 0;
   overflow: hidden;
-  /* subtle fade at bottom so it blends into page */
-  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 24%);
-  mask-image:         linear-gradient(to top, transparent 0%, black 24%);
 }
 
 .v2-hero__portrait {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
-  object-position: top center;
-  /* gentle reveal on hover */
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  object-position: center top;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
 }
 
+/* No hover scale on the grayscale photo */
 .v2-hero__portrait-wrap:hover .v2-hero__portrait {
-  transform: scale(1.03);
+  filter: grayscale(80%);
 }
 
 @media (max-width: 1023px) {
-  .v2-hero__inner--split {
+  .v2-hero {
+    min-height: auto;
+    flex-direction: column;
+  }
+  .v2-hero__inner {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+  }
+  .v2-hero__text {
+    padding: 3rem var(--grid-pad) 2rem;
+    order: 2;
   }
   .v2-hero__visual {
-    justify-content: center;
-    order: -1; /* portrait above text on tablet/mobile */
+    order: 1;
+    height: 50vw;
+    min-height: 300px;
+    max-height: 420px;
   }
   .v2-hero__portrait-wrap {
-    max-width: 240px;
-    border-radius: 50%;
-    -webkit-mask-image: none;
-    mask-image: none;
+    height: 100%;
+    min-height: auto;
+    border-radius: 0;
   }
   .v2-hero__portrait {
-    aspect-ratio: 1 / 1;
-    object-position: center 15%;
+    aspect-ratio: auto;
   }
 }
 
-/* Heading — large, clean, non-italic */
+@media (max-width: 599px) {
+  .v2-hero__text {
+    padding: 2.5rem 24px 2rem;
+  }
+  .v2-hero__visual {
+    height: 60vw;
+  }
+}
+
+/* B2/B4: Heading : Outfit display font, large, reference weight 300 */
 .v2-hero__title {
   margin: 0;
-  font-family: var(--font-editorial);
-  font-size: clamp(1.875rem, 3.2vw, 2.875rem);
-  font-weight: 400;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: clamp(2rem, 2.9vw, 3.75rem);
+  font-weight: 300;
   font-style: normal;
-  line-height: 1.14;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
   color: var(--dark-navy);
-}
-
-.v2-hero__title span {
-  display: block;
-}
-
-.v2-hero__title em {
-  font-style: normal;
-  color: var(--primary-orange);
+  text-wrap: balance;
 }
 
 /* Body */
@@ -207,7 +302,7 @@ body {
   top: -1px;
 }
 
-.v2-hero__dot--on { background: #22c55e; } /* green — no token exists, intentional brand colour */
+.v2-hero__dot--on { background: #22c55e; } /* green : no token exists, intentional brand colour */
 
 /* CTAs */
 .v2-hero__ctas {
@@ -218,32 +313,49 @@ body {
   margin: 2rem 0 0;
 }
 
+/* Primary CTA : outlined pill */
 .v2-hero__cta-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.4rem;
   min-height: 44px;
-  padding: 0;
-  background: none;
-  border: none;
-  font-family: inherit;
+  padding: 10px 22px;
+  background: transparent;
+  border: 1.5px solid var(--dark-navy);
+  border-radius: 9999px;
+  font-family: 'Outfit', system-ui, sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: var(--dark-navy);
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.15s ease;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
 }
 
-.v2-hero__cta-link:hover { color: var(--primary-orange); }
+.v2-hero__cta-link:hover {
+  background: var(--dark-navy);
+  color: var(--v2-ground);
+}
 
 .v2-hero__cta-link:focus-visible {
   outline: 2px solid var(--primary-orange);
   outline-offset: 3px;
-  border-radius: 2px;
 }
 
-.v2-hero__cta-link--muted { color: var(--muted-text); }
+/* Secondary / muted text link */
+.v2-hero__cta-link--muted {
+  background: none;
+  border: none;
+  padding: 10px 0;
+  color: var(--muted-text);
+  font-size: 14px;
+}
+
+.v2-hero__cta-link--muted:hover {
+  background: none;
+  color: var(--dark-navy);
+  border: none;
+}
 
 /* Face SVG base (kept for fallback) */
 .v2-face-svg {
@@ -252,7 +364,7 @@ body {
 }
 
 /* 3D avatar canvas container.
-   mask-image cuts the alpha channel directly — no colour overlay, no fringing.
+   mask-image cuts the alpha channel directly : no colour overlay, no fringing.
    The bust fades to fully transparent at the bottom so the white page shows through. */
 .v2-three-avatar {
   width: 100%;
@@ -276,12 +388,12 @@ body {
 /*
   Sticky panel: pins just below the fixed nav while the user
   scrolls through the wrapper's extra height.
-  Nav height = h-14 = 56px; subtract from both top and height.
+  Nav height stored in --nav-h; subtract from both top and height.
 */
 .v2-carousel-sticky {
   position: sticky;
-  top: 56px;
-  height: calc(100vh - 56px);
+  top: var(--nav-h);
+  height: calc(100vh - var(--nav-h));
   overflow: hidden;
   background: var(--v2-ground);
   display: flex;
@@ -306,20 +418,20 @@ body {
 }
 
 .v2-carousel-label span {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted-text);
 }
 
-/* Section label used inside .v2-section-inner — strip the duplicate padding */
+/* Section label used inside .v2-section-inner : strip the duplicate padding */
 .v2-section-inner .v2-carousel-label {
   padding-left: 0;
   padding-right: 0;
 }
 
-/* Track wrapper — overflow hidden, fills remaining height */
+/* Track wrapper : overflow hidden, fills remaining height */
 .v2-carousel-track-wrap {
   flex: 1;
   overflow: hidden;
@@ -328,7 +440,7 @@ body {
   align-items: flex-start;
 }
 
-/* Track — cards in a row, driven by translateX */
+/* Track : cards in a row, driven by translateX */
 .v2-carousel-track {
   display: flex;
   gap: 1.5rem;
@@ -342,12 +454,12 @@ body {
   flex: 0 0 clamp(300px, 34vw, 460px);
 }
 
-/* ── Selected Work section (legacy grid — keep for /work page) ──── */
+/* ── Selected Work section (legacy grid : keep for /work page) ──── */
 
 .v2-work-section {
   background: var(--v2-ground);
-  padding-top: clamp(2.5rem, 5vh, 4rem);
-  padding-bottom: clamp(3rem, 6vh, 5rem);
+  padding-top: clamp(1.5rem, 3vh, 2.5rem);
+  padding-bottom: clamp(2rem, 4vh, 3rem);
 }
 
 /* Section header row: label + divider */
@@ -371,14 +483,14 @@ body {
   padding: 2rem var(--grid-pad) 0;
 }
 
-/* 3 columns on desktop — wide enough for case-study cards */
+/* 3 columns on desktop : wide enough for case-study cards */
 .v2-work-grid {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   gap: 1.5rem !important;
 }
 
-/* ── Work cards — flat editorial style ────────────────── */
+/* ── Work cards : flat editorial style ────────────────── */
 
 .v2-work-grid .glass-project-card {
   border-radius: 6px;
@@ -445,7 +557,7 @@ body {
 
 .v2-footer__wordmark .orange {
   font-style: normal;
-  color: var(--primary-orange);
+  color: var(--accent-text);
 }
 
 .v2-footer__links {
@@ -476,7 +588,7 @@ body {
   white-space: nowrap;
 }
 
-/* ── Shared section container — 60px side gutters, no max-width ── */
+/* ── Shared section container : 60px side gutters, no max-width ── */
 
 .v2-section-inner {
   padding-left: var(--grid-pad);
@@ -512,7 +624,7 @@ body {
   }
 }
 
-/* Small laptop / large tablet — reduce margins */
+/* Small laptop / large tablet : reduce margins */
 @media (max-width: 1279px) {
   :root { --grid-pad: 60px; }
 }
@@ -522,12 +634,19 @@ body {
   :root { --grid-pad: 40px; }
 }
 
-/* Mobile — tighten side margins */
+/* Mobile : tighten side margins */
 @media (max-width: 768px) {
   :root { --grid-pad: 24px; }
 
   .v2-hero__title {
     font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
+}
+
+/* Wide desktop: 32px grid gap */
+@media (min-width: 1536px) {
+  .v2-work-grid {
+    gap: 2rem !important;
   }
 }
 
@@ -540,5 +659,332 @@ body {
   .v2-footer__inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* ── Statement section (B5 mask reveal) ──────────────── */
+
+.stmt-section {
+  background: var(--v2-ground);
+  padding: clamp(5rem, 12vh, 9rem) 0;
+}
+
+.stmt-inner {
+  padding: 0 var(--grid-pad);
+  /* ~70% of content area; content area = viewport - 2*grid-pad */
+  max-width: min(70vw, 980px);
+}
+
+/* Hidden measurement div : renders at real column width, invisible */
+.stmt-measure {
+  position: absolute;
+  visibility: hidden;
+  pointer-events: none;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: clamp(2rem, 4.2vw, 4.5rem);
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  /* Match .stmt-inner width so line-break measurement is accurate */
+  max-width: min(70vw, 980px);
+  white-space: normal;
+}
+
+.stmt-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Each line: overflow hidden clips the mask reveal.
+   bottom-padding = 0.25em so descenders (g, y, p) are never clipped. */
+.stmt-line-wrap {
+  overflow: hidden;
+  padding-bottom: 0.25em;
+  line-height: 1.15;
+}
+
+.stmt-line {
+  display: block;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: clamp(2rem, 4.2vw, 4.5rem);
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  color: var(--dark-navy);
+  line-height: 1.15;
+  will-change: transform;
+}
+
+@media (max-width: 767px) {
+  .stmt-section {
+    padding: 3.5rem 0;
+  }
+  .stmt-inner {
+    max-width: 100%;
+  }
+  .stmt-line,
+  .stmt-measure {
+    font-size: clamp(1.6rem, 7.5vw, 2.5rem);
+  }
+}
+
+/* ── Section fade-in (simple, once) ──────────────────── */
+
+.section-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.section-fade.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ── Hero scroll expansion (B5) ──────────────────────── */
+
+/*
+ * Outer wrapper: 210vh tall on desktop : provides scroll room for the
+ * clip-path expansion (100vh visible + 110vh scroll travel).
+ * On mobile (<768px): collapses to auto, no scroll expansion.
+ */
+/* ── Hero outer wrapper ──────────────────────────────────────────────────── */
+
+/* EXPANSION mode (HERO_EXPANSION_ENABLED = true):
+   210vh total : 100vh visible + 110vh scroll room for clip-path expansion */
+/* ── Hero: scroll-expansion (width grows 44vw → 100vw) ───────── */
+
+.hero-outer {
+  position: relative;
+  height: calc(210vh);    /* 110vh of scroll room */
+  background: var(--v2-ground);
+  margin-top: calc(-1 * var(--nav-h));  /* absorb fixed nav height */
+}
+
+/* Static fallback (mobile / reduced-motion): only 100vh */
+.hero-outer--static {
+  height: 100vh;
+}
+
+/* Sticky viewport: pins to top while scrolling through 260vh */
+.hero-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  /* no grid : text is padded, photo is position:absolute */
+}
+
+/* Left: text : vertically centered.
+   Width = 52vw (stays left of the 44vw photo) capped at 760px.
+   padding-right pushes text away from photo edge. */
+.hero-text {
+  position: relative;
+  z-index: 1;              /* below photo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 56vw;
+  padding-top: calc(var(--nav-h) + clamp(3rem, 7vh, 5rem));
+  padding-bottom: clamp(3rem, 6vh, 5rem);
+  padding-left: var(--grid-pad);
+  padding-right: 0;
+}
+
+/* Right: photo : position:absolute, right-anchored, full height.
+   Initial width 44vw; Framer Motion sets inline width via useTransform.
+   z-index above text so photo "covers" text as it expands. */
+.hero-photo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 44vw;             /* fallback / initial; overridden by Framer Motion */
+  z-index: 10;
+  will-change: width;
+}
+
+/* Static fallback: show 44vw panel, no animation */
+.hero-outer--static .hero-photo {
+  width: 44vw;
+  will-change: auto;
+}
+
+/* Photo fills its container via cover */
+.hero-photo__img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%; /* face in-frame at 44vw; adjust when replacing portrait */
+  filter: grayscale(100%);
+}
+
+/* ── Mobile (<768px): static stacked layout ─── */
+@media (max-width: 767px) {
+  .hero-outer,
+  .hero-outer--static {
+    height: auto;
+  }
+
+  .hero-sticky {
+    position: relative;
+    top: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-text {
+    order: 2;
+    width: 100%;
+    padding: 2.5rem 24px 2rem;
+    padding-top: calc(var(--nav-h) + 2.5rem);
+    padding-right: 24px;
+    max-width: none;
+  }
+
+  .hero-photo,
+  .hero-outer--static .hero-photo {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 100% !important;
+    height: 80vw;
+    min-height: 300px;
+    max-height: 420px;
+    order: 1;
+    will-change: auto;
+  }
+
+  .hero-photo__img {
+    position: absolute;
+  }
+}
+
+/* ── Reduced-motion: static 100vh no animation ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-outer {
+    height: 100vh;
+  }
+  .hero-sticky {
+    position: relative;
+    top: auto;
+  }
+  .hero-photo {
+    width: 44vw;
+    will-change: auto;
+  }
+}
+
+/* ── StatementSection : word-level mask reveal ───────────────────────── */
+
+.statement-section {
+  background: var(--v2-ground);
+  padding: clamp(1rem, 2vh, 2rem) var(--grid-pad);
+  max-height: 100vh;        /* never taller than one viewport */
+  overflow: hidden;
+}
+
+.statement-text {
+  margin: 0;
+  max-width: 70%;           /* ~70% of content width (inside grid-pad) */
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: clamp(2rem, 4.2vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--dark-navy);
+  /* inline-flex wrapping so whitespace tokens display correctly */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  row-gap: 0;
+  column-gap: 0;
+}
+
+/* Outer clip container : overflow:hidden clips the translateY */
+.statement-word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  /* padding-bottom gives descenders room so they are never clipped */
+  padding-bottom: 0.2em;
+  /* vertical-align aligns the baseline correctly */
+  vertical-align: top;
+  line-height: inherit;
+}
+
+/* The actual word : starts below, animates up */
+.statement-word {
+  display: inline-block;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.45s ease;
+}
+
+/* Whitespace tokens keep words properly spaced */
+.statement-space {
+  display: inline-block;
+  white-space: pre;
+}
+
+@media (max-width: 1024px) {
+  .statement-text {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 767px) {
+  .statement-section {
+    padding: clamp(3rem, 7vh, 5rem) var(--grid-pad);
+  }
+  .statement-text {
+    max-width: 100%;
+  }
+}
+
+/* ── MarqueeBand ─────────────────────────────────────────────────────── */
+
+.marquee-band {
+  background: var(--v2-ground);
+  border-top: 1px solid var(--soft-border);
+}
+
+.marquee-band__row {
+  /* Scroll motion set via inline Framer style on desktop;
+     on mobile rows wrap and flow naturally */
+  overflow: hidden;
+}
+
+.marquee-band__row + .marquee-band__row {
+  margin-top: 0.1em;
+}
+
+@media (max-width: 767px) {
+  .marquee-band__row {
+    white-space: normal !important;
+  }
+  .marquee-band__text {
+    font-size: clamp(1.6rem, 7vw, 2.8rem) !important;
+    white-space: normal;
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-band__row {
+    transform: none !important;
   }
 }

@@ -1,8 +1,8 @@
 /**
- * ThreeAvatar — 3D rigged bust.
+ * ThreeAvatar : 3D rigged bust.
  *
  * Intro: camera sweeps from above the head down to face-level on first load.
- * Cursor: head rotates to follow (no mesh translation — avoids stretching).
+ * Cursor: head rotates to follow (no mesh translation : avoids stretching).
  * Wind:   compound sine drift on the head yaw.
  */
 
@@ -60,7 +60,7 @@ function makeEyeTexture(): THREE.CanvasTexture {
   return tex
 }
 
-// Camera start (above, close — looking down at top of head)
+// Camera start (above, close : looking down at top of head)
 const CAM_START = new THREE.Vector3(0, 2.4, 1.0)
 // Camera end (normal front-facing position)
 const CAM_END   = new THREE.Vector3(0, 0.5, 3.0)
@@ -82,7 +82,7 @@ export function ThreeAvatarScene() {
   // Set camera to start position immediately
   useEffect(() => {
     camera.position.copy(CAM_START)
-    ;(camera as THREE.PerspectiveCamera).fov = 47
+    ;(camera as THREE.PerspectiveCamera).fov = 47 // eslint-disable-line react-hooks/immutability
     ;(camera as THREE.PerspectiveCamera).updateProjectionMatrix()
     camera.lookAt(CAM_TARGET)
   }, [camera])
@@ -95,7 +95,7 @@ export function ThreeAvatarScene() {
         if (obj.name === 'LeftEye')  leftEyeRef.current  = obj
         if (obj.name === 'RightEye') rightEyeRef.current = obj
       }
-      // Eye spheres — replace material with canvas iris texture
+      // Eye spheres : replace material with canvas iris texture
       if (obj instanceof THREE.Mesh &&
           (obj.name === 'Sphere' || obj.name === 'Sphere.001')) {
         obj.renderOrder = 2
@@ -137,11 +137,11 @@ export function ThreeAvatarScene() {
     const head = headRef.current
     const neck = neckRef.current
 
-    // Wind drift (compound sine — never mechanical)
+    // Wind drift (compound sine : never mechanical)
     const wind = Math.sin(t * 0.38) * 0.6 * DEG
                + Math.sin(t * 0.71 + 1.3) * 0.25 * DEG
 
-    // Head follows cursor — rotate only, no translation
+    // Head follows cursor : rotate only, no translation
     const targetYaw   = mouse.current.x * 5 * DEG + wind
     const targetPitch = -mouse.current.y * 2.5 * DEG
 

@@ -48,7 +48,7 @@ export function RelatedProjects({ currentId }: RelatedProjectsProps) {
               key={cs.id}
               to={caseStudyPath(cs)}
               className="case-study-related__card"
-              aria-label={`${cs.title} — ${cs.subtitle}`}
+              aria-label={`${cs.title} : ${cs.subtitle}`}
             >
               <img
                 src={cs.thumbnail}

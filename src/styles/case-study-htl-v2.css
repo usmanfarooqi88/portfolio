@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   HTL V2 — Cinematic Layout · Editorial Typography · Master Alignment
+   HTL V2 : Cinematic Layout · Editorial Typography · Master Alignment
    Scope: [data-cs="happytenant-landlord"]
 
    MASTER SPINE: all editorial content aligns to the hero title's left edge.
@@ -9,20 +9,20 @@
    left edge as the hero heading, without centering.
 
    EXCEPTIONS (intentionally centred / narrow):
-     - Reflection callout  — intimate closing copy, max-width --htl-narrow
-     - CTA pair            — short navigation close
+     - Reflection callout  : intimate closing copy, max-width --htl-narrow
+     - CTA pair            : short navigation close
    ═══════════════════════════════════════════════════════════════════════════ */
 
 [data-cs="happytenant-landlord"] {
   /* ── WIDTH TIERS ──────────────────────────────────────────────────────── */
-  /*  NARROW     52rem  — reflection, CTA                                   */
-  /*  EDITORIAL  65rem  — headings, body text, features                     */
-  /*  REASONING  72rem  — decision blocks, metadata cards                   */
+  /*  NARROW     52rem  : reflection, CTA                                   */
+  /*  EDITORIAL  65rem  : headings, body text, features                     */
+  /*  REASONING  72rem  : decision blocks, metadata cards                   */
   --htl-narrow:    52rem;
   --htl-editorial: 65rem;
   --htl-reasoning: 72rem;
 
-  /* ── GUTTER — used ONLY for image blocks ─────────────────────────────── */
+  /* ── GUTTER : used ONLY for image blocks ─────────────────────────────── */
   /* Text blocks use var(--cs-pad-x) from base CSS to share the hero spine  */
   --htl-gutter: clamp(1.25rem, 4vw, 5rem);
 
@@ -46,7 +46,7 @@
 
 [data-cs="happytenant-landlord"] .case-study-body {
   display: block;
-  /* max-width: var(--cs-shell) and margin: 0 auto from base CSS — let them apply */
+  /* max-width: var(--cs-shell) and margin: 0 auto from base CSS : let them apply */
   /* so body centres at wide viewports exactly as hero__content does            */
   padding-inline: 0;
   padding-top: clamp(3rem, 6vw, 5rem);
@@ -73,7 +73,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   TYPOGRAPHY — EDITORIAL HIERARCHY
+   TYPOGRAPHY : EDITORIAL HIERARCHY
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ── Chapter label / eyebrow ─────────────────────────────────────────────── */
@@ -88,7 +88,7 @@
   margin-bottom: 1rem;
 }
 
-/* ── BASE chapter heading — left-aligned to hero spine ───────────────────── */
+/* ── BASE chapter heading : left-aligned to hero spine ───────────────────── */
 /* max-width: editorial (65rem). Content starts at --cs-pad-x, same as the   */
 /* hero heading. Extends to the right. No centering.                          */
 
@@ -136,8 +136,8 @@
   margin-right: 0.15em;
 }
 
-/* ── CINEMATIC STATEMENT — 2 uses max (Home, States) ─────────────────────── */
-/* Full width intentionally — dark full-bleed effect needs the whole stream   */
+/* ── CINEMATIC STATEMENT : 2 uses max (Home, States) ─────────────────────── */
+/* Full width intentionally : dark full-bleed effect needs the whole stream   */
 
 [data-cs="happytenant-landlord"] .cs-block-heading.htl-statement {
   max-width: 100%;
@@ -153,7 +153,7 @@
   margin-bottom: 0;
 }
 
-/* ── FUNCTIONAL heading — smaller, Inter, left-aligned ───────────────────── */
+/* ── FUNCTIONAL heading : smaller, Inter, left-aligned ───────────────────── */
 
 [data-cs="happytenant-landlord"] .cs-block-heading.htl-functional {
   max-width: var(--htl-editorial);
@@ -170,7 +170,7 @@
   max-width: 30ch;
 }
 
-/* ── Body text — editorial width, left-aligned to hero spine ─────────────── */
+/* ── Body text : editorial width, left-aligned to hero spine ─────────────── */
 
 [data-cs="happytenant-landlord"] .cs-block-text {
   max-width: var(--htl-editorial);
@@ -182,7 +182,7 @@
   line-height: 1.68;
 }
 
-/* ── Callout — narrow, CENTRED (exception: reflection copy) ──────────────── */
+/* ── Callout : narrow, CENTRED (exception: reflection copy) ──────────────── */
 
 [data-cs="happytenant-landlord"] .cs-block-callout {
   background: transparent;
@@ -346,14 +346,14 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   REASONING BLOCKS — decision · metrics
+   REASONING BLOCKS : decision · metrics
    Left-aligned to hero spine. Extend further right than editorial.
    Same left edge as chapters above creates visual connection.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 [data-cs="happytenant-landlord"] .cs-block-decision {
   max-width: calc(var(--htl-reasoning) - var(--cs-pad-x));
-  /* card LEFT edge sits at the spine — offset with margin, not internal padding */
+  /* card LEFT edge sits at the spine : offset with margin, not internal padding */
   margin-inline-start: var(--cs-pad-x);
   margin-inline-end: var(--cs-pad-x);
   box-sizing: border-box;
@@ -385,7 +385,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   EDITORIAL BLOCKS — features · cta
+   EDITORIAL BLOCKS : features · cta
    ═══════════════════════════════════════════════════════════════════════════ */
 
 [data-cs="happytenant-landlord"] .cs-block-features {
@@ -396,7 +396,7 @@
   box-sizing: border-box;
 }
 
-/* CTA pair — narrow, CENTRED */
+/* CTA pair : narrow, CENTRED */
 [data-cs="happytenant-landlord"] .cs-block-cta-pair {
   max-width: var(--htl-narrow);
   width: 100%;
@@ -545,10 +545,3 @@
 
 /* ── Dark mode ───────────────────────────────────────────────────────────── */
 
-html.dark [data-cs="happytenant-landlord"] .case-study-hero {
-  background: #050505;
-}
-
-html.dark [data-cs="happytenant-landlord"] {
-  --htl-dark-bg: #070709;
-}

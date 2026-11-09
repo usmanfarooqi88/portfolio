@@ -7,7 +7,7 @@ interface CaseStudyHeroProps {
 export function CaseStudyHero({ caseStudy }: CaseStudyHeroProps) {
   const { role, timeline, status } = caseStudy.details
 
-  // Show Role + Timeline in header (following Andrea's layout — clean 2-column grid)
+  // Show Role + Timeline in header (following Andrea's layout : clean 2-column grid)
   // Status shown separately as a badge if present
   const meta: Array<{ label: string; value: string }> = [
     role ? { label: 'Role', value: role } : null,
@@ -28,7 +28,7 @@ export function CaseStudyHero({ caseStudy }: CaseStudyHeroProps) {
           <span className="cs2-header__status">{status}</span>
         )}
 
-        {/* Intro paragraph — subtitle preferred, fall back to description */}
+        {/* Intro paragraph : subtitle preferred, fall back to description */}
         {(caseStudy.subtitle || caseStudy.description) && (
           <p className="cs2-header__intro">
             {caseStudy.subtitle || caseStudy.description}
@@ -48,11 +48,11 @@ export function CaseStudyHero({ caseStudy }: CaseStudyHeroProps) {
         )}
       </div>
 
-      {/* Hero image — tight below header */}
+      {/* Hero image : tight below header */}
       <div className="cs2-header__image-wrap">
         <img
           src={caseStudy.heroImage}
-          alt={`${caseStudy.title} — hero`}
+          alt={`${caseStudy.title} : hero`}
           className="cs2-header__image"
           loading="eager"
           decoding="async"

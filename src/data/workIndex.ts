@@ -2,7 +2,7 @@ import { getProjectsByIds } from './featuredWork'
 import type { Project } from './projects'
 
 /**
- * Complete /work portfolio index — ordering and primary classification.
+ * Complete /work portfolio index : ordering and primary classification.
  * Homepage Featured remains curated separately via featuredWork.ts.
  */
 
@@ -18,7 +18,7 @@ export const WORK_FILTERS: { id: WorkFilterId; label: string }[] = [
   { id: 'visual-editorial', label: 'Visual & Editorial' },
 ]
 
-/** Display type label for cards — one primary classification signal. */
+/** Display type label for cards : one primary classification signal. */
 export function workClassLabel(workClass: WorkClass): string {
   switch (workClass) {
     case 'product-design':
@@ -51,7 +51,7 @@ export const WORK_INDEX_ENTRIES: { id: string; workClass: WorkClass }[] = [
   { id: 'happytenant-website', workClass: 'web' },
   { id: 'pcm', workClass: 'product-design' },
   { id: 'jaan-digital', workClass: 'web' },
-  // Visual & editorial (annual reports — preserve all)
+  // Visual & editorial (annual reports : preserve all)
   { id: 'riyad-2021', workClass: 'visual-editorial' },
   { id: 'riyad-2022', workClass: 'visual-editorial' },
   { id: 'almarai-2021', workClass: 'visual-editorial' },

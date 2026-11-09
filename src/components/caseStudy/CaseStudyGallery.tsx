@@ -50,7 +50,7 @@ export function CaseStudyGallery({ caseStudy }: CaseStudyGalleryProps) {
             src={item.src}
             fallback={caseStudy.thumbnail}
             caption={item.caption}
-            alt={item.caption ?? `${caseStudy.title} — design screen ${i + 1}`}
+            alt={item.caption ?? `${caseStudy.title} : design screen ${i + 1}`}
           />
         ))}
       </div>

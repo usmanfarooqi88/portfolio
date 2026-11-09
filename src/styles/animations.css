@@ -121,7 +121,7 @@
 }
 
 .glass-project-card:hover .project-title {
-  color: var(--primary-orange);
+  color: var(--accent-text);
 }
 
 .glass-project-card:hover .cta-arrow {
@@ -130,7 +130,7 @@
 
 .glass-service-card:hover .service-icon {
   transform: scale(1.1) rotate(4deg);
-  color: var(--primary-orange);
+  color: var(--accent-text);
 }
 
 .btn-primary {
@@ -218,7 +218,7 @@
 }
 
 .filter-tab.active {
-  color: var(--primary-orange);
+  color: var(--accent-text);
 }
 
 .filter-tab:hover {

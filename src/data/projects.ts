@@ -9,13 +9,13 @@ export interface Project {
   description: string
   /** One concise product problem / value / scope line for evidence cards */
   productStatement?: string
-  /** e.g. Shipped, Prototype, Concept — only when documented */
+  /** e.g. Shipped, Prototype, Concept. Only when documented. */
   status?: string
   role?: string
   year?: string
-  /** Platform or team context — keep short */
+  /** Platform or team context. Keep short. */
   context?: string
-  /** One verified proof / scope line — omit when unverified */
+  /** One verified proof / scope line. Omit when unverified. */
   proofPoint?: string
   /** Shared ecosystem id (e.g. happytenant) for related-product cue */
   ecosystem?: string
@@ -28,7 +28,7 @@ export interface Project {
   image: string
   /** Optional looping WebM thumbnail for project cards (muted, autoplay). Poster/fallback remains `image`. */
   video?: string
-  /** @deprecated Prefer FEATURED_PRODUCT_IDS — kept for filter compatibility */
+  /** @deprecated Prefer FEATURED_PRODUCT_IDS. Kept for filter compatibility. */
   featured: boolean
 }
 
@@ -42,27 +42,24 @@ export const projects: Project[] = [
   {
     id: 'heard-app',
     title: 'Heard Mobile App',
-    displayTitle: 'Heard — Cross-platform Restaurant Product',
-    category: 'SaaS',
-    tags: ['Hospitality', 'SaaS', 'Product'],
+    displayTitle: 'Heard: Cross-platform Restaurant Product',
+    category: 'Mobile App',
+    tags: ['Hospitality', 'Mobile', 'Product'],
     description:
-      'A mobile app experience designed with a clean, accessible, and user-friendly interface.',
+      'Restaurant ordering app designed for iOS and Android at Frontier Labs.',
     productStatement:
-      'Multi-mode restaurant ordering — delivery, pickup, and table order — with shared checkout patterns and engineering handoff.',
-    role: 'Product Designer',
-    year: '2021–2023',
-    context: 'Frontier Labs · iOS & Android',
+      'Multi-mode restaurant ordering covering delivery, pickup, and table order, with shared checkout patterns and engineering handoff.',
+    context: 'Restaurant ordering app · iOS & Android · Frontier Labs',
     proofPoint: undefined,
     caseStudySlug: 'heard-mobile-app',
     externalUrl: 'https://www.behance.net/gallery/164092641/Heard-App',
     image: projectImagePath('heard-app'),
-    video: '/images/projects/Heard_app_ordering.webm',
     featured: true,
   },
   {
     id: 'skrewww',
     title: 'Skrewww Design System',
-    displayTitle: 'Skrewww — AI-First Design System',
+    displayTitle: 'Skrewww: AI-First Design System',
     category: 'Design System',
     tags: ['AI', 'SaaS', 'Design Systems'],
     description:
@@ -70,19 +67,18 @@ export const projects: Project[] = [
     productStatement:
       'AI-first design-system foundation connecting Figma variables, components, documentation, and React implementation.',
     status: 'Live',
-    role: 'Founder / Design Systems Designer',
+    role: 'Personal project',
     context: 'Figma ↔ tokens ↔ React',
-    // Counts omitted from card — see case study for verified public scope
+    // Counts omitted from card. See case study for verified public scope.
     caseStudySlug: 'skrewww-design-system',
     externalUrl: 'https://skrewww.com',
     image: projectImagePath('skrewww'),
-    video: '/images/projects/skrewww.webm',
     featured: true,
   },
   {
     id: 'wanderly',
-    title: 'Wanderly — AI Travel Planner',
-    displayTitle: 'Wanderly — AI Travel Planner',
+    title: 'Wanderly: AI Travel Planner',
+    displayTitle: 'Wanderly: AI Travel Planner',
     category: 'AI Product',
     tags: ['Travel', 'AI'],
     description:
@@ -90,9 +86,7 @@ export const projects: Project[] = [
     productStatement:
       'AI-assisted travel planning that turns travel intent into structured, comparable trip experiences.',
     status: 'Prototype / Product Design',
-    role: 'Product Designer',
-    year: 'Freelance Project',
-    context: 'Mobile · 20-day design case',
+    context: 'Freelance · Mobile · 20-day design case',
     caseStudyHref: '/work/wanderly',
     externalUrl: 'https://www.behance.net/gallery/243279399/Wanderly-AI-Travel-Planner-App-UXUI',
     image: projectImagePath('wanderly'),
@@ -109,8 +103,7 @@ export const projects: Project[] = [
       'A hospitality guest experience that makes dining discovery and booking feel as primary as the stay.',
     productStatement:
       'Nozul hospitality mobile app for dining discovery, table and event booking, and stay reservations.',
-    role: 'Product Designer',
-    year: 'Freelance Project',
+    context: 'Freelance · Mobile',
     caseStudySlug: 'nhr',
     embedUrl:
       'https://embed.figma.com/proto/B645e7Kn52Sbw0d1KCQVpe/Nozul-Hotel-and-Resorts?node-id=1253-2266&viewport=300%2C142%2C0.1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1253%3A2266&page-id=0%3A1&embed-host=share',
@@ -125,7 +118,6 @@ export const projects: Project[] = [
     category: 'Food',
     tags: ['Hospitality', 'SaaS'],
     description: 'A handheld POS interface designed for fast restaurant/service workflows.',
-    role: 'Product Designer',
     context: 'Frontier Labs',
     embedUrl:
       'https://embed.figma.com/proto/bgi8xnhJ9EyTdZZraMxyxD/Heard-POS---Handheld-design?node-id=2-5141&p=f&viewport=483%2C319%2C0.06&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3%3A1717&page-id=2%3A1059&embed-host=share',
@@ -136,15 +128,14 @@ export const projects: Project[] = [
   {
     id: 'danat-behavior',
     title: 'Danat Behavior App',
-    displayTitle: 'Danat Behaviors — Behavior & Rewards',
+    displayTitle: 'Danat Behaviors: Behavior & Rewards',
     category: 'HealthTech',
     tags: ['Services', 'Product'],
     description:
       'A mobile ecosystem that turns activities and challenges into progress, Danat points, recognition and redeemable rewards.',
     productStatement:
       'Zero-to-one mobile experience connecting challenges, points, recognition and partner rewards.',
-    role: 'Product Designer',
-    year: 'Freelance Project',
+    context: 'Freelance · Mobile',
     caseStudySlug: 'danat-behaviors',
     embedUrl:
       'https://embed.figma.com/proto/8EHDksjpGgM5QOAdvhxCEi/Danat-Behaviors--Shareable-?node-id=99-2104&p=f&viewport=276%2C125%2C0.03&scaling=scale-down&content-scaling=fixed&starting-point-node-id=99%3A2103&page-id=0%3A1&embed-host=share',
@@ -156,15 +147,13 @@ export const projects: Project[] = [
   {
     id: 'happytenant-tenant',
     title: 'HappyTenant Tenant App',
-    displayTitle: 'HappyTenant — Tenant Experience',
+    displayTitle: 'HappyTenant: Tenant Experience',
     category: 'PropTech',
     tags: ['SaaS', 'PropTech'],
     description:
       'A tenant-focused property management app for requests, communication, payments, and service workflows.',
     productStatement:
       'Tenant self-service for property workflows, maintenance, documents, and day-to-day communication.',
-    role: 'Product Designer',
-    year: '2024–2026',
     context: 'LAVA Brands',
     ecosystem: 'happytenant',
     ecosystemLabel: 'HappyTenant ecosystem · Tenant',
@@ -179,15 +168,13 @@ export const projects: Project[] = [
   {
     id: 'happytenant-landlord',
     title: 'HappyTenant Landlord App',
-    displayTitle: 'HappyTenant — Landlord Experience',
+    displayTitle: 'HappyTenant: Landlord Experience',
     category: 'PropTech',
     tags: ['SaaS', 'PropTech'],
     description:
       'A landlord app experience for property visibility, tenant communication, and portfolio tracking.',
     productStatement:
       'Landlord-facing portfolio visibility, property information, and owner decision workflows.',
-    role: 'Product Designer',
-    year: '2024–2026',
     context: 'LAVA Brands',
     ecosystem: 'happytenant',
     ecosystemLabel: 'HappyTenant ecosystem · Landlord',
@@ -368,12 +355,11 @@ export const projects: Project[] = [
   },
   {
     id: 'pcm',
-    title: 'PCM — Prescription Care Management',
+    title: 'PCM: Prescription Care Management',
     category: 'HealthTech',
     tags: ['Services'],
     description:
       'A prescription care management platform designed to simplify medication savings and patient support.',
-    role: 'Product Designer',
     context: 'Frontier Labs',
     externalUrl: 'https://www.pcmsavings.com/',
     image: '/images/projects/pcm.webp',
@@ -385,7 +371,6 @@ export const projects: Project[] = [
     category: 'PropTech',
     tags: ['SaaS'],
     description: 'Modern PropTech website presenting property management features clearly.',
-    role: 'Product Designer',
     context: 'LAVA Brands',
     externalUrl: 'https://happytenant.io/',
     image: projectImagePath('happytenant-website'),
@@ -397,7 +382,6 @@ export const projects: Project[] = [
     category: 'Services',
     tags: [],
     description: 'Clean digital brand website experience.',
-    role: 'Product Designer',
     context: 'Jaan Digital',
     embedUrl:
       'https://embed.figma.com/proto/LkL7HJHkHgQ0Y2FpfRzs0C/Jaan-Digital?node-id=162-2088&viewport=170%2C372%2C0.03&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=169%3A2614&page-id=0%3A1&embed-host=share',
@@ -412,17 +396,15 @@ export const projects: Project[] = [
     category: 'Hospitality',
     tags: ['Food', 'Travel', 'Hospitality'],
     description:
-      'A content-rich hospitality website for discovery across dining, offers, and events — with clear reservation intent and a bridge to the mobile guest app.',
+      'A content-rich hospitality website for discovery across dining, offers, and events, with clear reservation intent and a bridge to the mobile guest app.',
     productStatement:
       'Hospitality website concept for multi-service discovery, reservation intent, and brand storytelling.',
-    role: 'Product Designer',
-    year: 'Freelance Project',
+    context: 'Freelance · Desktop web',
     caseStudySlug: 'nozul-hotels-website',
     embedUrl:
       'https://embed.figma.com/proto/B645e7Kn52Sbw0d1KCQVpe/Nozul-Hotel-and-Resorts?node-id=720-3215&viewport=-220%2C274%2C0.03&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=720%3A3215&page-id=1%3A2&embed-host=share',
     figmaUrl: 'https://www.figma.com/proto/B645e7Kn52Sbw0d1KCQVpe/',
     image: projectImagePath('nozul-website'),
-    video: '/images/projects/Nozul_hotel.webm',
     featured: true,
   },
 ]

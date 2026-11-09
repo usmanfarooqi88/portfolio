@@ -12,7 +12,7 @@ export const skrewwwBlocks: CaseStudyBlock[] = [
     id: 'sk-thesis',
     size: 'lg',
     content:
-      'A design system built to connect Figma, design tokens, reusable components, documentation and React into one coherent design-to-code foundation — readable by designers, developers, and coding agents.',
+      'A design system built to connect Figma, design tokens, reusable components, documentation and React into one coherent design-to-code foundation, readable by designers, developers, and coding agents.',
   },
   {
     type: 'callout',
@@ -26,19 +26,18 @@ export const skrewwwBlocks: CaseStudyBlock[] = [
     type: 'metrics',
     id: 'sk-summary-metrics',
     description:
-      'Verified scope — documented components and agent contracts from the public platform; variable totals from live Skrewww Pro Figma (Sep 2026). Not all 225 variables are equally mature foundation tokens.',
+      'Verified scope, documented components and agent contracts from the public platform; variable totals from live Skrewww Pro Figma (Sep 2026). Not all 225 variables are equally mature foundation tokens.',
     items: [
-      { metric: 'Documented components', value: '66' },
+      { metric: 'Documented components', value: '63' },
       { metric: 'Pro Figma variables', value: '225 / 7' },
       { metric: 'Agent contracts', value: '55' },
-      { metric: 'Platform release', value: '1.0 · Live' },
     ],
   },
   {
     type: 'pipeline',
     id: 'sk-system-pipeline',
     caption:
-      'Working model: design intent resolves through tokens and React, stays documented, and becomes agent-readable — then validated where claims are checkable.',
+      'Working model: design intent resolves through tokens and React, stays documented, and becomes agent-readable, then validated where claims are checkable.',
     items: [
       { label: 'Figma', detail: 'Components & properties' },
       { label: 'Tokens', detail: 'Primitive → semantic' },
@@ -60,7 +59,7 @@ export const skrewwwBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'sk-context-p',
     content:
-      'Most product teams treat Figma libraries, design tokens, documentation and production components as adjacent artifacts. Over time they drift: properties diverge, docs describe behavior the code no longer matches, and one-off values replace shared rules. When AI coding tools enter the workflow, that drift compounds — models invent plausible props, claim installability that is not real, or rebuild components the system already owns.',
+      'Most product teams treat Figma libraries, design tokens, documentation and production components as adjacent artifacts. Over time they drift: properties diverge, docs describe behavior the code no longer matches, and one-off values replace shared rules. When AI coding tools enter the workflow, that drift compounds, models invent plausible props, claim installability that is not real, or rebuild components the system already owns.',
   },
   {
     type: 'heading',
@@ -92,7 +91,7 @@ export const skrewwwBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'sk-why-p',
     content:
-      'Without machine-readable rules and a deliberate design-to-code model, every new surface (shape, brand, industry) risks becoming a fork. Skrewww was built so the same components adapt through tokens — never forks — and so agents can check a current contract before generating UI.',
+      'Without machine-readable rules and a deliberate design-to-code model, every new surface (shape, brand, industry) risks becoming a fork. Skrewww was built so the same components adapt through tokens, never forks, and so agents can check a current contract before generating UI.',
   },
 
   // ── Ownership ──────────────────────────────────────────────────────
@@ -114,7 +113,7 @@ export const skrewwwBlocks: CaseStudyBlock[] = [
       {
         name: 'AI / engineering assistance',
         description:
-          'AI coding agents were used as implementation partners against authored contracts — not as autonomous system designers. Agent Kit and Guard exist specifically so agents read current facts instead of inventing APIs, maturity or installability.',
+          'AI coding agents were used as implementation partners against authored contracts, not as autonomous system designers. Agent Kit and Guard exist specifically so agents read current facts instead of inventing APIs, maturity or installability.',
       },
     ],
   },
@@ -130,7 +129,7 @@ export const skrewwwBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'sk-figma-button-p',
     content:
-      'Live Skrewww Pro audit (file U6KUuNf7DF4CP9QBOkLSUx): canonical component set Actions/Button — node 2012:7752 — on the Actions page. Style × Size × State yields 45 variants. Teaching presentation below is Presentation V2 (node 2966:1187).',
+      'Live Skrewww Pro audit (file U6KUuNf7DF4CP9QBOkLSUx): canonical component set Actions/Button: node 2012:7752, on the Actions page. Style × Size × State yields 45 variants. Teaching presentation below is Presentation V2 (node 2966:1187).',
   },
   {
     type: 'image',
@@ -138,7 +137,7 @@ export const skrewwwBlocks: CaseStudyBlock[] = [
     src: '/images/case-studies/skrewww/_presentation/button-presentation-v2.webp',
     alt: 'Skrewww Figma Presentation V2: Button styles, sizes, states, and icon examples',
     caption:
-      'Real Figma export — Presentation V2 (2966:1187). Style (Primary / Secondary / Danger), Size (S / M / L), State (Default → Disabled), leading/trailing icons.',
+      'Real Figma export: Presentation V2 (2966:1187). Style (Primary / Secondary / Danger), Size (S / M / L), State (Default → Disabled), leading/trailing icons.',
     width: 'full',
     zoom: true,
   },
@@ -169,13 +168,13 @@ export const skrewwwBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'sk-tokens-p',
     content:
-      'Live Pro Figma holds 225 variables across 7 collections (Primitive 133 · Semantic 26 · Component 1 · Brand 1 · Shape 5 · Surface 58 · Button Style 1). The durable product story is the resolution chain — not treating every variable as equally mature.',
+      'Live Pro Figma holds 225 variables across 7 collections (Primitive 133 · Semantic 26 · Component 1 · Brand 1 · Shape 5 · Surface 58 · Button Style 1). The durable product story is the resolution chain, not treating every variable as equally mature.',
   },
   {
     type: 'pipeline',
     id: 'sk-token-pipeline',
     caption:
-      'Flat / Gradient primary fill. Hover uses color/brand/600 (#5638D6) directly. Glass uses translucent values — not this alias chain.',
+      'Flat / Gradient primary fill. Hover uses color/brand/600 (#5638D6) directly. Glass uses translucent values, not this alias chain.',
     items: [
       { label: 'color/brand/500', detail: '#6C4CF2' },
       { label: 'semantic/action/primary', detail: 'aliases brand/500' },
@@ -188,7 +187,7 @@ export const skrewwwBlocks: CaseStudyBlock[] = [
     id: 'sk-token-brand-scale',
     src: '/images/case-studies/skrewww/evidence/tokens-brand-scale.webp',
     alt: 'Figma Primitive brand color scale: brand/50 #F1EEFE through brand/900 #1E1252, with brand/500 #6C4CF2 and brand/600 #5638D6 highlighted',
-    caption: 'Primitive brand scale (2002:2618) — brand/500 = #6C4CF2; brand/600 = #5638D6.',
+    caption: 'Primitive brand scale (2002:2618): brand/500 = #6C4CF2; brand/600 = #5638D6.',
     width: 'full',
     zoom: true,
   },
@@ -197,7 +196,7 @@ export const skrewwwBlocks: CaseStudyBlock[] = [
     id: 'sk-token-semantic',
     src: '/images/case-studies/skrewww/evidence/tokens-semantic-light.webp',
     alt: 'Figma Semantic Light tokens: action/primary, action/danger, feedback/success, feedback/warning, focus-ring, background/primary, text/primary and more',
-    caption: 'Semantic Light (2002:2724) — action/primary aliases brand/500.',
+    caption: 'Semantic Light (2002:2724): action/primary aliases brand/500.',
     zoom: true,
   },
   {
@@ -214,19 +213,19 @@ export const skrewwwBlocks: CaseStudyBlock[] = [
     type: 'heading',
     id: 'sk-parity',
     label: 'Figma ↔ React',
-    content: 'Button parity — verified, not assumed',
+    content: 'Button parity: verified, not assumed',
   },
   {
     type: 'text',
     id: 'sk-parity-p',
     content:
-      'Same component, two surfaces of truth. Figma is the design contract; React is the implementation API. They align on style, size, state behavior, icons, focus, disabled, and ambient Shape/Surface — and deliberately diverge where code needs capabilities Figma does not model as props.',
+      'Same component, two surfaces of truth. Figma is the design contract; React is the implementation API. They align on style, size, state behavior, icons, focus, disabled, and ambient Shape/Surface, and deliberately diverge where code needs capabilities Figma does not model as props.',
   },
   {
     type: 'code',
     id: 'sk-parity-react-api',
     tone: 'code',
-    title: 'components/ui/Button.tsx — React API (excerpt)',
+    title: 'components/ui/Button.tsx: React API (excerpt)',
     language: 'ts',
     content: `export type ButtonVariant = "primary" | "secondary" | "danger";
 export type ButtonSize = "sm" | "md" | "lg";
@@ -246,11 +245,11 @@ type SharedButtonProps = {
     type: 'code',
     id: 'sk-parity-react-css',
     tone: 'code',
-    title: 'button.module.css — focus + token consumption (excerpt)',
+    title: 'button.module.css, focus + token consumption (excerpt)',
     language: 'css',
     content: `.button:focus-visible {
   outline: 2px solid var(--semantic-focus-ring);
-  outline-offset: 0; /* matches Figma Focus Ring — no gap */
+  outline-offset: 0; /* matches Figma Focus Ring, no gap */
 }
 
 .button {
@@ -270,12 +269,12 @@ type SharedButtonProps = {
       {
         name: 'React-only',
         description:
-          'loading, fullWidth, href/target link mode, aria-label. These are implementation concerns — not Figma component properties on Actions/Button.',
+          'loading, fullWidth, href/target link mode, aria-label. These are implementation concerns, not Figma component properties on Actions/Button.',
       },
       {
         name: 'Honesty note',
         description:
-          'Live audit confirms trailing icon in Figma (BOOLEAN + INSTANCE_SWAP) and canonical node 2012:7752. Generated button.json may still show figma.verified: false and a trailing-icon open question until the Skrewww contract pipeline is regenerated — portfolio parity follows the audit, not stale contract fields.',
+          'Live audit confirms trailing icon in Figma (BOOLEAN + INSTANCE_SWAP) and canonical node 2012:7752. Generated button.json may still show figma.verified: false and a trailing-icon open question until the Skrewww contract pipeline is regenerated, portfolio parity follows the audit, not stale contract fields.',
       },
     ],
   },
@@ -291,14 +290,14 @@ type SharedButtonProps = {
     type: 'text',
     id: 'sk-modes-p',
     content:
-      'Shape (Sharp · Rounded · Pill · Squircle · Brand Shape) and Surface (Flat · Gradient · Glass) restyle the same components through tokens — not per-component Style forks. Style Systems status on the public architecture remains “validated on 3.”',
+      'Shape (Sharp · Rounded · Pill · Squircle · Brand Shape) and Surface (Flat · Gradient · Glass) restyle the same components through tokens, not per-component Style forks. Style Systems status on the public architecture remains “validated on 3.”',
   },
   {
     type: 'image',
     id: 'sk-shape-modes',
     src: '/images/case-studies/skrewww/evidence/shape-modes.webp',
     alt: 'Figma Shape modes: Sharp, Rounded, Pill, and Squircle applied to shared components',
-    caption: 'Real Figma export — Shape mode rows (Sharp · Rounded · Pill · Squircle).',
+    caption: 'Real Figma export: Shape mode rows (Sharp · Rounded · Pill · Squircle).',
     width: 'full',
     zoom: true,
   },
@@ -307,7 +306,7 @@ type SharedButtonProps = {
     id: 'sk-surface-modes',
     src: '/images/case-studies/skrewww/evidence/surface-modes.webp',
     alt: 'Figma Surface modes: Flat, Gradient, and Glass',
-    caption: 'Real Figma export — Surface Flat (2003:3241), Gradient (2003:3249), Glass (2003:3263).',
+    caption: 'Real Figma export: Surface Flat (2003:3241), Gradient (2003:3249), Glass (2003:3263).',
     width: 'full',
     zoom: true,
   },
@@ -331,7 +330,7 @@ type SharedButtonProps = {
     src: '/images/case-studies/skrewww/system.webp',
     alt: 'Skrewww system diagram: component modes flowing into premium output',
     caption:
-      'Existing narrative system overview — Shape and Surface restyle the same component through tokens rather than forking libraries.',
+      'Existing narrative system overview: Shape and Surface restyle the same component through tokens rather than forking libraries.',
     width: 'full',
     zoom: true,
   },
@@ -356,7 +355,7 @@ type SharedButtonProps = {
       },
       {
         label: '04 · Industry Systems',
-        detail: 'Banking pilot first — inherit from core, never fork it',
+        detail: 'Banking pilot first, inherit from core, never fork it',
         status: 'Banking pilot · 3',
       },
     ],
@@ -385,7 +384,7 @@ type SharedButtonProps = {
     tradeoff:
       'Authors must maintain alias discipline. Glass uses translucent literals by design. Component-level collection stays intentionally sparse.',
     result:
-      'Live Pro Figma: 225 variables across 7 collections. Documented chain matches tokens.css and Figma — not the outdated brand/600 → #6C4CF2 copy.',
+      'Live Pro Figma: 225 variables across 7 collections. Documented chain matches tokens.css and Figma, not the outdated brand/600 → #6C4CF2 copy.',
   },
   {
     type: 'decision',
@@ -421,7 +420,7 @@ type SharedButtonProps = {
     tradeoff:
       'Only a subset of implemented components is distributed via @skrewww today. No custom Skrewww MCP in Beta. Agents that skip contracts can still fail.',
     result:
-      'Public Beta publishes 55 contracts, a Skill, Recipes and project-context rules. Internal 14-case evaluation reported hard design-system errors falling from 35 to 1 with Agent Kit on — a small, non-universal suite.',
+      'Public Beta publishes 55 contracts, a Skill, Recipes and project-context rules. Internal 14-case evaluation reported hard design-system errors falling from 35 to 1 with Agent Kit on, a small, non-universal suite.',
   },
   {
     type: 'decision',
@@ -437,7 +436,7 @@ type SharedButtonProps = {
     decision:
       'Guard validates selected canonical-contract claims offline. Public rules: nonexistent slug, false Stable claim, false installable-via-registry claim.',
     tradeoff:
-      'Guard does not validate arbitrary props, WCAG, Shape/Surface, or Figma parity. CI adoption is observe-only first — not a required gate yet.',
+      'Guard does not validate arbitrary props, WCAG, Shape/Surface, or Figma parity. CI adoption is observe-only first, not a required gate yet.',
     result:
       '@skrewww/guard@0.1.0-beta.1 published; real CLI failures captured from fixture claims (see Guard section).',
   },
@@ -453,13 +452,13 @@ type SharedButtonProps = {
     type: 'text',
     id: 'sk-agent-kit-p',
     content:
-      'AI does not make design systems “faster” by default — it makes ambiguous systems fail louder. Agent Kit responds with predictable naming, explicit component contracts, machine-readable docs, deterministic never-invent rules, and a trust order that puts registry/docs above model memory.',
+      'AI does not make design systems “faster” by default, it makes ambiguous systems fail louder. Agent Kit responds with predictable naming, explicit component contracts, machine-readable docs, deterministic never-invent rules, and a trust order that puts registry/docs above model memory.',
   },
   {
     type: 'pipeline',
     id: 'sk-agent-pipeline',
     caption:
-      'Trust path for agents — consume canonical system knowledge instead of inventing component behavior. Agent Kit is Beta; it guides generation and does not replace design review.',
+      'Trust path for agents, consume canonical system knowledge instead of inventing component behavior. Agent Kit is Beta; it guides generation and does not replace design review.',
     items: [
       { label: 'Component', detail: 'Allow-listed slug' },
       { label: 'Contract', detail: 'api.properties allow-list' },
@@ -480,7 +479,7 @@ type SharedButtonProps = {
     type: 'code',
     id: 'sk-agent-trust',
     tone: 'code',
-    title: 'public/agent/skill/SKILL.md — Trust order (excerpt)',
+    title: 'public/agent/skill/SKILL.md: Trust order (excerpt)',
     language: 'markdown',
     content: `When sources disagree, higher wins:
 
@@ -492,13 +491,13 @@ type SharedButtonProps = {
 6. Model memory of Skrewww's API
 
 Component contracts always beat Recipes.`,
-    caption: 'Genuine Skill excerpt — agents must not invent APIs from memory.',
+    caption: 'Genuine Skill excerpt, agents must not invent APIs from memory.',
   },
   {
     type: 'code',
     id: 'sk-agent-contract',
     tone: 'code',
-    title: 'public/agent/contracts/button.json — API allow-list (excerpt)',
+    title: 'public/agent/contracts/button.json, API allow-list (excerpt)',
     language: 'json',
     content: `{
   "slug": "button",
@@ -520,7 +519,7 @@ Component contracts always beat Recipes.`,
     type: 'code',
     id: 'sk-agent-recipe',
     tone: 'code',
-    title: 'public/agent/recipes/destructive-confirmation.json — Recipe (excerpt)',
+    title: 'public/agent/recipes/destructive-confirmation.json: Recipe (excerpt)',
     language: 'json',
     content: `{
   "id": "destructive-confirmation",
@@ -530,13 +529,13 @@ Component contracts always beat Recipes.`,
     "guidance": "Use Button variant danger for confirm; secondary for cancel."
   }]
 }`,
-    caption: 'Recipes compose contracts — they never override api.properties.',
+    caption: 'Recipes compose contracts, they never override api.properties.',
   },
   {
     type: 'metrics',
     id: 'sk-agent-eval-viz',
     description:
-      'Internal Agent Kit evaluation — 14 test cases. Small suite only; not an external benchmark.',
+      'Internal Agent Kit evaluation, 14 test cases. Small suite only; not an external benchmark.',
     items: [
       { metric: 'Hard DS errors · Kit off', value: '35' },
       { metric: 'Hard DS errors · Kit on', value: '1' },
@@ -547,9 +546,9 @@ Component contracts always beat Recipes.`,
     type: 'callout',
     id: 'sk-agent-eval',
     tone: 'note',
-    title: 'Limitation — small internal evaluation',
+    title: 'Limitation, small internal evaluation',
     content:
-      'This 35 → 1 result is a small internal evaluation across 14 cases — not production reliability, not an external benchmark, and not universal across agents or tasks. Limitations are disclosed on /agent-kit.',
+      'This 35 → 1 result is a small internal evaluation across 14 cases, not production reliability, not an external benchmark, and not universal across agents or tasks. Limitations are disclosed on /agent-kit.',
   },
 
   // ── Guard ──────────────────────────────────────────────────────────
@@ -557,13 +556,13 @@ Component contracts always beat Recipes.`,
     type: 'heading',
     id: 'sk-guard',
     label: 'Guard',
-    content: '@skrewww/guard — claim validation',
+    content: '@skrewww/guard, claim validation',
   },
   {
     type: 'text',
     id: 'sk-guard-p',
     content:
-      'Guard is a narrow offline/local CLI that validates selected canonical-contract claims. Published as @skrewww/guard@0.1.0-beta.1. Provenance uses @skrewww-component markers from registry installs. CI usage is observe-only first — not a required gate yet.',
+      'Guard is a narrow offline/local CLI that validates selected canonical-contract claims. Published as @skrewww/guard@0.1.0-beta.1. Provenance uses @skrewww-component markers from registry installs. CI usage is observe-only first, not a required gate yet.',
   },
   {
     type: 'metrics',
@@ -590,7 +589,7 @@ Component contracts always beat Recipes.`,
     type: 'code',
     id: 'sk-guard-cli',
     tone: 'terminal',
-    title: 'Authentic CLI output — @skrewww/guard 0.1.0-beta.1',
+    title: 'Authentic CLI output, @skrewww/guard 0.1.0-beta.1',
     language: 'bash',
     content: `$ node packages/guard/dist/cli.js lib/guard/__fixtures__/g2 \\
     --claims lib/guard/__fixtures__/g2/claims-violations.json
@@ -616,7 +615,7 @@ Guard: 2 errors in 2 files`,
       {
         name: 'What Guard is',
         description:
-          'An offline claim validator for selected contract facts — a concrete engineering artifact with three public consumer rules.',
+          'An offline claim validator for selected contract facts, a concrete engineering artifact with three public consumer rules.',
       },
       {
         name: 'What Guard is not',
@@ -637,7 +636,7 @@ Guard: 2 errors in 2 files`,
     type: 'text',
     id: 'sk-a11y-p',
     content:
-      'Skrewww treats WCAG 2.2 AA as a target baseline for generated UI and component guidance — not a blanket “compliant” claim for every surface. Button guidance requires a real <button> or link, keyboard activation, and semantic/focus-ring. Disabled state must not be the only explanation of unavailability.',
+      'Skrewww treats WCAG 2.2 AA as a target baseline for generated UI and component guidance, not a blanket “compliant” claim for every surface. Button guidance requires a real <button> or link, keyboard activation, and semantic/focus-ring. Disabled state must not be the only explanation of unavailability.',
   },
   {
     type: 'list',
@@ -688,7 +687,7 @@ Guard: 2 errors in 2 files`,
     type: 'heading',
     id: 'sk-impact',
     label: 'Impact',
-    content: 'What changed — and what is still early',
+    content: 'What changed, and what is still early',
   },
   {
     type: 'features',
@@ -719,12 +718,12 @@ Guard: 2 errors in 2 files`,
     id: 'sk-limits-list',
     label: 'Limitations',
     items: [
-      'Style Systems validated on 3 components before broader rollout — coverage vs quality trade-off',
+      'Style Systems validated on 3 components before broader rollout, coverage vs quality trade-off',
       'Industry Systems start as pilots (Banking) to avoid premature forks',
-      'Free vs Pro Figma packaging is separate from the MIT code repo — marketing set-counts are not asserted here',
+      'Free vs Pro Figma packaging is separate from the MIT code repo, marketing set-counts are not asserted here',
       'Glass / Squircle and Gradient modes add visual flexibility at the cost of parity work',
       'Not every implemented React component is registry-distributed yet',
-      'Agent Kit and Guard are Beta integration layers; they guide and check — they do not replace design review',
+      'Agent Kit and Guard are Beta integration layers; they guide and check, they do not replace design review',
       'Generated agent contracts can lag live Figma until regeneration (e.g. Button figma.verified)',
     ],
   },
@@ -740,7 +739,7 @@ Guard: 2 errors in 2 files`,
     type: 'text',
     id: 'sk-reflection-p',
     content:
-      'At this scale, the hard problem is not drawing another component — it is keeping Figma, tokens, docs, React and agents synchronized without pretending maturity you have not earned. I would keep investing in contract compilation and narrow validation (Guard) before expanding visual modes. The next system-level problem is broader Style System validation and honest distribution coverage, without letting Industry pilots fork the core.',
+      'At this scale, the hard problem is not drawing another component, it is keeping Figma, tokens, docs, React and agents synchronized without pretending maturity you have not earned. I would keep investing in contract compilation and narrow validation (Guard) before expanding visual modes. The next system-level problem is broader Style System validation and honest distribution coverage, without letting Industry pilots fork the core.',
   },
 
   // ── Ending CTAs ────────────────────────────────────────────────────

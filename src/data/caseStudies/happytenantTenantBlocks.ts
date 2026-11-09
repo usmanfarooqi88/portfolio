@@ -7,7 +7,7 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
     id: 'ht-thesis',
     size: 'lg',
     content:
-      'I redesigned the complete tenant-facing mobile experience for HappyTenant — an established residential PropTech platform — replacing a fragmented legacy self-service product with a coherent app spanning payments, bookings, requests, documents, visitors, and property communication.',
+      'I redesigned the complete tenant-facing mobile experience for HappyTenant, an established residential PropTech platform, replacing a fragmented legacy self-service product with a coherent app spanning payments, bookings, requests, documents, visitors, and property communication.',
   },
   {
     type: 'metrics',
@@ -31,17 +31,17 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'ht-problem-p',
     content:
-      'The legacy HappyTenant tenant app handled many recurring jobs — pay rent, book amenities, raise a maintenance request, check documents — but each area lived as an isolated module. Tenants moved between unconnected surfaces with no shared context, no visible status after an action, and no clear sense of what needed attention when they opened the app.',
+      'The legacy HappyTenant tenant app handled many recurring jobs, pay rent, book amenities, raise a maintenance request, check documents, but each area lived as an isolated module. Tenants moved between unconnected surfaces with no shared context, no visible status after an action, and no clear sense of what needed attention when they opened the app.',
   },
   {
     type: 'list',
     id: 'ht-scope',
     label: 'Tenant jobs the redesign covers',
     items: [
-      'Property & lease status — days remaining, My Unit details',
-      'Payments — dues, due details, history, overdue states',
-      'Bookings — amenity spaces and services, approval states',
-      'Requests — ticket → work order → operational updates',
+      'Property & lease status, days remaining, My Unit details',
+      'Payments, dues, due details, history, overdue states',
+      'Bookings, amenity spaces and services, approval states',
+      'Requests, ticket → work order → operational updates',
       'Documents, Visitors, Guest Access',
       'Broadcasts, Chat, Events, Notifications',
       'Help Desk, Settings, Guide',
@@ -59,7 +59,7 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'ht-home-p',
     content:
-      'Tenant Home had to carry property context, lease countdown, rent status, active bookings, broadcast access, and secondary services — without reading like a navigation drawer. The hierarchy problem was real: what is urgent, what is frequent, and what can live below the fold.',
+      'Tenant Home had to carry property context, lease countdown, rent status, active bookings, broadcast access, and secondary services, without reading like a navigation drawer. The hierarchy problem was real: what is urgent, what is frequent, and what can live below the fold.',
   },
   {
     type: 'image',
@@ -85,9 +85,9 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
     decision:
       'Structure Home as a status dashboard: lease days remaining + financial summary at the top, primary shortcuts (My Unit, Payments, Bookings) in the middle band, secondary services (Broadcasts, Guest Access, Events, Promotions) below.',
     tradeoff:
-      'A dense home trades whitespace for information completeness. Secondary modules remain visible but must not look equally urgent — spacing, type weight, and section separation carry that distinction.',
+      'A dense home trades whitespace for information completeness. Secondary modules remain visible but must not look equally urgent, spacing, type weight, and section separation carry that distinction.',
     result:
-      'Home reads as an organizing surface for the whole tenant product — not a single-feature dashboard or a flat list of unrelated screens.',
+      'Home reads as an organizing surface for the whole tenant product, not a single-feature dashboard or a flat list of unrelated screens.',
   },
 
   // Payments
@@ -103,7 +103,7 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
     src: '/images/case-studies/happytenant-tenant/_presentation/payments.webp',
     alt: 'Payments screens: My Dues with overdue tags and amounts, Due Details with total and received breakdown, History showing no paid invoices empty state',
     caption:
-      'My Dues → Due Details → History. Overdue status, amount, due date, received amount, and property context stay together — the tenant can understand their position without navigating between screens.',
+      'My Dues → Due Details → History. Overdue status, amount, due date, received amount, and property context stay together, the tenant can understand their position without navigating between screens.',
     width: 'full',
     zoom: true,
   },
@@ -111,7 +111,7 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'ht-payments-note',
     content:
-      'The payment detail screen surfaces account, property/unit, due date, and attachment access alongside the financial breakdown. The goal was financial-state clarity — what is owed, when, and in what condition — not claiming collection improvements.',
+      'The payment detail screen surfaces account, property/unit, due date, and attachment access alongside the financial breakdown. The goal was financial-state clarity, what is owed, when, and in what condition, not claiming collection improvements.',
   },
 
   // Requests / Work Orders
@@ -125,7 +125,7 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'ht-requests-p',
     content:
-      'The legacy approach to maintenance was a submission form with no visible lifecycle after. The redesign exposes the operational path — from tenant request through internal ticket to work order, with a Updates stage tracking progress. Actions do not disappear after submit.',
+      'The legacy approach to maintenance was a submission form with no visible lifecycle after. The redesign exposes the operational path, from tenant request through internal ticket to work order, with a Updates stage tracking progress. Actions do not disappear after submit.',
   },
   {
     type: 'image',
@@ -133,7 +133,7 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
     src: '/images/case-studies/happytenant-tenant/_presentation/requests.webp',
     alt: 'Four screens: Requests empty state, Ticket details with category and property metadata, Work Order with Ballantind Tower property and status, Ticket Updates empty state',
     caption:
-      'Requests → Ticket → Work Order → Updates. The product uses this terminology exactly — not "maintenance" as a catch-all. Each stage is inspectable.',
+      'Requests → Ticket → Work Order → Updates. The product uses this terminology exactly, not "maintenance" as a catch-all. Each stage is inspectable.',
     width: 'full',
     zoom: true,
   },
@@ -146,7 +146,7 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
     options: [
       'Single form with no visible post-submission tracking',
       'Request + status tag only (collapsed tracking)',
-      'Requests → Ticket → Work Order → Updates — each stage inspectable',
+      'Requests → Ticket → Work Order → Updates, each stage inspectable',
     ],
     decision:
       "Model the full operational path using the product's own terminology. Give each stage a screen that carries forward the relevant context: who requested, which property, current status.",
@@ -169,7 +169,7 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
     src: '/images/case-studies/happytenant-tenant/_presentation/bookings-states.webp',
     alt: 'My Bookings in three states: Approved tab showing Gym and Squash Court, Pending tab showing Car Wash and Tennis Court, Rejected tab showing Habiba with rejected badge',
     caption:
-      'Approved · Pending · Rejected — three outcomes on the same list surface. A tenant who was rejected sees that explicitly rather than having their booking silently disappear.',
+      'Approved · Pending · Rejected, three outcomes on the same list surface. A tenant who was rejected sees that explicitly rather than having their booking silently disappear.',
     width: 'full',
     zoom: true,
   },
@@ -195,7 +195,7 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'ht-beyond-p',
     content:
-      'Documents, Visitors, Broadcasts, Events, Chat, and Help Desk extend the tenant product into ongoing communication and property management. The same interaction language — headers, list rows, empty states, status tags — carries across all six modules.',
+      'Documents, Visitors, Broadcasts, Events, Chat, and Help Desk extend the tenant product into ongoing communication and property management. The same interaction language, headers, list rows, empty states, status tags, carries across all six modules.',
   },
   {
     type: 'image',
@@ -203,7 +203,7 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
     src: '/images/case-studies/happytenant-tenant/_presentation/supporting.webp',
     alt: 'Supporting screens: My Unit lease details with status tags, Documents with expiry dates, Visitors empty state, Visitors list, Broadcast list, Events empty state',
     caption:
-      'My Unit, Documents (with expiry status), Visitors, Broadcasts, and Events — consistent patterns across supporting modules.',
+      'My Unit, Documents (with expiry status), Visitors, Broadcasts, and Events, consistent patterns across supporting modules.',
     width: 'full',
     zoom: true,
   },
@@ -221,7 +221,7 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
     src: '/images/case-studies/happytenant-tenant/_presentation/states.webp',
     alt: 'State pairs: overdue dues list with OVERDUE tags, rejected booking in My Bookings, empty visitors screen with onboarding prompt, populated visitor list',
     caption:
-      'Overdue dues, rejected bookings, empty visitors, visitor list — states across different modules using a consistent visual language for status.',
+      'Overdue dues, rejected bookings, empty visitors, visitor list, states across different modules using a consistent visual language for status.',
     width: 'full',
     zoom: true,
   },
@@ -240,7 +240,7 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
       {
         name: 'Coherent tenant self-service architecture',
         description:
-          'A single mobile product covering financial, property, service, communication, and access workflows — organized around what needs attention, not around app sections.',
+          'A single mobile product covering financial, property, service, communication, and access workflows. Organized around what needs attention, not around app sections.',
       },
       {
         name: 'Status-first information hierarchy',
@@ -266,7 +266,7 @@ export const happytenantTenantBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'ht-reflection-p',
     content:
-      'The central design challenge was not any single module — it was coherence across 17+ product areas that tenants use with very different frequencies. The home hierarchy, the shared state language, and the request lifecycle were the structural decisions that made the product feel connected rather than like a collection of unrelated property utilities.',
+      'The central design challenge was not any single module, it was coherence across 17+ product areas that tenants use with very different frequencies. The home hierarchy, the shared state language, and the request lifecycle were the structural decisions that made the product feel connected rather than like a collection of unrelated property utilities.',
   },
 
   // Next

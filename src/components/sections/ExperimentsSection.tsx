@@ -34,7 +34,7 @@ function ExperimentCard({ exp, index }: { exp: Experiment; index: number }) {
     >
       {/* Index + title row */}
       <div className="flex items-baseline gap-4 mb-8">
-        <span className="text-[11px] font-bold text-[var(--muted-text)] opacity-60 tabular-nums">
+        <span className="text-[12px] font-bold text-[var(--muted-text)] tabular-nums">
           {String(index + 1).padStart(2, '0')}
         </span>
         <h3 className="font-bold text-[22px] text-[var(--dark-navy)] leading-snug tracking-[-0.01em]">
@@ -45,7 +45,7 @@ function ExperimentCard({ exp, index }: { exp: Experiment; index: number }) {
             {exp.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[11px] font-bold text-[var(--muted-text)] border border-[var(--soft-border)] rounded-full px-2.5 py-0.5"
+                className="text-[12px] font-bold text-[var(--muted-text)] border border-[var(--soft-border)] rounded-full px-2.5 py-0.5"
               >
                 {tag}
               </span>
@@ -138,7 +138,7 @@ function PlayOverlay({ hovered, hasVideo }: { hovered: boolean; hasVideo: boolea
 function PlaceholderInner() {
   return (
     <div className="w-full h-full flex items-center justify-center">
-      <span className="text-[var(--muted-text)] opacity-50 text-[12px] font-bold uppercase tracking-[0.12em]">Coming soon</span>
+      <span className="text-[var(--muted-text)] text-[12px] font-bold uppercase tracking-[0.12em]">Coming soon</span>
     </div>
   )
 }
@@ -149,7 +149,7 @@ export function ExperimentsSection() {
       <div className="v2-section-inner">
 
         <div className="mb-16">
-          <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-4">
+          <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-4">
             Experiments
           </p>
           <h2
@@ -159,8 +159,8 @@ export function ExperimentsSection() {
             Prototypes & explorations.
           </h2>
           <p className="text-[15px] text-[var(--muted-text)] max-w-[520px]">
-            In my free time I explore new interactions, motion, and AI-assisted techniques —
-            small experiments that feed into how I approach real product work.
+            In my free time I explore new interactions, motion, and AI-assisted techniques.
+            Small experiments that feed into how I approach real product work.
           </p>
         </div>
 
@@ -171,7 +171,7 @@ export function ExperimentsSection() {
             ))
           ) : (
             <div className="border-t border-[var(--soft-border)] py-24 text-center">
-              <p className="text-[15px] text-[var(--muted-text)]">Experiments are being prepared — check back soon.</p>
+              <p className="text-[15px] text-[var(--muted-text)]">Experiments are being prepared. Check back soon.</p>
             </div>
           )}
           <div className="border-t border-[var(--soft-border)]" />

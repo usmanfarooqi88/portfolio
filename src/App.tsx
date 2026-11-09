@@ -4,7 +4,7 @@ import { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { Layout } from './components/layout/Layout'
 import { StructuredData } from './components/StructuredData'
-import { ThemeProvider } from './contexts/ThemeContext'
+import { useLenis } from './lib/useLenis'
 import { HomePage } from './pages/HomePage'
 
 const CaseStudyPage = lazy(() =>
@@ -25,6 +25,9 @@ const AboutPage = lazy(() =>
 const ContactPage = lazy(() =>
   import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })),
 )
+const NotFoundPage = lazy(() =>
+  import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })),
+)
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -39,28 +42,30 @@ function PageFallback() {
 }
 
 function App() {
+  useLenis()
   return (
-    <ThemeProvider>
-    <BrowserRouter>
-      <ScrollToTop />
-      <Layout>
-        <Suspense fallback={<PageFallback />}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/work" element={<WorkPage />} />
-            <Route path="/work/wanderly" element={<WanderlyCaseStudy />} />
-            <Route path="/case-studies/happytenant-landlord-experience" element={<HappyTenantLandlordV3 />} />
-            <Route path="/case-studies/:slug" element={<CaseStudyPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
-        </Suspense>
-      </Layout>
-    </BrowserRouter>
-    <StructuredData />
-    <Analytics />
-    <SpeedInsights />
-    </ThemeProvider>
+    <>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Layout>
+          <Suspense fallback={<PageFallback />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/work" element={<WorkPage />} />
+              <Route path="/work/wanderly" element={<WanderlyCaseStudy />} />
+              <Route path="/case-studies/happytenant-landlord-experience" element={<HappyTenantLandlordV3 />} />
+              <Route path="/case-studies/:slug" element={<CaseStudyPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
+        </Layout>
+      </BrowserRouter>
+      <StructuredData />
+      <Analytics />
+      <SpeedInsights />
+    </>
   )
 }
 

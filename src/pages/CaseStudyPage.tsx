@@ -90,7 +90,7 @@ export function CaseStudyPage({ slugOverride }: { slugOverride?: string } = {}) 
 
   useEffect(() => {
     if (!caseStudy) {
-      document.title = 'Case Study Not Found — Usman Zahid Farooqi'
+      document.title = 'Case Study Not Found | Usman Zahid Farooqi'
       return
     }
     const path = caseStudy.slug === 'wanderly-ai-travel-planner'
@@ -130,10 +130,6 @@ export function CaseStudyPage({ slugOverride }: { slugOverride?: string } = {}) 
     <div className="cs2-page" data-cs={caseStudy.id}>
       <ReadingProgress />
 
-      <a href="#cs2-main" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-orange focus:text-white focus:rounded-md focus:text-sm focus:font-semibold">
-        Skip to content
-      </a>
-
       {/* Back nav */}
       <div className="cs2-topnav">
         <div className="cs2-topnav__inner">
@@ -149,7 +145,7 @@ export function CaseStudyPage({ slugOverride }: { slugOverride?: string } = {}) 
 
       {/* Body: sidebar + content */}
       <div className="cs2-body">
-        {/* Sticky sidebar — visible at xl only */}
+        {/* Sticky sidebar : visible at xl only */}
         <aside className="cs2-sidebar" aria-label="Page navigation">
           <SectionNav headings={sectionHeadings} />
         </aside>

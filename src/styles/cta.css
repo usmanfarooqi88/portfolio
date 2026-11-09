@@ -1,4 +1,4 @@
-/* CTA — scroll-triggered expand: muted inset card → full-width orange */
+/* CTA : scroll-triggered expand: muted inset card → full-width orange */
 
 .cta-wrap {
   width: 100%;
@@ -55,10 +55,10 @@
   border-radius: 0;
   background: linear-gradient(
     135deg,
-    #f47c3c 0%,
-    #ff7f1f 40%,
-    #ff6a00 70%,
-    #e85d04 100%
+    #f07a5a 0%,
+    #E96848 40%,
+    #d55a3c 70%,
+    #BF3F25 100%
   );
 }
 
@@ -67,7 +67,7 @@
   z-index: 1;
   text-align: center;
   width: 100%;
-  max-width: 56.25rem; /* 900px — readable line length for CTA copy */
+  max-width: 56.25rem; /* 900px : readable line length for CTA copy */
   margin-inline: auto;
   padding: 7.5rem clamp(1.5rem, 5vw, 3rem);
 }
@@ -157,7 +157,7 @@
   border-radius: 999px;
   background: #ffffff;
   border: 2px solid #ffffff;
-  color: #ff6a00;
+  color: #BF3F25;
   font-size: 15px;
   font-weight: 700;
   text-transform: uppercase;

@@ -8,9 +8,9 @@
 }
 
 @font-face {
-  font-family: 'Syne';
-  src: url('/fonts/syne-latin.woff2') format('woff2');
-  font-weight: 400 800;
+  font-family: 'Outfit';
+  src: url('/fonts/outfit-latin.woff2') format('woff2');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -27,48 +27,39 @@
 @import './styles/case-study-v2.css';
 
 :root {
-  --primary-orange: #fa6c0b;
+  /* ── B1 tokens (Matteo Fabbiani reference) ──────────── */
+  --primary-orange: #E96848;        /* GRAPHICS ONLY (buttons, dots) : fails 4.5:1 on greige */
+  --text-coral: #D14B28;            /* large-text coral: 3.5:1 on greige : ≥24px or ≥18.66px bold */
+  --accent-text: #B23A21;           /* small accent text : 4.7:1 on greige, WCAG AA */
   --bright-orange: #ff8c2a;
-  --deep-orange: #e05500;
+  --deep-orange: #B23A21;           /* hover/active state for orange CTAs */
   --soft-orange-tint: #fff2e8;
-  --warm-background: #f7f5f2;
-  --light-gray: #e8e8e8;
-  --medium-gray: #a0a0a0;
-  --dark-navy: #111111;
-  --muted-text: #5f6368;
-  --soft-border: rgba(17, 17, 17, 0.08);
+  --warm-background: #E7E4DE;       /* sampled from matteofabbiani.webflow.io */
+  --light-gray: #d8d4ce;
+  --medium-gray: #a09b96;
+  --dark-navy: #171717;             /* primary text */
+  --muted-text: #68635F;            /* secondary text : ≥4.5:1 on #E7E4DE */
+  --soft-border: rgba(23, 23, 23, 0.10);
   --pure-white: #ffffff;
   --glass-white: rgba(255, 255, 255, 0.1);
   --glass-white-strong: rgba(255, 255, 255, 0.15);
-  --glass-dark: rgba(17, 17, 17, 0.1);
-  --glass-orange: rgba(250, 108, 11, 0.1);
+  --glass-dark: rgba(23, 23, 23, 0.1);
+  --glass-orange: rgba(233, 104, 72, 0.1);
 }
 
-html.dark {
-  --warm-background: #111111;
-  --dark-navy: #f0ede8;
-  --muted-text: #9a9590;
-  --soft-border: rgba(255, 255, 255, 0.08);
-  --pure-white: #1a1a1a;
-  --light-gray: #2a2a2a;
-  --medium-gray: #666666;
-  --glass-white: rgba(255, 255, 255, 0.06);
-  --glass-white-strong: rgba(255, 255, 255, 0.1);
-  --glass-dark: rgba(0, 0, 0, 0.3);
-}
 
 @theme {
-  --color-primary-orange: #fa6c0b;
+  --color-primary-orange: #E96848;
   --color-bright-orange: #ff8c2a;
-  --color-deep-orange: #e05500;
+  --color-deep-orange: #B23A21;
   --color-soft-orange-tint: #fff2e8;
-  --color-warm-background: #f7f5f2;
-  --color-dark-navy: #111111;
-  --color-muted-text: #5f6368;
-  --color-light-gray: #e8e8e8;
-  --color-medium-gray: #a0a0a0;
+  --color-warm-background: #E7E4DE;
+  --color-dark-navy: #171717;
+  --color-muted-text: #68635F;
+  --color-light-gray: #d8d4ce;
+  --color-medium-gray: #a09b96;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Syne', sans-serif;
+  --font-display: 'Outfit', system-ui, sans-serif;
 }
 
 *,
@@ -92,11 +83,11 @@ body,
   color: var(--dark-navy);
 }
 
-/* ── All headings use Lora serif ────────────────────────── */
+/* ── B2: Outfit for display, Inter for body ───────────── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lora', Georgia, 'Times New Roman', serif;
-  font-weight: 500;
-  font-style: normal;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 700;
+  text-wrap: balance;
 }
 
 html {
@@ -122,8 +113,8 @@ nav.navbar-glass {
 }
 
 .font-display {
-  font-family: 'Lora', Georgia, 'Times New Roman', serif;
-  font-weight: 600;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 

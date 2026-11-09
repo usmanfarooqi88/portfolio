@@ -41,7 +41,7 @@ export function CapabilitiesSection() {
     <section id="capabilities" className="bg-[#f2f2f2] py-20 lg:py-28">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12 lg:px-20">
 
-        <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#999] mb-4">
+        <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-4">
           Capabilities
         </p>
         <h2

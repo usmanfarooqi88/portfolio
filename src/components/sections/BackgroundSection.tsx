@@ -16,19 +16,19 @@ function ExperienceRow({ entry, index }: { entry: (typeof experience)[0]; index:
       transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
       className="grid grid-cols-1 md:grid-cols-[200px_1fr] lg:grid-cols-[240px_1fr] gap-x-12 gap-y-3 border-t border-[var(--soft-border)] py-8 lg:py-10"
     >
-      {/* Left col — company + meta */}
+      {/* Left col : company + meta */}
       <div>
         <p className="font-bold text-[15px] text-[var(--dark-navy)]">{entry.company}</p>
         <p className="text-[13px] text-[var(--muted-text)] mt-1">{entry.role}</p>
-        <p className="text-[12px] text-[var(--muted-text)] opacity-70 mt-1">
+        <p className="text-[12px] text-[var(--muted-text)] mt-1">
           {entry.startDate} – {entry.endDate}
         </p>
-        <p className="text-[12px] text-[var(--muted-text)] opacity-70">{entry.location}</p>
+        <p className="text-[12px] text-[var(--muted-text)]">{entry.location}</p>
       </div>
 
-      {/* Right col — summary + contributions */}
+      {/* Right col : summary + contributions */}
       <div>
-        <p className="text-[16px] text-[var(--dark-navy)] opacity-80 leading-[1.65]">{entry.summary}</p>
+        <p className="text-[16px] text-[var(--dark-navy)] leading-[1.65]">{entry.summary}</p>
         <ul className="mt-4 space-y-2">
           {entry.contributions.map((c, i) => (
             <li key={i} className="flex gap-3 text-[14px] text-[var(--muted-text)] leading-[1.6]">
@@ -49,7 +49,7 @@ export function BackgroundSection() {
 
         <div className="flex items-end justify-between gap-8 mb-10">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-3">
+            <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-3">
               Professional background
             </p>
             <h2
@@ -62,9 +62,9 @@ export function BackgroundSection() {
           <a
             href={CV_URL}
             download
-            className="shrink-0 inline-flex items-center gap-2 text-[13px] font-bold text-[var(--muted-text)] hover:text-primary-orange transition-colors border border-[var(--soft-border)] hover:border-primary-orange rounded-full px-5 py-2.5"
+            className="shrink-0 inline-flex items-center gap-2 text-[13px] font-bold text-[var(--muted-text)] hover:text-[var(--accent-text)] transition-colors border border-[var(--soft-border)] hover:border-primary-orange rounded-full px-5 py-2.5"
           >
-            Download résumé ↓
+            Download CV ↓
           </a>
         </div>
 

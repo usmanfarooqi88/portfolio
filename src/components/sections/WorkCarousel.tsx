@@ -1,5 +1,5 @@
 /**
- * WorkCarousel — sticky scroll-hijack horizontal carousel.
+ * WorkCarousel : sticky scroll-hijack horizontal carousel.
  *
  * How it works:
  *   1. A tall outer wrapper reserves scroll space:
@@ -7,7 +7,7 @@
  *   2. The inner section is `position:sticky; top:0; height:100vh`
  *      so it pins to the viewport while the user scrolls through the wrapper.
  *   3. Scroll progress through that extra height maps 1:1 to
- *      `transform:translateX()` on the track — vertical scroll drives
+ *      `transform:translateX()` on the track : vertical scroll drives
  *      horizontal card movement.
  *   4. Once all cards are seen (progress = 1), the wrapper ends and
  *      normal vertical scroll resumes automatically.
@@ -43,7 +43,7 @@ export function WorkCarousel() {
   }
 
   /** Extra scroll distance (px) at the start where the section is pinned
-   *  but cards don't yet move — lets the user read the heading before the
+   *  but cards don't yet move : lets the user read the heading before the
    *  horizontal scroll kicks in. ~40% of viewport height feels natural. */
   function getDwell() {
     return Math.round(window.innerHeight * 0.4)
@@ -87,14 +87,14 @@ export function WorkCarousel() {
   useEffect(() => {
     const sticky = stickyRef.current
     if (!sticky) return
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+     
     const stickyEl = stickyRef.current!
 
     setWrapperHeight()
     const timer = setTimeout(setWrapperHeight, 150)
     window.addEventListener('resize', setWrapperHeight)
 
-    // Scroll drives translateX — with an initial dwell phase
+    // Scroll drives translateX : with an initial dwell phase
     function onScroll() {
       if (dragging.current) return
       const wrapper  = wrapperRef.current
@@ -113,7 +113,7 @@ export function WorkCarousel() {
 
     window.addEventListener('scroll', onScroll, { passive: true })
 
-    // Pointer drag — only activates after 5px movement so clicks pass through
+    // Pointer drag : only activates after 5px movement so clicks pass through
     const DRAG_THRESHOLD = 5
 
     function onPointerDown(e: PointerEvent) {
@@ -132,7 +132,7 @@ export function WorkCarousel() {
       const dx = e.clientX - startX.current
       if (!dragging.current) {
         if (Math.abs(dx) < DRAG_THRESHOLD) return
-        // Threshold crossed — activate drag and capture pointer
+        // Threshold crossed : activate drag and capture pointer
         dragging.current = true
         stickyEl.setPointerCapture(e.pointerId)
         stickyEl.style.cursor = 'grabbing'

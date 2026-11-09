@@ -9,7 +9,7 @@ export function ContactCTA() {
   const inView = useInView(ref, { once: true, margin: '-8% 0px' })
 
   return (
-    <section id="contact" className="py-20 lg:py-28">
+    <section id="contact" className="py-14 lg:py-20">
       <div
         ref={ref}
         className="v2-section-inner"
@@ -19,7 +19,7 @@ export function ContactCTA() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-6">
+          <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-6">
             Let&apos;s work together
           </p>
 
@@ -28,7 +28,7 @@ export function ContactCTA() {
             style={{ fontSize: 'clamp(2.2rem, 4.5vw, 5rem)' }}
           >
             Let&apos;s make something{' '}
-            <span className="text-primary-orange">clear, useful,</span>
+            <span className="text-[var(--text-coral)]">clear, useful,</span>
             {' '}and well-considered.
           </h2>
 
@@ -48,7 +48,7 @@ export function ContactCTA() {
               href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[15px] font-bold text-[var(--dark-navy)] hover:text-primary-orange transition-colors"
+              className="text-[15px] font-bold text-[var(--dark-navy)] hover:text-[var(--accent-text)] transition-colors"
             >
               LinkedIn ↗
             </a>
@@ -56,20 +56,20 @@ export function ContactCTA() {
               href={BEHANCE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[15px] font-bold text-[var(--dark-navy)] hover:text-primary-orange transition-colors"
+              className="text-[15px] font-bold text-[var(--dark-navy)] hover:text-[var(--accent-text)] transition-colors"
             >
               Behance ↗
             </a>
             <a
               href={CV_URL}
               download
-              className="text-[15px] font-bold text-[var(--dark-navy)] hover:text-primary-orange transition-colors"
+              className="text-[15px] font-bold text-[var(--dark-navy)] hover:text-[var(--accent-text)] transition-colors"
             >
-              Download résumé ↓
+              Download CV ↓
             </a>
             <Link
               to="/contact"
-              className="text-[15px] font-bold text-[var(--muted-text)] hover:text-primary-orange transition-colors"
+              className="text-[15px] font-bold text-[var(--muted-text)] hover:text-[var(--accent-text)] transition-colors"
             >
               Contact page →
             </Link>

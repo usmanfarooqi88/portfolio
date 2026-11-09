@@ -18,7 +18,7 @@ export function Layout({ children }: LayoutProps) {
 
       <div className="flex min-h-screen flex-col">
         <TopNav />
-        <main id="main-content" className="flex-1 overflow-x-clip">
+        <main id="main-content" className="flex-1 overflow-x-clip" style={{ paddingTop: 'var(--nav-h)' }}>
           {children}
         </main>
         <Footer />

@@ -2,21 +2,21 @@ import { projects, type Project } from './projects'
 
 /**
  * Homepage Featured Product Work order.
- * Reorder this array to change the homepage sequence — no markup changes needed.
+ * Reorder this array to change the homepage sequence : no markup changes needed.
  */
 export const FEATURED_PRODUCT_IDS = [
   'skrewww',
-  'happytenant-landlord',
-  'danat-behavior',
   'happytenant-tenant',
-  'wanderly',
+  'happytenant-landlord',
   'heard-app',
+  'danat-behavior',
+  'wanderly',
   'nhr-hotels',
   'nozul-website',
 ] as const
 
 /**
- * Secondary “Earlier Visual & Editorial Work” — kept on site, not primary hiring story.
+ * Secondary “Earlier Visual & Editorial Work” : annual reports and visual systems.
  */
 export const EDITORIAL_WORK_IDS = [
   'riyad-2021',

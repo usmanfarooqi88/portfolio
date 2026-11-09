@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { testimonials, type Testimonial } from '../../data/testimonials'
 
-/** Neutral avatar — shows initials when no photo is available */
+/** Neutral avatar : shows initials when no photo is available */
 function Avatar({ name }: { name: string }) {
   const initials = name
     .split(' ')
@@ -63,7 +63,7 @@ function TestimonialCard({ item, index }: { item: Testimonial; index: number }) 
         &ldquo;{item.quote}&rdquo;
       </p>
 
-      {/* Author — always at bottom */}
+      {/* Author : always at bottom */}
       <div className="flex items-center gap-3 mt-6 pt-5" style={{ borderTop: '1px solid var(--soft-border)' }}>
         {item.avatar ? (
           <img
@@ -94,12 +94,12 @@ export function TestimonialsSection() {
     <section id="testimonials" aria-label="Testimonials from colleagues" className="py-20 lg:py-28">
       <div className="v2-section-inner">
 
-        {/* Section header — label + full-width rule, matches Work section */}
+        {/* Section header : label + full-width rule, matches Work section */}
         <div className="v2-carousel-label" style={{ marginBottom: '2.5rem' }}>
           <span>From Colleagues</span>
         </div>
 
-        {/* Three-column grid — responsive via CSS */}
+        {/* Three-column grid : responsive via CSS */}
         <div className="v2-testimonials-grid">
           {testimonials.map((item, i) => (
             <TestimonialCard key={item.id} item={item} index={i} />

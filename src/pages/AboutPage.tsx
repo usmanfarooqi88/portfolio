@@ -10,10 +10,13 @@ import { applyPageMeta, resetPageMeta } from '../utils/seo'
 
 const AVATAR_IMG = '/images/avatar.png'
 
+// CV-stated tools only. Removed (not on CV): Claude, ChatGPT, Runway ML, Midjourney,
+// V0, Lovable, Cursor, Claude Code, Blender, Adobe Creative Suite, Animation, AI Design Systems
 const tools = [
-  'Figma', 'Claude', 'ChatGPT', 'Runway ML', 'Midjourney', 'V0', 'Lovable',
-  'Cursor', 'Claude Code', 'Blender', 'Adobe Creative Suite', 'Prototyping',
-  'Animation', 'Usability Testing', 'AI Design Systems',
+  'Figma',
+  'MCP workflows',
+  'AI-assisted prototyping',
+  'Usability Testing',
 ]
 
 const industries = [
@@ -22,7 +25,7 @@ const industries = [
 ]
 
 const interests = [
-  { label: 'Trekking', detail: 'Mountain trails sharpened how I map out user journeys — point A to B, clear path, no dead ends.' },
+  { label: 'Trekking', detail: 'Mountain trails sharpened how I map out user journeys. Point A to B, clear path, no dead ends.' },
   { label: 'Gaming', detail: 'Game design taught me reward loops, feedback, and how tiny interactions make or break an experience.' },
   { label: 'Illustration', detail: 'Where it all started. Visual thinking is still how I communicate ideas before a single frame is opened.' },
   { label: 'Emerging tech', detail: 'I spend time with new AI tools, not to follow trends, but to find where they genuinely improve the craft.' },
@@ -58,25 +61,25 @@ export function AboutPage() {
       <section className="pt-16 pb-20 lg:pb-28 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-16 lg:gap-24 items-start">
         <div>
           <FadeIn>
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-6">About</p>
+            <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-6">About</p>
             <h1
               className="font-bold text-[var(--dark-navy)] leading-[1.08] tracking-[-0.02em] mb-8"
               style={{ fontSize: 'clamp(2.4rem, 5vw, 5.5rem)' }}
             >
               Designing with<br />
-              <span className="text-primary-orange">curiosity</span> for 7+ years.
+              <span className="text-[var(--text-coral)]">curiosity</span> for 7+ years.
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="text-[17px] text-[var(--muted-text)] leading-[1.75] mb-5 max-w-[620px]">
               I began with illustration and visual design, then moved into digital interfaces,
               interaction design, product systems, and AI-assisted workflows. That progression
-              wasn't accidental — each step added a layer to how I think about products.
+              wasn't accidental. Each step added a layer to how I think about products.
             </p>
             <p className="text-[17px] text-[var(--muted-text)] leading-[1.75] mb-5 max-w-[620px]">
-              Over 7+ years I've worked across SaaS platforms, restaurant technology, PropTech,
-              FinTech, enterprise dashboards, and AI-powered applications — often as the sole
-              designer or lead, owning everything from early concepts to production-ready specs.
+              7+ years working across SaaS platforms, restaurant technology, PropTech,
+              FinTech, enterprise dashboards, and AI-powered applications, from early concepts
+              to production-ready specs.
             </p>
             <p className="text-[17px] text-[var(--muted-text)] leading-[1.75] max-w-[620px]">
               Today I'm based in Lahore and work with teams across Pakistan, the UAE, and
@@ -88,13 +91,13 @@ export function AboutPage() {
             <a
               href={CV_URL}
               download
-              className="inline-flex items-center gap-2 bg-primary-orange text-white font-bold text-[15px] rounded-full px-6 py-3 hover:bg-deep-orange transition-colors"
+              className="inline-flex items-center gap-2 bg-primary-orange text-[var(--dark-navy)] font-bold text-[15px] rounded-full px-6 py-3 hover:bg-[var(--text-coral)] hover:text-white transition-colors"
             >
-              Download résumé ↓
+              Download CV ↓
             </a>
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-2 text-[15px] font-bold text-[var(--dark-navy)] hover:text-primary-orange transition-colors"
+              className="group inline-flex items-center gap-2 text-[15px] font-bold text-[var(--dark-navy)] hover:text-[var(--accent-text)] transition-colors"
             >
               Get in touch
               <span className="inline-block transition-transform group-hover:translate-x-[3px]" aria-hidden>→</span>
@@ -106,7 +109,7 @@ export function AboutPage() {
         <FadeIn delay={0.08} className="hidden lg:block sticky top-24">
           <img
             src={AVATAR_IMG}
-            alt="Usman Farooqi"
+            alt="Portrait of Usman Zahid Farooqi"
             width={320}
             height={400}
             className="w-full rounded-2xl object-cover"
@@ -122,7 +125,7 @@ export function AboutPage() {
       {/* ── What drives me ── */}
       <section className="py-16 lg:py-20 border-t border-[var(--soft-border)]">
         <FadeIn>
-          <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-10">What drives me</p>
+          <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-10">What drives me</p>
         </FadeIn>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8">
           {interests.map((item, i) => (
@@ -137,7 +140,7 @@ export function AboutPage() {
       {/* ── Tools & skills ── */}
       <section className="py-16 lg:py-20 border-t border-[var(--soft-border)]">
         <FadeIn>
-          <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-6">Tools & skills</p>
+          <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-6">Tools & skills</p>
         </FadeIn>
         <FadeIn delay={0.05} className="flex flex-wrap gap-2">
           {tools.map((tool) => (
@@ -154,7 +157,7 @@ export function AboutPage() {
       {/* ── Industries ── */}
       <section className="py-16 lg:py-20 border-t border-[var(--soft-border)]">
         <FadeIn>
-          <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-6">Industries</p>
+          <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-6">Industries</p>
         </FadeIn>
         <FadeIn delay={0.05} className="flex flex-wrap gap-2">
           {industries.map((ind) => (
@@ -172,7 +175,7 @@ export function AboutPage() {
       <section className="py-16 lg:py-20 border-t border-[var(--soft-border)]">
         <FadeIn className="flex items-end justify-between gap-8 mb-10">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-3">Experience</p>
+            <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-3">Experience</p>
             <h2
               className="font-bold text-[var(--dark-navy)] leading-tight tracking-[-0.02em]"
               style={{ fontSize: 'clamp(1.6rem, 3vw, 2.8rem)' }}
@@ -183,9 +186,9 @@ export function AboutPage() {
           <a
             href={CV_URL}
             download
-            className="shrink-0 text-[13px] font-bold text-[var(--muted-text)] hover:text-primary-orange transition-colors border border-[var(--soft-border)] hover:border-primary-orange rounded-full px-5 py-2.5"
+            className="shrink-0 text-[13px] font-bold text-[var(--muted-text)] hover:text-[var(--accent-text)] transition-colors border border-[var(--soft-border)] hover:border-primary-orange rounded-full px-5 py-2.5"
           >
-            Download résumé ↓
+            Download CV ↓
           </a>
         </FadeIn>
         <div>
@@ -234,7 +237,7 @@ export function AboutPage() {
       {/* ── Education ── */}
       <section className="py-16 lg:py-20 border-t border-[var(--soft-border)]">
         <FadeIn>
-          <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-3">Education</p>
+          <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-3">Education</p>
         </FadeIn>
         <FadeIn delay={0.05} className="grid grid-cols-1 md:grid-cols-[200px_1fr] lg:grid-cols-[240px_1fr] gap-x-12 gap-y-3 pt-6">
           <div>
@@ -246,7 +249,7 @@ export function AboutPage() {
             <p className="text-[16px] text-[var(--dark-navy)] leading-[1.65] font-bold">Bachelor in Fine Art (Illustration)</p>
             <p className="text-[14px] text-[var(--muted-text)] mt-2 leading-[1.65]">
               A foundation in visual storytelling, composition, and image-making that still
-              informs how I approach product design — structure first, aesthetics in service of clarity.
+              informs how I approach product design: structure first, aesthetics in service of clarity.
             </p>
           </div>
         </FadeIn>
@@ -255,7 +258,7 @@ export function AboutPage() {
       {/* ── Languages ── */}
       <section className="py-16 lg:py-20 border-t border-[var(--soft-border)]">
         <FadeIn>
-          <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-6">Languages</p>
+          <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-6">Languages</p>
         </FadeIn>
         <FadeIn delay={0.05} className="flex gap-4">
           {['English', 'Urdu'].map((lang) => (
@@ -274,11 +277,11 @@ export function AboutPage() {
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 4rem)' }}
           >
             Let's make something<br />
-            <span className="text-primary-orange">worth making.</span>
+            <span className="text-[var(--text-coral)]">worth making.</span>
           </h2>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-primary-orange text-white font-bold text-[15px] rounded-full px-6 py-3 hover:bg-deep-orange transition-colors"
+            className="inline-flex items-center gap-2 bg-primary-orange text-[var(--dark-navy)] font-bold text-[15px] rounded-full px-6 py-3 hover:bg-[var(--text-coral)] hover:text-white transition-colors"
           >
             Get in touch →
           </Link>

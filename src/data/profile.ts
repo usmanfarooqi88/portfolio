@@ -11,16 +11,16 @@ export const profile = {
   behance: 'https://www.behance.net/usman-farooqi',
   avatar: '/images/avatar.png',
   seo: {
-    title: 'Usman Farooqi — Product Designer',
+    title: 'Usman Zahid Farooqi | Senior Product Designer',
     description:
-      'Product Designer with 7+ years of experience designing AI-powered SaaS products, enterprise platforms, PropTech solutions, restaurant technology, design systems, and interactive digital experiences.',
+      'Senior Product Designer with 7+ years of experience designing SaaS products, enterprise platforms, PropTech, FinTech, and design systems. Bilingual English/Arabic interfaces. Based in Lahore, Pakistan.',
   },
 
   /**
-   * Availability badge — shown in HeroSection, AboutPage, ContactPage.
+   * Availability badge: shown in HeroSection, AboutPage, ContactPage.
    * Set `available: false` when not open to work.
    */
   available: true,
-  availableLabel: 'Available for new work',
-  availableDetail: 'Lahore, Pakistan — working with teams across Pakistan, the UAE, and internationally.',
+  availableLabel: 'Lahore, Pakistan · Open to remote and relocation',
+  availableDetail: 'Open to senior product design roles and selected collaborations.',
 } as const

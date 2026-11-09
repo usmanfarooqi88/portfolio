@@ -31,14 +31,30 @@ function ProjectCardThumbnail({
   const [videoFailed, setVideoFailed] = useState(false)
   const [videoReady, setVideoReady] = useState(false)
   const [videoEligible, setVideoEligible] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth >= 768,
+  )
   const imgRef = useRef<HTMLImageElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
   const prefersReducedMotion = usePrefersReducedMotion()
 
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)')
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
   const posterSrc = useFallback ? project.image : thumbnailSrc
+  // Video only on desktop non-reduced-motion; poster is always the static fallback
   const videoSrc =
-    project.video && !videoFailed && !prefersReducedMotion ? project.video : null
+    project.video && !videoFailed && !prefersReducedMotion && isDesktop
+      ? project.video
+      : null
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setVideoFailed(false)
     setVideoReady(false)
     setVideoEligible(false)
@@ -63,6 +79,19 @@ function ProjectCardThumbnail({
     return () => io.disconnect()
   }, [videoSrc])
 
+  const handleMouseEnter = () => {
+    setIsHovered(true)
+    videoRef.current?.play().catch(() => {})
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+    if (videoRef.current) {
+      videoRef.current.pause()
+      videoRef.current.currentTime = 0
+    }
+  }
+
   const handleImageError = () => {
     if (!useFallback) {
       setUseFallback(true)
@@ -74,7 +103,7 @@ function ProjectCardThumbnail({
   if (imgError && !videoSrc) {
     return (
       <div className="flex h-full min-h-[140px] items-center justify-center bg-[var(--soft-border)]/40 p-6">
-        <span className="text-center text-base font-bold text-primary-orange/70">
+        <span className="text-center text-base font-bold text-[var(--accent-text)]/70">
           {project.displayTitle ?? project.title}
         </span>
       </div>
@@ -82,9 +111,13 @@ function ProjectCardThumbnail({
   }
 
   return (
-    <>
+    <div
+      className="contents"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {loading && <div className="project-thumbnail-skeleton absolute inset-0 z-[1]" aria-hidden />}
-      {/* Poster / static fallback — always present so there is no black flash */}
+      {/* Static poster : always visible when not hovering */}
       <img
         ref={imgRef}
         src={posterSrc}
@@ -92,18 +125,19 @@ function ProjectCardThumbnail({
         role="presentation"
         loading={eager ? 'eager' : 'lazy'}
         decoding="async"
-        className={`project-image ${loading ? 'opacity-0' : 'opacity-100'} ${videoSrc && videoReady ? 'project-image--under-video' : ''}`}
+        className={`project-image ${loading ? 'opacity-0' : 'opacity-100'} ${videoSrc && videoReady && isHovered ? 'project-image--under-video' : ''}`}
         onError={handleImageError}
       />
+      {/* Video : rendered lazily, plays only on hover */}
       {videoEligible && videoSrc && (
         <video
-          className={`project-image project-image--video ${loading || !videoReady ? 'opacity-0' : 'opacity-100'}`}
+          ref={videoRef}
+          className={`project-image project-image--video ${loading || !videoReady || !isHovered ? 'opacity-0' : 'opacity-100'}`}
           src={videoSrc}
-          poster={project.image}
+          poster={posterSrc}
           muted
           loop
           playsInline
-          autoPlay
           preload="metadata"
           aria-hidden
           tabIndex={-1}
@@ -112,7 +146,7 @@ function ProjectCardThumbnail({
           onError={() => setVideoFailed(true)}
         />
       )}
-    </>
+    </div>
   )
 }
 
@@ -219,8 +253,8 @@ export function ProjectCard({
     const categoryMeta = [project.category, project.status].filter(Boolean).join(' · ')
 
     return (
-      <article className="evidence-card group flex h-full flex-col bg-[var(--pure-white)]">
-        {/* Image first — always visible above the fold */}
+      <article className="evidence-card group flex h-full flex-col bg-[var(--pure-white)] rounded-[20px] overflow-hidden">
+        {/* Image first : always visible above the fold */}
         <div
           className="evidence-card__media relative overflow-hidden bg-[var(--soft-border)]/20"
           style={{ aspectRatio: '808 / 632' }}
@@ -234,11 +268,11 @@ export function ProjectCard({
           />
         </div>
 
-        {/* Text block — consistent structure so title always aligns at the same row */}
-        <div className="evidence-card__body flex flex-1 flex-col pt-4 pb-5">
-          {/* Row 1: category + optional pill — fixed height so titles align */}
+        {/* Text block : consistent structure so title always aligns at the same row */}
+        <div className="evidence-card__body flex flex-1 flex-col p-6">
+          {/* Row 1: category + optional pill : fixed height so titles align */}
           <div className="evidence-card__meta-row">
-            <p className="text-[10px] font-[600] uppercase tracking-[0.12em] text-[var(--primary-orange)]">
+            <p className="text-[12px] font-[600] uppercase tracking-[0.12em] text-[var(--accent-text)]">
               {categoryMeta}
             </p>
             {/* Pill occupies space even when absent so heights stay equal */}
@@ -247,7 +281,7 @@ export function ProjectCard({
             </span>
           </div>
 
-          {/* Row 2: title — same baseline across all cards */}
+          {/* Row 2: title : same baseline across all cards */}
           <h3 className="mt-2 text-[1.0625rem] font-bold leading-snug tracking-[-0.01em] text-[var(--dark-navy)] line-clamp-2 md:text-[1.125rem]">
             {title}
           </h3>
@@ -267,7 +301,7 @@ export function ProjectCard({
             </p>
           )}
 
-          <CardCta project={project} onOpenPrototype={onOpenPrototype} className="mt-4 min-h-[44px]" />
+          <CardCta project={project} onOpenPrototype={onOpenPrototype} className="mt-auto pt-5 min-h-[44px]" />
         </div>
       </article>
     )
@@ -289,7 +323,7 @@ export function ProjectCard({
           target="_blank"
           rel="noopener noreferrer"
           className="absolute inset-0 block"
-          aria-label={`${ctaLabel} — ${title}`}
+          aria-label={`${ctaLabel} : ${title}`}
         >
           <ProjectCardThumbnail
             project={project}
@@ -322,14 +356,14 @@ export function ProjectCard({
           {mediaAction}
         </div>
         <div className="flex flex-1 flex-col px-3.5 py-3">
-          <p className="text-[10px] font-[400] uppercase tracking-[0.1em] text-[var(--muted-text)]">
+          <p className="text-[12px] font-[400] uppercase tracking-[0.1em] text-[var(--dark-navy)]">
             {project.category}
           </p>
           <h3 className="mt-1 text-[13px] font-bold leading-snug text-[var(--dark-navy)]">{title}</h3>
           <CardCta
             project={project}
             onOpenPrototype={onOpenPrototype}
-            className="mt-2 min-h-[44px] text-[11px]"
+            className="mt-2 min-h-[44px] text-[12px]"
           />
         </div>
       </article>
@@ -368,11 +402,11 @@ export function ProjectCard({
               top: '30%',
             }}
           >
-            <p className="text-[10px] font-bold uppercase tracking-wider text-white/60">
+            <p className="text-[12px] font-bold uppercase tracking-wider text-white/60">
               {project.category}
             </p>
             <h3 className="mt-1 text-[13px] font-bold leading-tight text-white">{title}</h3>
-            <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-[var(--primary-orange)]">
+            <span className="mt-2 inline-flex items-center gap-1 text-[12px] font-bold text-[var(--accent-text)]">
               {ctaLabel} <ArrowUpRight size={11} />
             </span>
           </div>
@@ -401,7 +435,7 @@ export function ProjectCard({
         <Link
           to={caseStudyHref}
           className="project-card-media-btn block"
-          aria-label={`View case study — ${title}`}
+          aria-label={`View case study : ${title}`}
         >
           {thumbnail}
         </Link>
@@ -411,7 +445,7 @@ export function ProjectCard({
           target="_blank"
           rel="noopener noreferrer"
           className="project-card-media-btn block"
-          aria-label={`${ctaLabel} — ${title}`}
+          aria-label={`${ctaLabel} : ${title}`}
         >
           {thumbnail}
         </a>
@@ -421,14 +455,14 @@ export function ProjectCard({
           className="project-card-media-btn"
           onClick={linkType === 'figma' ? handlePrototypeClick : undefined}
           disabled={linkType === 'none'}
-          aria-label={linkType !== 'none' ? `${ctaLabel} — ${title}` : title}
+          aria-label={linkType !== 'none' ? `${ctaLabel} : ${title}` : title}
         >
           {thumbnail}
         </button>
       )}
 
       <div className="flex flex-1 flex-col p-6">
-        <p className="text-xs font-[400] uppercase tracking-wider text-primary-orange">
+        <p className="text-xs font-[400] uppercase tracking-wider text-[var(--accent-text)]">
           {project.category}
         </p>
         <h3 className="project-title mt-2 text-xl font-bold text-dark-navy transition-colors">

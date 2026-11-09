@@ -32,7 +32,7 @@ export function WorkPage() {
   return (
     <main className="mx-auto max-w-[1280px] px-6 pb-20 md:px-12 lg:px-20 lg:pb-28">
       <header className="pt-14 pb-8 lg:pt-16 lg:pb-10 max-w-[40rem]">
-        <p className="mb-2 text-[11px] font-[400] uppercase tracking-[0.14em] text-primary-orange">
+        <p className="mb-2 text-[12px] font-[400] uppercase tracking-[0.14em] text-[var(--muted-text)]">
           Work
         </p>
         <h1
@@ -42,13 +42,13 @@ export function WorkPage() {
           All Work
         </h1>
         <p className="mt-4 text-[15px] leading-relaxed text-[var(--muted-text)] md:text-[16px]">
-          The complete collection of product, system, web, and visual work — beyond the curated
+          The complete collection of product, system, web, and visual work, beyond the curated
           homepage shortlist.
         </p>
-        <p className="mt-3 text-[13px] text-[var(--muted-text)]/90">
+        <p className="mt-3 text-[13px] text-[var(--muted-text)]">
           <Link
             to="/#work"
-            className="underline underline-offset-2 decoration-[var(--soft-border)] hover:text-primary-orange hover:decoration-primary-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange rounded-sm"
+            className="underline underline-offset-2 decoration-[var(--soft-border)] hover:text-[var(--accent-text)] hover:decoration-primary-orange transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange rounded-sm"
           >
             ← Selected work on homepage
           </Link>
@@ -80,7 +80,7 @@ export function WorkPage() {
                 }`}
               >
                 {f.label}
-                <span className={`ml-1.5 tabular-nums ${active ? 'text-white/80' : 'text-[var(--muted-text)]/70'}`}>
+                <span className={`ml-1.5 tabular-nums ${active ? 'text-white/80' : 'text-[var(--dark-navy)]'}`}>
                   {count}
                 </span>
               </button>
@@ -114,7 +114,7 @@ export function WorkPage() {
         >
           {filter === 'all' && (
             <header className="mb-5 max-w-[32rem]">
-              <p className="mb-1.5 text-[10px] font-[400] uppercase tracking-[0.12em] text-[var(--muted-text)]">
+              <p className="mb-1.5 text-[12px] font-[400] uppercase tracking-[0.1em] text-[var(--muted-text)]">
                 Visual &amp; editorial
               </p>
               <h2 className="text-[clamp(0.9375rem,1.4vw,1.0625rem)] font-semibold leading-[1.3] text-[var(--muted-text)]">

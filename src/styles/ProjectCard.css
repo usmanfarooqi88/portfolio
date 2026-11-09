@@ -27,12 +27,20 @@
   outline-offset: 3px;
 }
 
+/* Focus ring on the card itself follows border-radius */
+.evidence-card:focus-within:has(a:focus-visible),
+.evidence-card:focus-within:has(button:focus-visible) {
+  outline: 2px solid var(--primary-orange);
+  outline-offset: 3px;
+  border-radius: 20px;
+}
+
 a.project-card-cta:hover {
   text-decoration: none;
 }
 
 .project-card-cta--case-study {
-  color: var(--primary-orange);
+  color: var(--accent-text);
 }
 
 .project-card-cta--case-study:hover {
@@ -40,7 +48,7 @@ a.project-card-cta:hover {
 }
 
 .project-card-cta--figma {
-  color: var(--primary-orange);
+  color: var(--accent-text);
 }
 
 .project-card-cta--figma:hover {
@@ -48,7 +56,7 @@ a.project-card-cta:hover {
 }
 
 .project-card-cta--external {
-  color: var(--primary-orange);
+  color: var(--accent-text);
 }
 
 .project-card-cta--external:hover {
@@ -81,7 +89,7 @@ a.project-card-cta:hover {
   text-align: left;
 }
 
-/* 1:1 thumbnails — full image visible, no scroll-based clipping */
+/* 1:1 thumbnails : full image visible, no scroll-based clipping */
 .project-card-media {
   display: flex;
   align-items: center;
@@ -118,7 +126,7 @@ video.project-image--video {
   transform: scale(1.07);
 }
 
-/* ── Evidence card — editorial style ──────────────────── */
+/* ── Evidence card : editorial style ──────────────────── */
 
 /* Image fills its container */
 .evidence-card .project-image,
@@ -152,14 +160,14 @@ video.project-image--video {
   min-height: 20px; /* reserves height whether pill is visible or not */
 }
 
-/* Pill — only shown when ecosystemLabel exists */
+/* Pill : only shown when ecosystemLabel exists */
 .evidence-card__pill {
   display: inline-block;
   min-width: 0;
   padding: 1px 7px;
   border-radius: 999px;
   border: 1px solid var(--soft-border);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
   color: var(--muted-text);
   line-height: 1.6;
@@ -170,12 +178,10 @@ video.project-image--video {
   visibility: visible;
 }
 
-/* Body padding — 16px sides, 8pt rhythm */
-.evidence-card__body {
-  padding-inline: 4px;
-}
+/* Body padding is handled inline via Tailwind p-6 */
+.evidence-card__body {}
 
-/* Quieter secondary archive — do not compete with Featured Product Work */
+/* Quieter secondary archive : do not compete with Featured Product Work */
 .editorial-archive .editorial-card {
   border-color: rgba(0, 0, 0, 0.06);
   background: color-mix(in srgb, var(--pure-white) 92%, var(--soft-border));
@@ -188,7 +194,7 @@ video.project-image--video {
 
 .editorial-archive .project-card-cta {
   margin-top: 0.5rem;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--muted-text);
   text-transform: none;
@@ -196,7 +202,7 @@ video.project-image--video {
 }
 
 .editorial-archive .project-card-cta:hover {
-  color: var(--primary-orange);
+  color: var(--accent-text);
 }
 
 .editorial-archive .project-image {
@@ -225,7 +231,7 @@ video.project-image--video {
   z-index: 1;
 }
 
-/* On hover, the explicit overlay takes over — hide the ::after */
+/* On hover, the explicit overlay takes over : hide the ::after */
 .bento-card:hover::after {
   opacity: 0;
 }

@@ -97,12 +97,11 @@ export const caseStudies: CaseStudy[] = [
     blocks: skrewwwBlocks,
     overview: {
       description:
-        'Skrewww is an AI-first design system platform connecting Figma, tokens, components, documentation and React — built to be read by designers, developers and coding agents.',
+        'Skrewww is an AI-first design system platform connecting Figma, tokens, components, documentation and React. Built to be read by designers, developers and coding agents.',
       keyPoints: [
-        '66 documented components adapting through tokens — never forks',
+        '63 documented components adapting through tokens, never forks',
         '225 variables across 7 Pro Figma collections (live audit)',
         'Agent Kit contracts and Guard Beta for AI-safe consumption',
-        'Public platform 1.0 with open-source MIT React codebase',
       ],
     },
     challenge: {
@@ -148,8 +147,8 @@ export const caseStudies: CaseStudy[] = [
     },
     details: {
       industry: 'Design systems · AI tooling',
-      timeline: 'Aug 2026 – present · Platform 1.0',
-      role: 'Founder / Design Systems Designer',
+      timeline: 'Personal project · ongoing',
+      role: '',
       deliverables: [
         'Token foundations',
         'Component library',
@@ -182,7 +181,7 @@ export const caseStudies: CaseStudy[] = [
     blocks: wanderlyBlocks,
     overview: {
       description:
-        'Mobile travel concept centered on conversational planning — AI intent becomes Budget / Mid / Luxury packages, then customization and booking, with Explore and membership as supporting layers.',
+        'Mobile travel concept centered on conversational planning. AI intent becomes Budget / Mid / Luxury packages, then customization and booking, with Explore and membership as supporting layers.',
       keyPoints: [
         'AI-first home entry with prompt chips',
         'Conversation resolves into comparable trip packages',
@@ -192,7 +191,7 @@ export const caseStudies: CaseStudy[] = [
     },
     challenge: {
       description:
-        'Create one mobile experience that can move from travel intent through AI conversation, structured recommendations, comparison, customization and booking — without stranding guests in chat or assembling inventory as unrelated flows.',
+        'Create one mobile experience that can move from travel intent through AI conversation, structured recommendations, comparison, customization and booking, without stranding guests in chat or assembling inventory as unrelated flows.',
       painPoints: [
         'Open-ended AI input vs comparable choices',
         'Recommendation speed vs control before payment',
@@ -249,7 +248,7 @@ export const caseStudies: CaseStudy[] = [
       client: 'Wanderly',
       industry: 'Travel Tech',
       timeline: 'Freelance Project · 20-day design case',
-      role: 'Product Designer',
+      role: '',
       deliverables: [
         'Mobile product UX/UI (freelance)',
         'AI planning · packages · booking journeys',
@@ -275,7 +274,7 @@ export const caseStudies: CaseStudy[] = [
     heroVideo: '/images/projects/Heard_app_ordering.webm',
     category: ['Product Design', 'Restaurant Tech', 'Mobile', 'iOS', 'Android'],
     description:
-      'Multi-mode restaurant ordering product spanning delivery, pickup, and table order — with shared checkout patterns and engineering handoff.',
+      'Multi-mode restaurant ordering product spanning delivery, pickup, and table order, with shared checkout patterns and engineering handoff.',
     blocks: heardBlocks,
     overview: {
       description:
@@ -346,7 +345,7 @@ export const caseStudies: CaseStudy[] = [
       client: 'Heard',
       industry: 'Restaurant technology',
       timeline: 'Client engagement at Frontier Labs · published on Behance Feb 2023',
-      role: 'Product Designer',
+      role: '',
       deliverables: [
         'Wireframes',
         'Hi-fi mobile UI',
@@ -379,7 +378,7 @@ export const caseStudies: CaseStudy[] = [
     blocks: happytenantTenantBlocks,
     overview: {
       description:
-        'Tenant-facing mobile experience for an established multi-role property platform — organizing financial, property, service, and communication workflows into one coherent self-service product.',
+        'Tenant-facing mobile experience for an established multi-role property platform, organizing financial, property, service, and communication workflows into one coherent self-service product.',
       keyPoints: [
         'Home hierarchy balancing status, frequent actions, and secondary services',
         'Payments with dues, details, history, and overdue states',
@@ -389,7 +388,7 @@ export const caseStudies: CaseStudy[] = [
     },
     challenge: {
       description:
-        'Multiple unrelated but recurring tenant jobs compete for attention inside one mobile app — without reading as a payments-only or maintenance-only product.',
+        'Multiple unrelated but recurring tenant jobs compete for attention inside one mobile app, without reading as a payments-only or maintenance-only product.',
       painPoints: [
         'Financial, property, service, and communication workflows colliding',
         'Home information hierarchy under competing urgency',
@@ -399,7 +398,7 @@ export const caseStudies: CaseStudy[] = [
     },
     solution: {
       description:
-        'Organize the tenant product around status-first home hierarchy, clear financial state, explicit booking states, and a followable request/work-order path — with supporting services as breadth, not equal weight.',
+        'Organize the tenant product around status-first home hierarchy, clear financial state, explicit booking states, and a followable request/work-order path, with supporting services as breadth rather than equal weight.',
       approach: [
         'Prioritize lease/balance/rent status, then unit/payments/bookings',
         'Keep amount + due date + status + property context together in payments',
@@ -422,7 +421,7 @@ export const caseStudies: CaseStudy[] = [
         {
           name: 'Shared patterns',
           description:
-            'Repeated tags, lists, headers, and cards across modules — without claiming a full personal component library.',
+            'Repeated tags, lists, headers, and cards across modules, without claiming a full personal component library.',
         },
       ],
     },
@@ -450,7 +449,7 @@ export const caseStudies: CaseStudy[] = [
       client: 'HappyTenant',
       industry: 'PropTech · property management',
       timeline: 'Contributed during LAVA Brands tenure · Jul 2024 – Jan 2026',
-      role: 'Product Designer',
+      role: 'Senior Product Designer',
       deliverables: [
         'Tenant mobile UX/UI (contribution)',
         'Multi-module self-service flows',
@@ -480,7 +479,7 @@ export const caseStudies: CaseStudy[] = [
     blocks: happytenantLandlordBlocks,
     overview: {
       description:
-        'Owner-facing mobile experience for an established multi-role property platform — structuring dense portfolio, financial and operational information into clearer decision workflows.',
+        'Owner-facing mobile experience for an established multi-role property platform, structuring dense portfolio, financial and operational information into clearer decision workflows.',
       keyPoints: [
         'Home hierarchy balancing attention, money snapshot and portfolio health',
         'Portfolio → property → unit drill-down',
@@ -500,7 +499,7 @@ export const caseStudies: CaseStudy[] = [
     },
     solution: {
       description:
-        'Organize the Landlord product around status-first Home hierarchy, portfolio drill-down, explicit work-order states and distinct financial money states — with records as supporting breadth.',
+        'Organize the Landlord product around status-first Home hierarchy, portfolio drill-down, explicit work-order states and distinct financial money states, with records as supporting breadth.',
       approach: [
         'Lead Home with attention and actionable money',
         'Rentals → Property → Unit ladder',
@@ -550,7 +549,7 @@ export const caseStudies: CaseStudy[] = [
       client: 'HappyTenant',
       industry: 'PropTech · property management',
       timeline: 'Contributed during LAVA Brands tenure · Jul 2024 – Jan 2026',
-      role: 'Product Designer',
+      role: 'Senior Product Designer',
       deliverables: [
         'Landlord mobile UX/UI (contribution)',
         'Portfolio / finance / operations flows',
@@ -600,7 +599,7 @@ export const caseStudies: CaseStudy[] = [
     },
     solution: {
       description:
-        'Establish a clear engagement loop, home hierarchy, challenge comprehension/enrollment, multi-scale activity tracking, points state model and earn→redeem marketplace — with partners and pillars as ecosystem breadth.',
+        'Establish a clear engagement loop, home hierarchy, challenge comprehension/enrollment, multi-scale activity tracking, points state model and earn→redeem marketplace, with partners and pillars as ecosystem breadth.',
       approach: [
         'Product architecture around the core loop',
         'Challenge detail + multi-step enrollment',
@@ -651,7 +650,7 @@ export const caseStudies: CaseStudy[] = [
       client: 'Danat Behaviors',
       industry: 'HealthTech · engagement & rewards',
       timeline: 'Freelance Project',
-      role: 'Product Designer',
+      role: '',
       deliverables: [
         'Zero-to-one mobile product design',
         'Engagement / points / rewards ecosystem',
@@ -660,7 +659,6 @@ export const caseStudies: CaseStudy[] = [
       tools: ['Figma'],
       year: 'Freelance Project',
       date: 'Freelance Project',
-      status: 'Prototype / product design',
       liveUrl: 'https://www.figma.com/proto/8EHDksjpGgM5QOAdvhxCEi/',
       liveLabel: 'View Figma prototype ↗',
     },
@@ -676,11 +674,11 @@ export const caseStudies: CaseStudy[] = [
     heroImage: '/images/case-studies/nhr/hero.webp',
     category: ['Product Design', 'Hospitality', 'Mobile', 'Consumer'],
     description:
-      'A hospitality guest experience that makes dining discovery and booking feel as primary as the stay — organizing restaurants, events, and reservations into one mobile product.',
+      'A hospitality guest experience that makes dining discovery and booking feel as primary as the stay, organizing restaurants, events, and reservations into one mobile product.',
     blocks: nhrBlocks,
     overview: {
       description:
-        'Mobile guest experience for Nozul hospitality — dining discovery, table and event booking, stay reservations, and supporting brand/account surfaces.',
+        'Mobile guest experience for Nozul hospitality: dining discovery, table and event booking, stay reservations, and supporting brand/account surfaces.',
       keyPoints: [
         'Dining-led home as the guest gateway',
         'Restaurant → menu → reserve a table',
@@ -748,7 +746,7 @@ export const caseStudies: CaseStudy[] = [
       client: 'Nozul',
       industry: 'Hospitality · hotels & dining',
       timeline: 'Product design',
-      role: 'Product Designer',
+      role: '',
       deliverables: [
         'Hospitality guest mobile UX/UI (contribution)',
         'Dining · events · bookings journeys',
@@ -757,7 +755,6 @@ export const caseStudies: CaseStudy[] = [
       tools: ['Figma'],
       year: 'Freelance Project',
       date: 'Freelance Project',
-      status: 'Prototype / product design',
       liveUrl: 'https://www.figma.com/proto/B645e7Kn52Sbw0d1KCQVpe/',
       liveLabel: 'View Figma prototype ↗',
     },
@@ -774,11 +771,11 @@ export const caseStudies: CaseStudy[] = [
     heroVideo: '/images/projects/Nozul_hotel.webm',
     category: ['Product Design', 'Hospitality', 'Website', 'Consumer'],
     description:
-      'A content-rich hospitality website structured so guests can move from brand and venue discovery to reservation intent — across dining, offers, and events — while bridging the brand’s mobile app.',
+      "A content-rich hospitality website structured so guests can move from brand and venue discovery to reservation intent across dining, offers, and events, while bridging the brand’s mobile app.",
     blocks: nozulHotelsWebsiteBlocks,
     overview: {
       description:
-        'Desktop hospitality website concept for Nozul — multi-service discovery, restaurant filtering, reservation funnel, brand/corporate content, and web→app bridge.',
+        'Desktop hospitality website concept for Nozul: multi-service discovery, restaurant filtering, reservation funnel, brand/corporate content, and web→app bridge.',
       keyPoints: [
         'Home as a paced hospitality discovery journey',
         'Restaurant category filtering → venue detail',
@@ -846,7 +843,7 @@ export const caseStudies: CaseStudy[] = [
       client: 'Nozul',
       industry: 'Hospitality · hotels & dining',
       timeline: 'Website concept',
-      role: 'Product Designer',
+      role: '',
       deliverables: [
         'Hospitality website UX/UI (contribution)',
         'Discovery · reservation · brand content journeys',
@@ -855,7 +852,6 @@ export const caseStudies: CaseStudy[] = [
       tools: ['Figma'],
       year: 'Freelance Project',
       date: 'Freelance Project',
-      status: 'Prototype / website design',
       liveUrl: 'https://www.figma.com/proto/B645e7Kn52Sbw0d1KCQVpe/',
       liveLabel: 'View Figma prototype ↗',
     },

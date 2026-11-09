@@ -1,5 +1,5 @@
 /**
- * HappyTenant Landlord — Story V3
+ * HappyTenant Landlord: Story V3
  *
  * Story-first editorial case study. Completely replaces the V2 block-based
  * presentation for this route. No other case studies are affected.
@@ -70,13 +70,6 @@ export function HappyTenantLandlordV3() {
     <div className="case-study-page htl-v3" data-cs="happytenant-landlord">
       <ReadingProgress />
 
-      <a
-        href="#htl-v3-main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-orange focus:text-white focus:rounded-md focus:text-sm focus:font-semibold"
-      >
-        Skip to content
-      </a>
-
       {/* ── Breadcrumb ───────────────────────────────────────────────── */}
       <div className="case-study-breadcrumb">
         <Link to="/#work" className="case-study-back">
@@ -86,10 +79,10 @@ export function HappyTenantLandlordV3() {
       </div>
 
       {/* ══════════════════════════════════════════════════════════════
-          00 — HERO
+          00, HERO
       ══════════════════════════════════════════════════════════════ */}
       <header className="htl3-hero">
-        {/* Left — text column */}
+        {/* Left, text column */}
         <div className="htl3-hero__content">
           <p className="htl3-hero__type">MOBILE APP</p>
           <h1 className="htl3-hero__title font-display">
@@ -101,7 +94,7 @@ export function HappyTenantLandlordV3() {
             financial states, property operations and approvals easier to understand and act on.
           </p>
           <dl className="htl3-hero__meta">
-            <div><dt>Role</dt><dd>Product Designer</dd></div>
+            <div><dt>Role</dt><dd>Senior Product Designer</dd></div>
             <div><dt>Timeline</dt><dd>Contributed during LAVA Brands tenure · Jul 2024 – Jan 2026</dd></div>
             <div><dt>Status</dt><dd>Prototype / design</dd></div>
           </dl>
@@ -112,7 +105,7 @@ export function HappyTenantLandlordV3() {
           </div>
         </div>
 
-        {/* Right — video column */}
+        {/* Right, video column */}
         <div className="htl3-hero__image" aria-hidden="true">
           <video
             className="htl3-hero__bg"
@@ -131,18 +124,18 @@ export function HappyTenantLandlordV3() {
       <main id="htl-v3-main" className="htl3-stream">
 
         {/* ══════════════════════════════════════════════════════════
-            01 — THE STARTING POINT
+            01, THE STARTING POINT
         ══════════════════════════════════════════════════════════ */}
         <section className="htl3-section htl3-section--light" aria-labelledby="htl3-s01">
           <div className="htl3-section__inner">
-            <p className="htl3-label">01 — Starting Point</p>
+            <p className="htl3-label">01: Starting Point</p>
             <h2 id="htl3-s01" className="htl3-heading font-display">
               An existing product with a lot to communicate.
             </h2>
             <p className="htl3-body">
               HappyTenant Landlord was already a functioning product. It covered portfolio management,
               financial tracking, work orders, and tenant communications across a multi-property,
-              multi-owner context. The challenge wasn't starting from zero — it was working with a
+              multi-owner context. The challenge wasn't starting from zero, it was working with a
               product that had real density, real users, and real operational complexity.
             </p>
             <p className="htl3-body">
@@ -151,7 +144,7 @@ export function HappyTenantLandlordV3() {
               Hierarchy was weak. Action items didn't read differently from status items.
               The product felt like it was reporting everything at equal volume.
             </p>
-            {/* Existing density/home visual repurposed here — shows the starting state */}
+            {/* Existing density/home visual repurposed here, shows the starting state */}
             <figure className="htl3-showcase">
               <img
                 src="/images/case-studies/happytenant-landlord/v3/existing-product.webp"
@@ -164,17 +157,17 @@ export function HappyTenantLandlordV3() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════
-            02 — EXISTING EXPERIENCE
+            02, EXISTING EXPERIENCE
         ══════════════════════════════════════════════════════════ */}
         <section className="htl3-section htl3-section--light" aria-labelledby="htl3-s02">
           <div className="htl3-section__inner">
-            <p className="htl3-label">02 — Existing Experience</p>
+            <p className="htl3-label">02: Existing Experience</p>
             <h2 id="htl3-s02" className="htl3-heading font-display">
               A dense product.
               <br />Competing for the same scroll.
             </h2>
             <p className="htl3-body">
-              The existing product communicated a lot of information — but not always the right
+              The existing product communicated a lot of information, but not always the right
               information at the right time. Four high-frequency workflows occupied the same
               primary surface: financial position, operational volume, approval actions, and
               portfolio depth. Every section competed for the same vertical real estate.
@@ -192,7 +185,7 @@ export function HappyTenantLandlordV3() {
                 decoding="async"
               />
               <figcaption className="htl3-caption">
-                Four high-frequency workflows in a single mobile scroll — financial position,
+                Four high-frequency workflows in a single mobile scroll, financial position,
                 operational volume, approval actions, and portfolio depth.
                 Every section competed for the same vertical real estate.
               </figcaption>
@@ -201,11 +194,11 @@ export function HappyTenantLandlordV3() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════
-            03 — PRODUCT STRUCTURE
+            03, PRODUCT STRUCTURE
         ══════════════════════════════════════════════════════════ */}
         <section className="htl3-section htl3-section--dark" aria-labelledby="htl3-s03">
           <div className="htl3-section__inner">
-            <p className="htl3-label htl3-label--light">03 — Product Structure</p>
+            <p className="htl3-label htl3-label--light">03: Product Structure</p>
             <h2 id="htl3-s03" className="htl3-heading htl3-heading--light font-display">
               Structure before screens.
             </h2>
@@ -219,11 +212,11 @@ export function HappyTenantLandlordV3() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════
-            04 — DESIGN PRIORITIES
+            04, DESIGN PRIORITIES
         ══════════════════════════════════════════════════════════ */}
         <section className="htl3-section htl3-section--light" aria-labelledby="htl3-s04">
           <div className="htl3-section__inner">
-            <p className="htl3-label">04 — Design Priorities</p>
+            <p className="htl3-label">04: Design Priorities</p>
             <h2 id="htl3-s04" className="htl3-heading font-display">
               Three things to get right.
             </h2>
@@ -260,11 +253,11 @@ export function HappyTenantLandlordV3() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════
-            05 — NEW DIRECTION
+            05, NEW DIRECTION
         ══════════════════════════════════════════════════════════ */}
         <section className="htl3-section htl3-section--light" aria-labelledby="htl3-s05">
           <div className="htl3-section__inner">
-            <p className="htl3-label">05 — New Direction</p>
+            <p className="htl3-label">05: New Direction</p>
             <h2 id="htl3-s05" className="htl3-heading font-display">
               Design language from the product up.
             </h2>
@@ -272,7 +265,7 @@ export function HappyTenantLandlordV3() {
               The visual direction grew from the product's density: clearer hierarchy, stronger
               distinction between information and action, and more consistent surface patterns.
             </p>
-            {/* Two-up design language boards — exported from Figma */}
+            {/* Two-up design language boards, exported from Figma */}
             <div className="htl3-direction-boards">
               <figure className="htl3-direction-board">
                 <img
@@ -297,16 +290,16 @@ export function HappyTenantLandlordV3() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════
-            06 — THE OPERATING VIEW
+            06, THE OPERATING VIEW
         ══════════════════════════════════════════════════════════ */}
         <section className="htl3-section htl3-section--dark" aria-labelledby="htl3-s06">
           <div className="htl3-section__inner">
-            <p className="htl3-label htl3-label--light">06 — Operating View</p>
+            <p className="htl3-label htl3-label--light">06: Operating View</p>
             <h2 id="htl3-s06" className="htl3-heading htl3-heading--light font-display">
               The home screen as a complete operating view.
             </h2>
             <p className="htl3-body htl3-body--light htl3-body--measure">
-              The redesigned Home screen works as a full operational surface — not a navigation
+              The redesigned Home screen works as a full operational surface, not a navigation
               launcher. Financial snapshot, action-required items, and portfolio overview read as
               one structured view.
             </p>
@@ -323,19 +316,19 @@ export function HappyTenantLandlordV3() {
               <div className="htl3-annotation">
                 <span className="htl3-annotation__marker">↑</span>
                 <p className="htl3-annotation__text">
-                  <strong>Financial snapshot</strong> — balance, pending payments, income distribution above the fold
+                  <strong>Financial snapshot</strong>, balance, pending payments, income distribution above the fold
                 </p>
               </div>
               <div className="htl3-annotation">
                 <span className="htl3-annotation__marker">→</span>
                 <p className="htl3-annotation__text">
-                  <strong>Action-required items</strong> — approvals and overdue work orders surfaced mid-screen
+                  <strong>Action-required items</strong>, approvals and overdue work orders surfaced mid-screen
                 </p>
               </div>
               <div className="htl3-annotation">
                 <span className="htl3-annotation__marker">↓</span>
                 <p className="htl3-annotation__text">
-                  <strong>Portfolio overview</strong> — unit count, lease status and navigation reach below
+                  <strong>Portfolio overview</strong>, unit count, lease status and navigation reach below
                 </p>
               </div>
             </div>
@@ -343,26 +336,26 @@ export function HappyTenantLandlordV3() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════
-            07 — CORE WORKFLOWS
+            07, CORE WORKFLOWS
         ══════════════════════════════════════════════════════════ */}
         <section className="htl3-section htl3-section--light" aria-labelledby="htl3-s07">
           <div className="htl3-section__inner">
-            <p className="htl3-label">07 — Core Workflows</p>
+            <p className="htl3-label">07: Core Workflows</p>
             <h2 id="htl3-s07" className="htl3-heading font-display">
               Five workflows. Five compositions.
             </h2>
 
-            {/* WF01 — Approvals: dominant + supporting */}
+            {/* WF01: Approvals: dominant + supporting */}
             <WorkflowBlock
               num="01"
               title="Approvals"
-              desc="Approval requests surface on Home with enough context to act without drilling deeper. Approve and reject inline — no extra step."
+              desc="Approval requests surface on Home with enough context to act without drilling deeper. Approve and reject inline, no extra step."
               layout="dominant"
               primary={{ src: '/images/case-studies/happytenant-landlord/v3/wf01-approvals-large.webp', alt: 'Approval cards on Home: request context and Approve / Reject inline. Unit, lease, and work-order counts give operational orientation at a glance' }}
               secondary={{ src: '/images/case-studies/happytenant-landlord/v3/wf01-approvals-small.webp', alt: 'Approval detail panel showing request context, tenant info and action buttons' }}
             />
 
-            {/* WF02 — Portfolio: 3-step sequence */}
+            {/* WF02: Portfolio: 3-step sequence */}
             <WorkflowBlock
               num="02"
               title="Portfolio drilldown"
@@ -373,7 +366,7 @@ export function HappyTenantLandlordV3() {
               tertiary={{ src: '/images/case-studies/happytenant-landlord/v3/wf02-portfolio-right.webp', alt: 'Unit detail showing current tenant, lease dates, upcoming rent and document access' }}
             />
 
-            {/* WF03 — Work orders: full-width strip */}
+            {/* WF03: Work orders: full-width strip */}
             <WorkflowBlock
               num="03"
               title="Work orders"
@@ -382,7 +375,7 @@ export function HappyTenantLandlordV3() {
               primary={{ src: '/images/case-studies/happytenant-landlord/v3/wf03-work-orders.webp', alt: 'Work Orders flow: list view with status tags, detail screen for Electricity Fault, and New Work Order form with property, category and priority fields' }}
             />
 
-            {/* WF04 — Financial: symmetric twin */}
+            {/* WF04: Financial: symmetric twin */}
             <WorkflowBlock
               num="04"
               title="Financial view"
@@ -392,7 +385,7 @@ export function HappyTenantLandlordV3() {
               secondary={{ src: '/images/case-studies/happytenant-landlord/v3/wf04-financial-right.webp', alt: 'Due payments detail with outstanding amounts and upcoming collection dates' }}
             />
 
-            {/* WF05 — Records: full-width strip */}
+            {/* WF05: Records: full-width strip */}
             <WorkflowBlock
               num="05"
               title="Records & documents"
@@ -404,16 +397,16 @@ export function HappyTenantLandlordV3() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════
-            08 — PRODUCT STATES
+            08, PRODUCT STATES
         ══════════════════════════════════════════════════════════ */}
         <section className="htl3-section htl3-section--dark" aria-labelledby="htl3-s08">
           <div className="htl3-section__inner">
-            <p className="htl3-label htl3-label--light">08 — Product States</p>
+            <p className="htl3-label htl3-label--light">08: Product States</p>
             <h2 id="htl3-s08" className="htl3-heading htl3-heading--light font-display">
               Every state as a design decision.
             </h2>
             <p className="htl3-body htl3-body--light htl3-body--measure">
-              Pending, active, overdue, and completed — each state communicates a different urgency.
+              Pending, active, overdue, and completed, each state communicates a different urgency.
               The design treats state as a first-class visual dimension, not an afterthought.
             </p>
             <div className="htl3-states-grid">
@@ -438,11 +431,11 @@ export function HappyTenantLandlordV3() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════
-            09 — BEFORE / AFTER
+            09, BEFORE / AFTER
         ══════════════════════════════════════════════════════════ */}
         <section className="htl3-section htl3-section--light" aria-labelledby="htl3-s09">
           <div className="htl3-section__inner">
-            <p className="htl3-label">09 — Before / After</p>
+            <p className="htl3-label">09: Before / After</p>
             <h2 id="htl3-s09" className="htl3-heading font-display">
               Same product. Different reading.
             </h2>
@@ -452,7 +445,7 @@ export function HappyTenantLandlordV3() {
               and brings consistency to surface patterns across the product.
             </p>
           </div>
-          {/* Before/after slider — full bleed within the section */}
+          {/* Before/after slider, full bleed within the section */}
           <div className="htl3-slider-wrap">
             <BeforeAfterSlider
               beforeSrc="/images/case-studies/happytenant-landlord/before-after-old.webp"
@@ -467,16 +460,16 @@ export function HappyTenantLandlordV3() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════
-            10 — FINAL EXPERIENCE
+            10, FINAL EXPERIENCE
         ══════════════════════════════════════════════════════════ */}
         <section className="htl3-section htl3-section--light" aria-labelledby="htl3-s10">
           <div className="htl3-section__inner">
-            <p className="htl3-label">10 — Final Experience</p>
+            <p className="htl3-label">10: Final Experience</p>
             <h2 id="htl3-s10" className="htl3-heading font-display">
               The product, complete.
             </h2>
           </div>
-          {/* Cinematic product video — the full experience in motion */}
+          {/* Cinematic product video, the full experience in motion */}
           <figure className="htl3-final-video">
             {motionOk ? (
               <video
@@ -493,7 +486,7 @@ export function HappyTenantLandlordV3() {
             ) : (
               <img
                 src="/images/case-studies/happytenant-landlord/home.webp"
-                alt="HappyTenant Landlord final design — complete operating view"
+                alt="HappyTenant Landlord final design, complete operating view"
                 loading="lazy"
                 decoding="async"
               />
@@ -502,11 +495,11 @@ export function HappyTenantLandlordV3() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════
-            11 — OUTCOME
+            11, OUTCOME
         ══════════════════════════════════════════════════════════ */}
         <section className="htl3-section htl3-section--light" aria-labelledby="htl3-s11">
           <div className="htl3-section__inner htl3-section__inner--narrow">
-            <p className="htl3-label">11 — Outcome</p>
+            <p className="htl3-label">11: Outcome</p>
             <h2 id="htl3-s11" className="htl3-heading font-display">
               What the product now allows.
             </h2>
@@ -522,7 +515,7 @@ export function HappyTenantLandlordV3() {
                 <h3 className="htl3-outcome__title">More visible actions</h3>
                 <p className="htl3-outcome__desc">
                   Approvals and overdue items have stronger visual distinction from status
-                  information — they read as things requiring a response, not just data points.
+                  information, they read as things requiring a response, not just data points.
                 </p>
               </div>
               <div className="htl3-outcome">
@@ -537,17 +530,17 @@ export function HappyTenantLandlordV3() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════
-            12 — REFLECTION
+            12, REFLECTION
         ══════════════════════════════════════════════════════════ */}
         <section className="htl3-section htl3-section--light" aria-labelledby="htl3-s12">
           <div className="htl3-section__inner htl3-section__inner--narrow">
-            <p className="htl3-label">12 — Reflection</p>
+            <p className="htl3-label">12: Reflection</p>
             <h2 id="htl3-s12" className="htl3-heading font-display">
               What I'd carry forward.
             </h2>
             <p className="htl3-body">
               The most useful discipline on this project was resisting the urge to simplify
-              by reducing. The product genuinely needed to communicate a lot — the design work
+              by reducing. The product genuinely needed to communicate a lot, the design work
               was finding the right reading order, not editing out information.
             </p>
             <p className="htl3-body">
@@ -559,7 +552,7 @@ export function HappyTenantLandlordV3() {
         </section>
 
         {/* ══════════════════════════════════════════════════════════
-            13 — NEXT
+            13, NEXT
         ══════════════════════════════════════════════════════════ */}
         <section className="htl3-section htl3-section--dark htl3-section--next" aria-labelledby="htl3-s13">
           <div className="htl3-section__inner">
@@ -569,7 +562,7 @@ export function HappyTenantLandlordV3() {
               <br />Tenant Experience
             </h2>
             <p className="htl3-body htl3-body--light htl3-body--measure">
-              The tenant-facing side of the same platform — a different audience, a different set
+              The tenant-facing side of the same platform, a different audience, a different set
               of priorities, the same product ecosystem.
             </p>
             <Link
@@ -591,7 +584,7 @@ export function HappyTenantLandlordV3() {
 /* Sub-components                                                            */
 /* ─────────────────────────────────────────────────────────────────────── */
 
-/** Product constellation — S03 */
+/** Product constellation, S03 */
 function ProductConstellation() {
   // SVG coordinate system: viewBox 0 0 1200 700, center at (600, 350)
   const cx = 600
@@ -613,7 +606,7 @@ function ProductConstellation() {
     <figure
       className="htl3-constellation-fig"
       role="img"
-      aria-label="Product structure map: seven functional areas — Overview, Portfolio, Financial, Operations, Records, Communication and Account — connected to a central Landlord Experience hub"
+      aria-label="Product structure map: seven functional areas: Overview, Portfolio, Financial, Operations, Records, Communication and Account, connected to a central Landlord Experience hub"
     >
       <svg
         viewBox="0 0 1200 700"
@@ -641,13 +634,13 @@ function ProductConstellation() {
         ))}
 
         {/* Center hub */}
-        <circle cx={cx} cy={cy} r={52} fill="#fa6c0b" />
+        <circle cx={cx} cy={cy} r={52} fill="#E96848" />
         <text x={cx} y={cy - 8}  textAnchor="middle" fill="white" fontSize="11" fontWeight="700" letterSpacing="1" fontFamily="inherit">LANDLORD</text>
         <text x={cx} y={cy + 8}  textAnchor="middle" fill="white" fontSize="11" fontWeight="700" letterSpacing="1" fontFamily="inherit">EXPERIENCE</text>
 
         {/* Nodes */}
         {nodes.map((n) => {
-          const dotColor = n.primary ? '#fa6c0b' : '#555555'
+          const dotColor = n.primary ? '#E96848' : '#555555'
           // Determine text anchor based on position relative to center
           const anchor = n.x < cx - 50 ? 'end' : n.x > cx + 50 ? 'start' : 'middle'
           const dotX = anchor === 'end' ? n.x + 10 : anchor === 'start' ? n.x - 10 : n.x
@@ -683,13 +676,13 @@ function ProductConstellation() {
         })}
       </svg>
       <p className="htl3-constellation-note">
-        → See HTL — Product Map frame on canvas for full-scale version
+        → See HTL: Product Map frame on canvas for full-scale version
       </p>
     </figure>
   )
 }
 
-/** Workflow block — S07 */
+/** Workflow block, S07 */
 interface WorkflowBlockProps {
   num: string
   title: string

@@ -7,7 +7,7 @@ export const danatBehaviorsBlocks: CaseStudyBlock[] = [
     id: 'db-thesis',
     size: 'lg',
     content:
-      'I designed Danat Behaviors from zero to one — shaping the product architecture, core engagement flows, and reward ecosystem connecting challenges, activities, Danat points, leaderboards, and partner rewards.',
+      'I designed Danat Behaviors from zero to one, shaping the product architecture, core engagement flows, and reward ecosystem connecting challenges, activities, Danat points, leaderboards, and partner rewards.',
   },
   {
     type: 'metrics',
@@ -15,7 +15,7 @@ export const danatBehaviorsBlocks: CaseStudyBlock[] = [
     items: [
       { metric: 'Engagement', value: 'Freelance project' },
       { metric: 'Platform', value: 'Mobile' },
-      { metric: 'Status', value: 'Prototype / product design' },
+      { metric: 'Status', value: 'Product design' },
       { metric: 'Scope', value: 'Zero to one' },
     ],
   },
@@ -25,13 +25,13 @@ export const danatBehaviorsBlocks: CaseStudyBlock[] = [
     type: 'heading',
     id: 'db-problem',
     label: 'The challenge',
-    content: 'One connected ecosystem — not a collection of gamification features',
+    content: 'One connected ecosystem, not a collection of gamification features',
   },
   {
     type: 'text',
     id: 'db-problem-p',
     content:
-      'The design problem was not any single feature — it was the relationship between all of them. Activities, challenges, progress, points, recognition, rewards, and partners had to form a system people could understand and repeatedly rejoin. Complexity lived in how the pieces connected, not in the individual screens.',
+      'The design problem was not any single feature, it was the relationship between all of them. Activities, challenges, progress, points, recognition, rewards, and partners had to form a system people could understand and repeatedly rejoin. Complexity lived in how the pieces connected, not in the individual screens.',
   },
 
   // Core engagement loop
@@ -69,7 +69,7 @@ export const danatBehaviorsBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'db-home-p',
     content:
-      'Home surfaces Danat points, featured content, current challenges, My Activities, Watch and Earn, fitness partners, Points and Leaderboard, Pillars, Share and Earn, and Tips — in a single scroll. The design challenge was hierarchy: many engagement mechanics without letting Home collapse into an undifferentiated feed.',
+      'Home surfaces Danat points, featured content, current challenges, My Activities, Watch and Earn, fitness partners, Points and Leaderboard, Pillars, Share and Earn, and Tips, in a single scroll. The design challenge was hierarchy: many engagement mechanics without letting Home collapse into an undifferentiated feed.',
   },
   {
     type: 'image',
@@ -101,7 +101,7 @@ export const danatBehaviorsBlocks: CaseStudyBlock[] = [
     src: '/images/case-studies/danat-behaviors/_presentation/challenges.webp',
     alt: 'Challenges list, challenge detail with goals and reward, and enrollment start screen',
     caption:
-      'Challenges list → challenge detail (goals, reward, dates, capacity) → enrollment entry — comprehension before commitment.',
+      'Challenges list → challenge detail (goals, reward, dates, capacity) → enrollment entry, comprehension before commitment.',
     width: 'full',
     zoom: true,
   },
@@ -111,7 +111,7 @@ export const danatBehaviorsBlocks: CaseStudyBlock[] = [
     src: '/images/case-studies/danat-behaviors/_presentation/enrollment.webp',
     alt: 'Three-step challenge enrollment: select wearable connection, confirm, and enrollment confirmed',
     caption:
-      'Multi-step enrollment: wearable connection, confirmation, and enrolled state — structured commitment rather than a single opaque join button.',
+      'Multi-step enrollment: wearable connection, confirmation, and enrolled state. Structured commitment rather than a single opaque join button.',
     width: 'full',
     zoom: true,
   },
@@ -131,7 +131,7 @@ export const danatBehaviorsBlocks: CaseStudyBlock[] = [
     tradeoff:
       'More steps and information can slow enrollment. Less information risks users joining without understanding the goal, reward, or capacity limits.',
     result:
-      'A challenge path of discover → understand → enroll → track — designed to support informed participation without claiming measured motivation outcomes.',
+      'A challenge path of discover → understand → enroll → track. Designed to support informed participation without claiming measured motivation outcomes.',
   },
 
   // Activity
@@ -169,7 +169,7 @@ export const danatBehaviorsBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'db-points-p',
     content:
-      'My Danat exposes Active Danat Points plus Earned, Redeem, Expired, and About to Expire histories with filtering. Marketplace headers also show available Danat and Danat in cart. Users need to understand what they have, what they earned, what they spent, what will expire, and what they can redeem — not just a current total.',
+      'My Danat exposes Active Danat Points plus Earned, Redeem, Expired, and About to Expire histories with filtering. Marketplace headers also show available Danat and Danat in cart. Users need to understand what they have, what they earned, what they spent, what will expire, and what they can redeem, not just a current total.',
   },
   {
     type: 'image',
@@ -199,7 +199,7 @@ export const danatBehaviorsBlocks: CaseStudyBlock[] = [
     id: 'db-recognition-visual',
     src: '/images/case-studies/danat-behaviors/_presentation/recognition.webp',
     alt: 'Leaderboard with grid ranking, Achievements list with milestone entries, and Badges screen with Self Walking Challenge featured',
-    caption: 'Leaderboard · Achievements · Badges — three distinct recognition mechanisms, each with a different job.',
+    caption: 'Leaderboard · Achievements · Badges, three distinct recognition mechanisms, each with a different job.',
     width: 'full',
     zoom: true,
   },
@@ -236,10 +236,10 @@ export const danatBehaviorsBlocks: CaseStudyBlock[] = [
     options: [
       'Single redeem button per voucher (no cart, no browse)',
       'Marketplace with categories, voucher detail, cart, and checkout',
-      'Points transferred directly to partner — no in-app browse',
+      'Points transferred directly to partner, no in-app browse',
     ],
     decision:
-      'Connect participation to a redeemable reward surface with categories, comparison, cart, and checkout — so points retain meaning beyond a leaderboard number.',
+      'Connect participation to a redeemable reward surface with categories, comparison, cart, and checkout, so points retain meaning beyond a leaderboard number.',
     tradeoff:
       'Commerce patterns (cart and checkout) add product complexity. A simpler one-tap redeem would reduce friction but eliminates the ability to compare rewards before committing.',
     result:
@@ -277,7 +277,7 @@ export const danatBehaviorsBlocks: CaseStudyBlock[] = [
     src: '/images/case-studies/danat-behaviors/_presentation/states.webp',
     alt: 'Cross-module states: My Danat points balance and history, Badges screen with tier progression, and cart with Danat value visible',
     caption:
-      'Points balance and lifecycle · badge tier progression · cart with Danat value — state coverage across earning, recognition, and redemption.',
+      'Points balance and lifecycle · badge tier progression · cart with Danat value, state coverage across earning, recognition, and redemption.',
     width: 'full',
     zoom: true,
   },
@@ -296,17 +296,17 @@ export const danatBehaviorsBlocks: CaseStudyBlock[] = [
       {
         name: 'One connected engagement architecture',
         description:
-          'Challenges, activity tracking, points, recognition, and marketplace connected into a single product loop — designed from concept through complete journeys.',
+          'Challenges, activity tracking, points, recognition, and marketplace connected into a single product loop. Designed from concept through complete journeys.',
       },
       {
         name: 'Points as a readable state system',
         description:
-          'Danat points behave as an internal value system with Active, Earned, Redeemed, Expired, and About to Expire states — visible from My Danat through to the marketplace cart header.',
+          'Danat points behave as an internal value system with Active, Earned, Redeemed, Expired, and About to Expire states, visible from My Danat through to the marketplace cart header.',
       },
       {
         name: 'Challenge → reward relationship made explicit',
         description:
-          'The path from challenge enrollment through progress tracking to points earning and marketplace redemption is inspectable at every stage — not abstracted into a single score.',
+          'The path from challenge enrollment through progress tracking to points earning and marketplace redemption is inspectable at every stage, not abstracted into a single score.',
       },
     ],
   },
@@ -322,7 +322,7 @@ export const danatBehaviorsBlocks: CaseStudyBlock[] = [
     type: 'text',
     id: 'db-reflection-p',
     content:
-      'Designing an ecosystem is different from designing isolated features — the loop has to stay legible when every module wants attention. Points need clear states to retain meaning across earning, recognition, and redemption. Progress feedback must work at multiple time scales. Recognition mechanisms need distinct jobs or they collapse into one another. A broad behavioral platform requires disciplined IA: every feature competes for home-screen attention, and hierarchy matters more than individual interaction elegance.',
+      'Designing an ecosystem is different from designing isolated features, the loop has to stay legible when every module wants attention. Points need clear states to retain meaning across earning, recognition, and redemption. Progress feedback must work at multiple time scales. Recognition mechanisms need distinct jobs or they collapse into one another. A broad behavioral platform requires disciplined IA: every feature competes for home-screen attention, and hierarchy matters more than individual interaction elegance.',
   },
 
   // Next
@@ -336,7 +336,7 @@ export const danatBehaviorsBlocks: CaseStudyBlock[] = [
     type: 'cta-pair',
     id: 'db-ctas',
     primary: {
-      label: 'View next — NHR',
+      label: 'View next, NHR',
       href: '/case-studies/nhr',
     },
     secondary: {

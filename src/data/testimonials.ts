@@ -1,14 +1,18 @@
+/**
+ * DRAFT testimonials : awaiting approval from each named colleague.
+ * Do NOT publish to production without explicit confirmation from each person.
+ */
+
 export interface Testimonial {
+  id: string
   quote: string
   name: string
   role: string
   company: string
-  url?: string
+  /** Path to avatar image, or null to use the initials fallback */
+  avatar: string | null
 }
 
-/**
- * No verified testimonials, recommendations, or awards were found in the repository.
- * This array is intentionally empty. The Recognition section should be hidden
- * until real content is added here.
- */
+// Testimonials array is intentionally empty.
+// Testimonials will be added here once approved by the named colleagues.
 export const testimonials: Testimonial[] = []

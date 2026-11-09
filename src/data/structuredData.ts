@@ -6,7 +6,7 @@ export const homepageStructuredData = [
     url: 'https://www.usmanfarooqi.com/',
     jobTitle: 'Senior Product Designer',
     description:
-      'Senior Product Designer specialising in SaaS, AI products, design systems, PropTech, FinTech, and complex digital experiences.',
+      'Senior Product Designer with 7+ years specialising in SaaS, FinTech, PropTech, design systems, and bilingual Arabic/English (RTL) interface design.',
     email: 'usmanfarooqi@live.com',
     address: {
       '@type': 'PostalAddress',
@@ -23,7 +23,7 @@ export const homepageStructuredData = [
     '@type': 'WebSite',
     name: 'Usman Zahid Farooqi',
     url: 'https://www.usmanfarooqi.com/',
-    description: 'Portfolio of Usman Zahid Farooqi — Senior Product Designer.',
+    description: 'Portfolio of Usman Zahid Farooqi, Senior Product Designer.',
     author: {
       '@type': 'Person',
       name: 'Usman Zahid Farooqi',

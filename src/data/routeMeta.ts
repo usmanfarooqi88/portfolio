@@ -24,36 +24,36 @@ function absImage(src: string): string {
 const staticRoutes: RouteMeta[] = [
   {
     path: '/',
-    title: 'Usman Zahid Farooqi — Senior Product Designer & UI/UX Lead',
+    title: 'Usman Zahid Farooqi - Senior Product Designer',
     description:
-      'Senior Product Designer specialising in SaaS, AI products, design systems, and complex digital experiences. Explore selected product design and UX/UI case studies.',
+      'Senior Product Designer with 7+ years crafting clear, scalable products. Specialising in SaaS, FinTech, PropTech, design systems, and bilingual Arabic/English (RTL) interface design.',
     ogType: 'website',
     ogImage: DEFAULT_OG_IMAGE,
     ogImageDimensions: DEFAULT_OG_IMAGE_DIMENSIONS,
   },
   {
     path: '/about',
-    title: 'About — Usman Zahid Farooqi | Senior Product Designer',
+    title: 'About | Usman Zahid Farooqi | Senior Product Designer',
     description:
-      'Learn about Usman Zahid Farooqi — Senior Product Designer with 7+ years of experience in SaaS, AI products, PropTech, FinTech, and complex digital experiences. Based in Lahore, Pakistan.',
+      'Senior Product Designer with 7+ years of experience in SaaS, AI products, PropTech, FinTech, and complex digital experiences. Based in Lahore, Pakistan.',
     ogType: 'website',
     ogImage: DEFAULT_OG_IMAGE,
     ogImageDimensions: DEFAULT_OG_IMAGE_DIMENSIONS,
   },
   {
     path: '/contact',
-    title: 'Contact — Usman Zahid Farooqi | Senior Product Designer',
+    title: 'Contact | Usman Zahid Farooqi | Senior Product Designer',
     description:
-      'Get in touch with Usman Zahid Farooqi — open to senior product design roles, selected collaborations, and conversations about AI-powered products and design systems.',
+      'Get in touch with Usman Zahid Farooqi. Open to senior product design roles, selected collaborations, and conversations about AI-powered products and design systems.',
     ogType: 'website',
     ogImage: DEFAULT_OG_IMAGE,
     ogImageDimensions: DEFAULT_OG_IMAGE_DIMENSIONS,
   },
   {
     path: '/work',
-    title: 'Work — All Projects | Usman Zahid Farooqi',
+    title: 'Work | All Projects | Usman Zahid Farooqi',
     description:
-      'Complete portfolio of product design, design systems, web, and visual & editorial work by Usman Zahid Farooqi — beyond the curated homepage shortlist.',
+      'Complete portfolio of product design, design systems, web, and visual and editorial work by Usman Zahid Farooqi, beyond the curated homepage shortlist.',
     ogType: 'website',
     ogImage: DEFAULT_OG_IMAGE,
     ogImageDimensions: DEFAULT_OG_IMAGE_DIMENSIONS,
@@ -62,7 +62,7 @@ const staticRoutes: RouteMeta[] = [
 
 const caseStudyRoutes: RouteMeta[] = caseStudies.map((cs) => ({
   path: cs.slug === 'wanderly-ai-travel-planner' ? '/work/wanderly' : `/case-studies/${cs.slug}`,
-  title: `${cs.title} — ${cs.subtitle} | Usman Zahid Farooqi`,
+  title: `${cs.title}: ${cs.subtitle} | Usman Zahid Farooqi`,
   description: cs.description,
   ogType: 'article' as const,
   ogImage: absImage(cs.heroImage),

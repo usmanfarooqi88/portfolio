@@ -1,4 +1,4 @@
-export const CV_URL = '/cv/Usman-Farooqi-Resume.pdf'
+export const CV_URL = '/cv/Usman-Farooqi-CV.pdf'
 
 export const BEHANCE_URL = 'https://www.behance.net/usman-farooqi'
 

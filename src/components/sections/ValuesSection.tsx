@@ -34,7 +34,7 @@ function ValueRow({ value, index }: { value: (typeof values)[0]; index: number }
       className="grid grid-cols-1 lg:grid-cols-[1fr_auto] items-baseline gap-x-16 gap-y-2 border-t border-[#e0e0e0] py-6 lg:py-8 group"
     >
       <h3
-        className="font-bold text-black leading-none tracking-[-0.02em] transition-colors group-hover:text-primary-orange"
+        className="font-bold text-black leading-none tracking-[-0.02em] transition-colors group-hover:text-[var(--accent-text)]"
         style={{ fontSize: 'clamp(2.8rem, 5vw, 5.5rem)' }}
       >
         {value.word}
@@ -51,7 +51,7 @@ export function ValuesSection() {
     <section id="values" className="py-20 lg:py-28">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12 lg:px-20">
 
-        <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#999] mb-10">
+        <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-10">
           Design values
         </p>
 

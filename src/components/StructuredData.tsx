@@ -14,7 +14,7 @@ function injectJsonLd(id: string, data: object) {
 
 /**
  * Injects JSON-LD structured data (Person + WebSite) into <head>.
- * Only uses facts that exist in the codebase — no fabricated data.
+ * Only uses facts that exist in the codebase : no fabricated data.
  */
 export function StructuredData() {
   useEffect(() => {

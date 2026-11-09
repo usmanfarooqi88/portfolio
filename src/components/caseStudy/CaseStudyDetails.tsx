@@ -30,7 +30,7 @@ export function CaseStudyDetails({ caseStudy }: CaseStudyDetailsProps) {
   const liveUrl = details.liveUrl ?? caseStudy.behanceUrl
   const shareUrl =
     typeof window !== 'undefined' ? window.location.href : caseStudy.behanceUrl
-  const shareTitle = `${caseStudy.title} — ${caseStudy.subtitle}`
+  const shareTitle = `${caseStudy.title} : ${caseStudy.subtitle}`
 
   useEffect(() => {
     if (!toast) return
