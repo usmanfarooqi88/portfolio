@@ -10,6 +10,9 @@
  *
  * Photo config: swap src / objectPosition when you replace avatar.jpg.
  * Current 1024×1024 portrait at objectPosition '50% 30%' keeps the face visible at start.
+ *
+ * preloaderDone — when false (preloader in progress) all headline text stays hidden.
+ * When true (or when no preloader is shown) the headline lines reveal with a mask animation.
  */
 
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
@@ -26,19 +29,36 @@ const PHOTO = {
   objectPosition: '50% 30%',
 }
 
+/**
+ * Headline split into lines for the mask-reveal animation.
+ * Each entry is one visual line at typical desktop widths.
+ */
+const HEADLINE_LINES = [
+  'Senior Product Designer',
+  'crafting clear, scalable products',
+  'for English and Arabic users.',
+] as const
+
+interface HeroSectionProps {
+  /**
+   * True once the preloader has fully exited (or immediately on second visit).
+   * Controls whether headline/text reveal animations run.
+   */
+  preloaderDone: boolean
+}
+
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 12 },
-  animate: { opacity: 1, y: 0 },
+  initial:    { opacity: 0, y: 12 },
   transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] as const },
 })
 
-export function HeroSection() {
+export function HeroSection({ preloaderDone }: HeroSectionProps) {
   const reduceMotion = useReducedMotion()
-  const outerRef = useRef<HTMLDivElement>(null)
+  const outerRef     = useRef<HTMLDivElement>(null)
 
   const { scrollYProgress } = useScroll({
-    target: outerRef,
-    offset: ['start start', 'end end'],
+    target:  outerRef,
+    offset:  ['start start', 'end end'],
   })
 
   // Width grows from 44vw → 100vw as scroll progresses
@@ -55,6 +75,14 @@ export function HeroSection() {
   }, [])
   const expansionEnabled = !reduceMotion && !isMobile
 
+  /**
+   * Line reveal initial state:
+   * - If preloaderDone is already true at mount (second visit / no preloader),
+   *   start lines at y:'0%' so they appear immediately without animation.
+   * - If false (preloader in progress), start at y:'102%' (hidden below mask).
+   */
+  const lineInitialY = preloaderDone ? '0%' : '102%'
+
   return (
     <section
       id="intro"
@@ -66,16 +94,41 @@ export function HeroSection() {
 
         {/* Text : left side, stays in place */}
         <div className="hero-text">
-          <motion.h1 {...fadeUp(0.0)} className="v2-hero__title">
-            Senior Product Designer crafting clear, scalable products for English and Arabic users.
-          </motion.h1>
 
-          <motion.div {...fadeUp(0.1)} className="v2-hero__availability">
+          {/* Headline with per-line mask reveal */}
+          <h1 className="v2-hero__title">
+            {HEADLINE_LINES.map((line, i) => (
+              <span key={line} className="v2-hero__title-mask">
+                <motion.span
+                  className="v2-hero__title-line"
+                  initial={{ y: lineInitialY }}
+                  animate={{ y: preloaderDone ? '0%' : '102%' }}
+                  transition={{
+                    duration: 0.7,
+                    delay:    preloaderDone ? i * 0.08 : 0,
+                    ease:     [0.22, 1, 0.36, 1],
+                  }}
+                >
+                  {line}
+                </motion.span>
+              </span>
+            ))}
+          </h1>
+
+          <motion.div
+            {...fadeUp(preloaderDone ? 0.4 : 0)}
+            animate={preloaderDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+            className="v2-hero__availability"
+          >
             <span className="v2-hero__dot v2-hero__dot--on" aria-hidden="true" />
             <span>Lahore, Pakistan · Open to remote and relocation</span>
           </motion.div>
 
-          <motion.div {...fadeUp(0.2)} className="v2-hero__ctas">
+          <motion.div
+            {...fadeUp(preloaderDone ? 0.55 : 0)}
+            animate={preloaderDone ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+            className="v2-hero__ctas"
+          >
             <a href="#work" className="v2-hero__cta-link">
               View selected work
               <span aria-hidden="true">↓</span>

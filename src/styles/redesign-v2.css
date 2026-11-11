@@ -268,7 +268,20 @@ body {
   line-height: 1.1;
   letter-spacing: -0.025em;
   color: var(--dark-navy);
-  text-wrap: balance;
+  /* text-wrap: balance removed — headline is manually split into lines */
+}
+
+/* Per-line mask for the preloader reveal animation */
+.v2-hero__title-mask {
+  display: block;
+  overflow: hidden;
+  /* small buffer so descenders aren't clipped */
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+.v2-hero__title-line {
+  display: block;
 }
 
 /* Body */
