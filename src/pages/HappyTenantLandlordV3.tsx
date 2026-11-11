@@ -105,16 +105,22 @@ export function HappyTenantLandlordV3() {
           </div>
         </div>
 
-        {/* Right, video column */}
+        {/* Right, video column — video on desktop, poster image on mobile */}
         <div className="htl3-hero__image" aria-hidden="true">
           <video
-            className="htl3-hero__bg"
+            className="htl3-hero__bg hidden md:block"
             src="/images/projects/Landlord_app.webm"
             autoPlay
             muted
             loop
             playsInline
             poster="/images/case-studies/happytenant-landlord/hero.webp"
+          />
+          <img
+            className="htl3-hero__bg block md:hidden"
+            src="/images/case-studies/happytenant-landlord/hero.webp"
+            alt=""
+            style={{ objectFit: 'cover', width: '100%', height: '100%' }}
           />
           <div className="htl3-hero__image-overlay" />
         </div>

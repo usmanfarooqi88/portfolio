@@ -101,7 +101,7 @@ export function HeroSection() {
             width={1024}
             height={1024}
             className="hero-photo__img"
-            style={{ objectPosition: PHOTO.objectPosition }}
+            style={{ objectPosition: 'var(--hero-photo-pos, 50% 30%)' }}
             loading="eager"
             decoding="async"
             fetchPriority="high"

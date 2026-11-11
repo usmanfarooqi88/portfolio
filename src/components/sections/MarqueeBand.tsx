@@ -55,8 +55,8 @@ export function MarqueeBand({ rows, direction = 'left' }: MarqueeBandProps) {
     <section
       ref={sectionRef}
       aria-hidden="true"
-      className="marquee-band overflow-hidden"
-      style={{ paddingBlock: 'clamp(1.5rem, 3vh, 2.5rem)' }}
+      className="marquee-band overflow-hidden hidden md:block"
+      style={{ paddingBlock: 'clamp(1rem, 2vh, 1.5rem)' }}
     >
       {rows.map((row, i) => (
         <motion.div

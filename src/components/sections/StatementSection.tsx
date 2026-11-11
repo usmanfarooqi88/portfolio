@@ -15,10 +15,11 @@
 import { useEffect, useRef } from 'react'
 
 const TEXT =
-  '7+ years designing SaaS, CRM, FinTech and PropTech products, building design systems, and making interfaces work in English and Arabic (RTL).'
+  '7+ years designing SaaS, CRM, FinTech and PropTech products, building design systems, and making interfaces work in English and Arabic (RTL).'
 
 function splitWords(text: string) {
-  return text.split(/(\s+)/).filter(Boolean)
+  // Split on regular whitespace only — U+00A0 (NBSP) keeps adjacent tokens together.
+  return text.split(/ +/).filter(Boolean)
 }
 
 export function StatementSection() {
@@ -55,8 +56,7 @@ export function StatementSection() {
     return () => observer.disconnect()
   }, [])
 
-  const tokens = splitWords(TEXT)
-  let wordIndex = 0
+  const words = splitWords(TEXT)
 
   return (
     <section
@@ -65,22 +65,16 @@ export function StatementSection() {
       aria-label="Experience summary"
     >
       <p className="statement-text" aria-label={TEXT}>
-        {tokens.map((token, i) => {
-          if (/^\s+$/.test(token)) {
-            return <span key={i} className="statement-space">{token}</span>
-          }
-          const idx = wordIndex++
-          return (
-            <span key={i} className="statement-word-wrap" aria-hidden="true">
-              <span
-                className="statement-word"
-                ref={el => { wordRefs.current[idx] = el }}
-              >
-                {token}
-              </span>
+        {words.map((word, i) => (
+          <span key={i} className="statement-word-wrap" aria-hidden="true">
+            <span
+              className="statement-word"
+              ref={el => { wordRefs.current[i] = el }}
+            >
+              {word}
             </span>
-          )
-        })}
+          </span>
+        ))}
       </p>
     </section>
   )

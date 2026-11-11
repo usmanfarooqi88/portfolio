@@ -861,15 +861,15 @@ body {
     right: auto;
     top: auto;
     width: 100% !important;
-    height: 80vw;
-    min-height: 300px;
-    max-height: 420px;
+    height: auto;
+    aspect-ratio: 4 / 5;
     order: 1;
     will-change: auto;
   }
 
   .hero-photo__img {
     position: absolute;
+    --hero-photo-pos: 50% 12%;
   }
 }
 
@@ -892,21 +892,20 @@ body {
 
 .statement-section {
   background: var(--v2-ground);
-  padding: clamp(1rem, 2vh, 2rem) var(--grid-pad);
-  max-height: 100vh;        /* never taller than one viewport */
-  overflow: hidden;
+  padding-block: clamp(96px, min(11.6vw, 14vh), 232px);
+  padding-inline: var(--grid-pad);
 }
 
 .statement-text {
-  margin: 0;
-  max-width: 70%;           /* ~70% of content width (inside grid-pad) */
+  margin: 0 0 0 14.3vw;
+  width: 62vw;
   font-family: 'Outfit', system-ui, sans-serif;
-  font-size: clamp(2rem, 4.2vw, 4.5rem);
+  font-size: clamp(1.75rem, min(4vw, 7.5vh), 5.5rem);
   font-weight: 300;
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--dark-navy);
-  /* inline-flex wrapping so whitespace tokens display correctly */
+  text-wrap: balance;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -920,6 +919,8 @@ body {
   overflow: hidden;
   /* padding-bottom gives descenders room so they are never clipped */
   padding-bottom: 0.2em;
+  /* Spacing between words — no whitespace tokens needed */
+  margin-right: 0.25em;
   /* vertical-align aligns the baseline correctly */
   vertical-align: top;
   line-height: inherit;
@@ -934,24 +935,21 @@ body {
               opacity 0.45s ease;
 }
 
-/* Whitespace tokens keep words properly spaced */
-.statement-space {
-  display: inline-block;
-  white-space: pre;
-}
-
 @media (max-width: 1024px) {
+  .statement-section {
+    padding-block: clamp(64px, min(14vw, 14vh), 120px);
+    padding-inline: var(--grid-pad);
+  }
   .statement-text {
-    max-width: 90%;
+    margin-left: 0;
+    width: 100%;
   }
 }
 
 @media (max-width: 767px) {
-  .statement-section {
-    padding: clamp(3rem, 7vh, 5rem) var(--grid-pad);
-  }
   .statement-text {
-    max-width: 100%;
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    text-wrap: unset;
   }
 }
 
