@@ -35,3 +35,7 @@ FIXES-APPLIED.md
 
 # Case study source PNGs (final WebP assets remain tracked)
 public/images/case-studies/**/_src/
+
+PORTFOLIO_V2_BRIEF.md
+PORTFOLIO_V2_CV_UPDATES.md
+example/
