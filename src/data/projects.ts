@@ -90,7 +90,6 @@ export const projects: Project[] = [
     caseStudyHref: '/work/wanderly',
     externalUrl: 'https://www.behance.net/gallery/243279399/Wanderly-AI-Travel-Planner-App-UXUI',
     image: projectImagePath('wanderly'),
-    video: '/images/projects/wanderly.webm',
     featured: true,
   },
   {
@@ -109,7 +108,6 @@ export const projects: Project[] = [
       'https://embed.figma.com/proto/B645e7Kn52Sbw0d1KCQVpe/Nozul-Hotel-and-Resorts?node-id=1253-2266&viewport=300%2C142%2C0.1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1253%3A2266&page-id=0%3A1&embed-host=share',
     figmaUrl: 'https://www.figma.com/proto/B645e7Kn52Sbw0d1KCQVpe/',
     image: projectImagePath('nhr-hotels'),
-    video: '/images/projects/NHR_mobile_app.webm',
     featured: true,
   },
   {
@@ -141,7 +139,6 @@ export const projects: Project[] = [
       'https://embed.figma.com/proto/8EHDksjpGgM5QOAdvhxCEi/Danat-Behaviors--Shareable-?node-id=99-2104&p=f&viewport=276%2C125%2C0.03&scaling=scale-down&content-scaling=fixed&starting-point-node-id=99%3A2103&page-id=0%3A1&embed-host=share',
     figmaUrl: 'https://www.figma.com/proto/8EHDksjpGgM5QOAdvhxCEi/',
     image: projectImagePath('danat-behavior'),
-    video: '/images/projects/danat.webm',
     featured: true,
   },
   {
@@ -162,7 +159,6 @@ export const projects: Project[] = [
       'https://embed.figma.com/proto/zdt9Yi8B8XQ4teVHnWL21F/Happy-Tenant-Plus---App?node-id=1-954&p=f&viewport=805%2C25%2C0.02&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A984&page-id=0%3A1&embed-host=share',
     figmaUrl: 'https://www.figma.com/proto/zdt9Yi8B8XQ4teVHnWL21F/',
     image: projectImagePath('happytenant-tenant'),
-    video: '/images/projects/HappyTenant_residential_lifestyle.webm',
     featured: true,
   },
   {
@@ -183,7 +179,6 @@ export const projects: Project[] = [
       'https://embed.figma.com/proto/zdt9Yi8B8XQ4teVHnWL21F/Happy-Tenant-Plus---App?node-id=507-2706&p=f&viewport=734%2C39%2C0.02&scaling=scale-down&content-scaling=fixed&starting-point-node-id=507%3A2749&page-id=332%3A12372&embed-host=share',
     figmaUrl: 'https://www.figma.com/proto/zdt9Yi8B8XQ4teVHnWL21F/',
     image: projectImagePath('happytenant-landlord'),
-    video: '/images/projects/Landlord_app.webm',
     featured: true,
   },
   {

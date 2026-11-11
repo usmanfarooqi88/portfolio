@@ -75,12 +75,12 @@ export function WorkPage() {
                 onClick={() => setFilter(f.id)}
                 className={`snap-start shrink-0 min-h-[44px] rounded-full border px-4 text-[13px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-orange focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--warm-background)] ${
                   active
-                    ? 'border-primary-orange bg-primary-orange text-white'
+                    ? 'border-primary-orange bg-primary-orange text-[#171717]'
                     : 'border-[var(--soft-border)] bg-[var(--pure-white)] text-[var(--muted-text)] hover:border-[rgba(250,108,11,0.35)] hover:text-[var(--dark-navy)]'
                 }`}
               >
                 {f.label}
-                <span className={`ml-1.5 tabular-nums ${active ? 'text-white/80' : 'text-[var(--dark-navy)]'}`}>
+                <span className={`ml-1.5 tabular-nums ${active ? 'text-[#171717]' : 'text-[var(--dark-navy)]'}`}>
                   {count}
                 </span>
               </button>

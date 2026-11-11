@@ -28,9 +28,9 @@ function easeOutQuart(t: number): number {
   return 1 - (1 - t) ** 4
 }
 
-const COUNTER_DURATION = 1400 // ms — time for counter to reach 100
-const MIN_DURATION     = 1200 // ms — minimum visible time
-const MAX_DURATION     = 2200 // ms — forced exit deadline (setTimeout-based)
+const COUNTER_DURATION = 1000 // ms — time for counter to reach 100
+const MIN_DURATION     = 900  // ms — minimum visible time
+const MAX_DURATION     = 1800 // ms — forced exit deadline (setTimeout-based)
 
 /** Remove is-loading from <html> and start Lenis — always safe to call. */
 function cleanup() {
@@ -105,11 +105,11 @@ export function Preloader({ onDone }: PreloaderProps) {
           try {
             if (!mountedRef.current) return
             setExiting(true)
-            // After slide-up (600ms) + 20ms buffer, clean up and signal parent
+            // After slide-up (500ms) + 20ms buffer, clean up and signal parent
             setTimeout(() => {
               cleanup()
               if (mountedRef.current) onDone()
-            }, 620)
+            }, 520)
           } catch {
             cleanup()
             if (mountedRef.current) onDone()
