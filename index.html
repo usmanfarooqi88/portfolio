@@ -27,6 +27,7 @@
         try {
           if (
             window.location.pathname === '/' &&
+            !document.hidden &&
             !sessionStorage.getItem('preloader_shown') &&
             !window.matchMedia('(prefers-reduced-motion: reduce)').matches
           ) {
