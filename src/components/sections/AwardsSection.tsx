@@ -6,7 +6,7 @@ export function AwardsSection() {
   const inView = useInView(ref, { once: true, margin: '-8% 0px' })
 
   return (
-    <section id="awards" className="py-3 lg:py-4">
+    <section id="awards" className="awards-section">
       <div className="v2-section-inner">
 
         <div className="mb-7">

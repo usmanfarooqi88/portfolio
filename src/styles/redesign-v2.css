@@ -18,6 +18,18 @@
   /* Warm greige ground : sampled from matteofabbiani.webflow.io */
   --v2-ground:    #E7E4DE;
   --v2-ground-alt: #DDD9D2;
+
+  /* ── Vertical rhythm tokens ─────────────────────────── */
+  /* Major section padding (top & bottom) */
+  --section-y:        clamp(88px, 8vw, 144px);
+  /* Closing CTA section padding (top & bottom, slightly more generous) */
+  --section-y-lg:     clamp(104px, 10vw, 176px);
+  /* Eyebrow label → heading gap */
+  --stack-eyebrow:    24px;
+  /* Heading → paragraph gap */
+  --stack-heading:    clamp(28px, 2.5vw, 40px);
+  /* Heading block → cards / list / buttons gap */
+  --stack-content:    clamp(40px, 4vw, 64px);
 }
 
 
@@ -471,8 +483,8 @@ body {
 
 .v2-work-section {
   background: var(--v2-ground);
-  padding-top: clamp(1.5rem, 3vh, 2.5rem);
-  padding-bottom: clamp(2rem, 4vh, 3rem);
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
 }
 
 /* Section header row: label + divider */
@@ -539,6 +551,63 @@ body {
 .v2-work-view-all {
   margin-top: 1.75rem;
   padding: 0 var(--grid-pad);
+}
+
+/* ── Vertical rhythm: section overrides ──────────────── */
+
+/* Awards, About preview — override Tailwind py-* */
+#awards,
+#about {
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+}
+
+/* Closing CTA — no padding on the section itself; inner div carries it */
+#contact > .v2-section-inner {
+  padding-top: var(--section-y-lg);
+  padding-bottom: var(--section-y-lg);
+}
+
+/* Inner heading-block gaps using tokens */
+/* Eyebrow → heading (override Tailwind mb-3 / mb-6) */
+#awards .mb-7 p.uppercase,
+#about p.uppercase,
+#contact p.uppercase {
+  margin-bottom: var(--stack-eyebrow) !important;
+}
+
+/* Awards heading-block → content (override Tailwind mb-7 = 28px) */
+#awards .mb-7 {
+  margin-bottom: var(--stack-content) !important;
+}
+
+/* Heading → first paragraph (override Tailwind mb-6) */
+#about h2 {
+  margin-bottom: var(--stack-heading) !important;
+}
+
+/* CTA: eyebrow → h2 (override Tailwind mb-8) */
+#contact p.uppercase {
+  margin-bottom: var(--stack-eyebrow) !important;
+}
+
+/* CTA: heading → paragraph (override Tailwind mb-6) */
+#contact h2 {
+  margin-bottom: var(--stack-heading) !important;
+}
+
+/* CTA: paragraph → buttons (override Tailwind mb-10) */
+#contact p:not(.uppercase) {
+  margin-bottom: var(--stack-content) !important;
+}
+
+/* ── H2 weight harmonisation ──────────────────────────── */
+/* Match the heading weight of the hero/statement (300–400).
+   Spec: set to 500 to sit between thin hero and bold body. */
+#awards h2,
+#about h2,
+#contact h2 {
+  font-weight: 500 !important;
 }
 
 /* ── Footer ───────────────────────────────────────────── */
@@ -762,9 +831,13 @@ body {
   :root { --grid-pad: 40px; }
 }
 
-/* Mobile : tighten side margins */
+/* Mobile : tighten side margins + rhythm tokens */
 @media (max-width: 768px) {
-  :root { --grid-pad: 24px; }
+  :root {
+    --grid-pad:      24px;
+    --section-y:     clamp(64px, 16vw, 88px);
+    --section-y-lg:  clamp(80px, 20vw, 112px);
+  }
 
   .v2-hero__title {
     font-size: clamp(1.75rem, 7vw, 2.5rem);

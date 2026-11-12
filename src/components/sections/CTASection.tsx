@@ -9,7 +9,7 @@ export function CTASection() {
       className="border-t border-[var(--soft-border)]"
       aria-label="Contact"
     >
-      <div className="v2-section-inner py-4 lg:py-6">
+      <div className="v2-section-inner">
         <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-[var(--muted-text)] mb-8">
           Senior Product Designer
         </p>
