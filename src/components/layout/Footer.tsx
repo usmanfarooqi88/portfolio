@@ -1,39 +1,75 @@
 import { Link } from 'react-router-dom'
-import { BEHANCE_URL, CONTACT_EMAIL, LINKEDIN_URL } from '../../constants/links'
+import { BEHANCE_URL, CONTACT_EMAIL, CV_URL, LINKEDIN_URL } from '../../constants/links'
 
 export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="v2-footer" aria-label="Site footer">
-      <div className="v2-footer__inner">
-        <Link to="/" className="v2-footer__wordmark">
-          Usman Zahid Farooqi<span className="orange">.</span>
-        </Link>
+    <footer className="pf-footer" aria-label="Site footer">
+      <div className="pf-footer__inner">
 
-        <nav aria-label="Footer links" className="v2-footer__links">
-          <a href={`mailto:${CONTACT_EMAIL}`} className="v2-footer__link">
-            Email
-          </a>
+        {/* ── Left col: wordmark + tagline + CV ───────────────────── */}
+        <div className="pf-footer__col pf-footer__col--left">
+          <Link to="/" className="pf-footer__wordmark" aria-label="Usman Zahid Farooqi — home">
+            <span className="pf-footer__wordmark-first">Usman</span>
+            <span className="pf-footer__wordmark-divider" aria-hidden="true"> | </span>
+            <span className="pf-footer__wordmark-last">Farooqi</span>
+          </Link>
+          <p className="pf-footer__tagline">Senior Product Designer · UX / UI · Design Systems</p>
           <a
-            href={LINKEDIN_URL}
+            href={CV_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="v2-footer__link"
+            className="pf-footer__cv-link"
           >
-            LinkedIn ↗
+            Download CV <span aria-hidden="true">→</span>
           </a>
-          <a
-            href={BEHANCE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="v2-footer__link"
-          >
-            Behance ↗
-          </a>
+        </div>
+
+        {/* ── Centre col: nav ─────────────────────────────────────── */}
+        <nav className="pf-footer__col pf-footer__col--center" aria-label="Footer">
+          <Link to="/"       className="pf-footer__nav-link">Home</Link>
+          <Link to="/work"   className="pf-footer__nav-link">Work</Link>
+          <Link to="/about"  className="pf-footer__nav-link">About</Link>
+          <Link to="/contact" className="pf-footer__nav-link">Contact</Link>
         </nav>
 
-        <span className="v2-footer__copy">© {year} Usman Zahid Farooqi</span>
+        {/* ── Right col: email + social ───────────────────────────── */}
+        <div className="pf-footer__col pf-footer__col--right">
+          <div className="pf-footer__email-block">
+            <span className="pf-footer__email-label">Email</span>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="pf-footer__email-addr"
+            >
+              {CONTACT_EMAIL}
+            </a>
+          </div>
+          <div className="pf-footer__social">
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pf-footer__social-link"
+            >
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              href={BEHANCE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pf-footer__social-link"
+            >
+              Behance <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      {/* ── Bottom row: copyright ────────────────────────────────── */}
+      <div className="pf-footer__bottom">
+        <span className="pf-footer__copy">© {year} Usman Zahid Farooqi</span>
       </div>
     </footer>
   )
