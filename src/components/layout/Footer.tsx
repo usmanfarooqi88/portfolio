@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="pf-footer" aria-label="Site footer">
       <div className="pf-footer__inner">
 
-        {/* ── Left col: wordmark + tagline + CV ───────────────────── */}
+        {/* ── Left col: wordmark + tagline + CV + social ──────────── */}
         <div className="pf-footer__col pf-footer__col--left">
           <Link to="/" className="pf-footer__wordmark" aria-label="Usman Zahid Farooqi — home">
             <span className="pf-footer__wordmark-first">Usman</span>
@@ -24,6 +24,24 @@ export function Footer() {
           >
             Download CV <span aria-hidden="true">→</span>
           </a>
+          <div className="pf-footer__left-social">
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pf-footer__left-social-link"
+            >
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              href={BEHANCE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pf-footer__left-social-link"
+            >
+              Behance <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
 
         {/* ── Centre col: nav ─────────────────────────────────────── */}
@@ -34,7 +52,7 @@ export function Footer() {
           <Link to="/contact" className="pf-footer__nav-link">Contact</Link>
         </nav>
 
-        {/* ── Right col: email + social ───────────────────────────── */}
+        {/* ── Right col: email only ───────────────────────────────── */}
         <div className="pf-footer__col pf-footer__col--right">
           <div className="pf-footer__email-block">
             <span className="pf-footer__email-label">Email</span>
@@ -43,24 +61,6 @@ export function Footer() {
               className="pf-footer__email-addr"
             >
               {CONTACT_EMAIL}
-            </a>
-          </div>
-          <div className="pf-footer__social">
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="pf-footer__social-link"
-            >
-              LinkedIn <span aria-hidden="true">↗</span>
-            </a>
-            <a
-              href={BEHANCE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="pf-footer__social-link"
-            >
-              Behance <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>

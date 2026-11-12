@@ -9,6 +9,7 @@ import { StatementSection } from '../components/sections/StatementSection'
 import { Preloader } from '../components/layout/Preloader'
 import { getRouteMeta } from '../data/routeMeta'
 import { applyPageMeta } from '../utils/seo'
+import { lenisResize } from '../lib/useLenis'
 
 /**
  * Decide once at mount whether to show the preloader.
@@ -49,6 +50,13 @@ export function HomePage() {
 
   const handlePreloaderDone = useCallback(() => {
     setPreloaderDone(true)
+    // Preloader unmounts and content expands — recalculate Lenis scroll limit
+    // so the new page height is reflected before the user starts scrolling.
+    requestAnimationFrame(() => {
+      lenisResize()
+      // Second pass one frame later catches any pending layout paint.
+      requestAnimationFrame(lenisResize)
+    })
   }, [])
 
   return (

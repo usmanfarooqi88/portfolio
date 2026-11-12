@@ -4,7 +4,7 @@ import { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { Layout } from './components/layout/Layout'
 import { StructuredData } from './components/StructuredData'
-import { useLenis } from './lib/useLenis'
+import { useLenis, lenisResize } from './lib/useLenis'
 import { HomePage } from './pages/HomePage'
 
 const CaseStudyPage = lazy(() =>
@@ -33,6 +33,11 @@ function ScrollToTop() {
   const { pathname } = useLocation()
   useEffect(() => {
     window.scrollTo(0, 0)
+    // New page content may be taller/shorter — recalculate Lenis limit.
+    requestAnimationFrame(() => {
+      lenisResize()
+      requestAnimationFrame(lenisResize)
+    })
   }, [pathname])
   return null
 }
