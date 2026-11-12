@@ -615,7 +615,14 @@ body {
 .pf-footer {
   background: #121212;
   color: #F5F3EF;
-  padding: var(--section-y) 5vw var(--section-y);
+  padding-top: var(--section-y);
+  padding-inline: 5vw;
+  /* gap between the 3-col block and the bottom row — structural, never collapses */
+  display: flex;
+  flex-direction: column;
+  gap: clamp(56px, 5vw, 88px);
+  /* base padding-bottom + safe-area inset so iPhone toolbar never covers copyright */
+  padding-bottom: calc(clamp(32px, 3vw, 48px) + env(safe-area-inset-bottom, 0px));
 }
 
 .pf-footer__inner {
@@ -623,7 +630,6 @@ body {
   grid-template-columns: 1fr auto 1fr;
   gap: 0 2rem;
   align-items: start;
-  padding-bottom: 0;
 }
 
 /* Left col */
@@ -801,8 +807,8 @@ body {
 /* Bottom row */
 .pf-footer__bottom {
   border-top: 1px solid rgba(245, 243, 239, 0.15);
-  padding-top: 20px;
-  padding-bottom: max(32px, env(safe-area-inset-bottom));
+  padding-top: 24px;
+  /* padding-bottom handled by .pf-footer padding-bottom (safe-area aware) */
 }
 
 .pf-footer__copy {
@@ -1216,15 +1222,15 @@ body {
 @media (max-width: 767px) {
   .pf-footer {
     padding-top: var(--section-y);
-    padding-bottom: var(--section-y);
+    padding-bottom: calc(32px + env(safe-area-inset-bottom, 0px));
     padding-inline: 24px;
+    gap: 48px;
     overflow-x: hidden;
   }
 
   .pf-footer__inner {
     grid-template-columns: 1fr;
     gap: 48px 0;
-    padding-bottom: 0;
   }
 
   .pf-footer__col--center {
